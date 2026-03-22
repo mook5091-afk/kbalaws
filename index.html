@@ -41,37 +41,42 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
 .header-box{padding:30px 24px 20px; background: linear-gradient(180deg, var(--bg-panel) 0%, var(--bg-main) 100%);}
 .header-top{display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;}
 .header-ttl{font-family:'Noto Serif KR',serif; font-size:24px; font-weight:700; letter-spacing:-1px; color:var(--text-p);}
-.info-grid{display: grid; grid-template-columns: 1fr 1fr; gap: 10px;}
+
+.info-grid{display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px;}
 .info-item{background: var(--glass); border: 1px solid var(--border); padding: 12px; border-radius: 12px; text-align: center;}
 .info-val{display: block; font-size: 18px; font-weight: 700; color: var(--accent); font-family: monospace;}
 .info-lab{display: block; font-size: 10px; color: var(--text-s); margin-top: 4px; text-transform: uppercase; letter-spacing: 1px;}
 
+/* NotebookLM System Connect Button */
+.system-link-btn{
+    width: 100%; padding: 12px; background: rgba(251, 191, 36, 0.08); border: 1px dashed var(--gold); 
+    border-radius: 12px; color: var(--gold); font-size: 12px; font-weight: 700; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.2s;
+}
+.system-link-btn:hover{ background: var(--gold); color: var(--bg-main); border-style: solid; transform: translateY(-2px);}
+
 .tab-nav{display:flex; padding:0 20px; gap: 15px; border-bottom:1px solid var(--lb); background: var(--bg-main);}
 .tab{padding:15px 5px; font-size:14px; color:var(--text-s); cursor:pointer; transition:0.2s; position:relative; font-weight: 500;}
 .tab.on{color:var(--accent); font-weight:700;}
-.tab.on::after{content:''; position:absolute; bottom:-1px; left:0; width:100%; height:3px; background:var(--accent); border-radius:3px 3px 0 0; box-shadow: 0 -2px 10px var(--accent);}
+.tab.on::after{content:''; position:absolute; bottom:-1px; left:0; width:100%; height:3px; background:var(--accent); border-radius:3px 3px 0 0;}
 
 .search-container{padding:20px; background:var(--bg-main);}
-.s-input-wrapper{position: relative; display: flex; align-items: center;}
 .s-input{width:100%; padding:14px 18px; background:var(--bg-panel); border:1px solid var(--lb); border-radius:12px; color:var(--text-p); font-size:14.5px; outline:none; transition:0.3s;}
 .s-input:focus{border-color:var(--accent); box-shadow: 0 0 0 4px rgba(56,189,248,0.15);}
 
-/* Category Selector (Infographic Grid) */
 .cat-container{padding: 0 20px 15px;}
 .cat-grid{display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px;}
 .c-chip{padding: 8px 2px; border-radius: 8px; background: var(--bg-panel); border: 1px solid var(--lb); color: var(--text-s); font-size: 10.5px; text-align: center; cursor: pointer; transition: 0.2s; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
-.c-chip:hover{ border-color: var(--accent); color: var(--text-p); }
-.c-chip.active{ background: var(--accent); color: var(--bg-main); font-weight: 700; border-color: var(--accent); box-shadow: 0 4px 12px rgba(56,189,248,0.3); }
+.c-chip.active{ background: var(--accent); color: var(--bg-main); font-weight: 700; border-color: var(--accent); }
 
 .list-container{flex:1; overflow-y:auto; padding:15px; background:var(--bg-main);}
 .reg-card{padding:20px; background:var(--bg-panel); border: 1px solid var(--border); border-radius:16px; cursor:pointer; margin-bottom:15px; transition:0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.15);}
-.reg-card:hover{border-color:var(--accent); transform:translateY(-4px); background:rgba(255,255,255,0.02); box-shadow: 0 10px 25px rgba(0,0,0,0.3);}
-.reg-card.active{border-color:var(--accent); background:rgba(56,189,248,0.06); box-shadow: inset 0 0 15px rgba(56,189,248,0.05);}
-.reg-pg-tag{font-size:10px; color:var(--accent); font-weight: 800; margin-bottom:10px; letter-spacing:1px; background: rgba(56,189,248,0.1); width: fit-content; padding: 3px 8px; border-radius: 6px; text-transform: uppercase;}
-.reg-name{font-size:15.5px; line-height:1.6; font-weight:600; word-break:keep-all; color:var(--text-p);}
-.reg-snip{font-size:13px; color:var(--text-s); margin-top:14px; line-height:1.7; border-top: 1px solid var(--border); padding-top:14px; font-weight:300;}
+.reg-card:hover{border-color:var(--accent); transform:translateY(-4px); background:rgba(255,255,255,0.02);}
+.reg-card.active{border-color:var(--accent); background:rgba(56,189,248,0.06);}
+.reg-pg-tag{font-size:10px; color:var(--accent); font-weight: 800; margin-bottom:10px; letter-spacing:1px; background: rgba(56,189,248,0.1); width: fit-content; padding: 3px 8px; border-radius: 6px;}
+.reg-name{font-size:15.5px; line-height:1.6; font-weight:600; color:var(--text-p);}
+.reg-snip{font-size:13px; color:var(--text-s); margin-top:14px; line-height:1.7; border-top: 1px solid var(--border); padding-top:14px;}
 
-/* Pagination */
 .pager-box{padding:18px 24px; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; background:var(--bg-panel);}
 .pager-btn{background: var(--glass); border: 1px solid var(--border); color: var(--text-p); padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: 600; transition: 0.2s;}
 .pager-btn:hover{background: var(--accent); color: var(--bg-main); border-color: var(--accent);}
@@ -81,13 +86,12 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
 #matrix-rain{position:absolute; inset:0; z-index:0; pointer-events:none; opacity: 0.12;}
 
 .top-nav{display:flex; align-items:center; gap:15px; padding:0 30px; height:70px; background:rgba(2,6,23,0.8); backdrop-filter:blur(30px); border-bottom:1px solid var(--border); z-index:20;}
-.viewer-title{flex:1; font-size:16px; font-weight:600; font-family:'Noto Serif KR',serif; color:var(--text-p);}
+.viewer-title{flex:1; font-size:16px; font-weight:600; font-family:'Noto Serif KR',serif;}
 
-.icon-btn{width:44px; height:44px; display:flex; align-items:center; justify-content:center; background:var(--glass); border:1px solid var(--border); border-radius:12px; color:var(--accent); cursor:pointer; transition:0.3s; font-size:20px;}
+.icon-btn{width:44px; height:44px; display:flex; align-items:center; justify-content:center; background:var(--glass); border:1px solid var(--border); border-radius:12px; color:var(--accent); cursor:pointer; transition:0.3s;}
 .icon-btn:hover{background:var(--accent); color:var(--bg-main); transform: translateY(-2px);}
 
 .ai-toggle-btn{background: linear-gradient(135deg, var(--accent), var(--purple)); border:none; color:white; padding: 12px 24px; border-radius: 12px; font-size: 13px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 20px rgba(129,140,248,0.3); transition: 0.3s;}
-.ai-toggle-btn:hover{transform: scale(1.05); box-shadow: 0 8px 30px rgba(129,140,248,0.5);}
 
 #cvwrap{flex:1; overflow:auto; display:flex; justify-content:center; align-items: flex-start; padding:50px; position:relative; z-index:10; cursor: zoom-in; scroll-behavior: smooth;}
 #pdf-canvas{box-shadow: 0 50px 150px rgba(0,0,0,1); background:#fff; display:none; border-radius:4px;}
@@ -100,7 +104,6 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
 .ai-msg-ai{background:rgba(56,189,248,0.05); border-left:6px solid var(--accent); color:var(--text-p); border-top-left-radius:4px;}
 .ai-msg-user{background:var(--bg-card); margin-left:auto; text-align:right; color:var(--accent); border-bottom-right-radius:4px;}
 
-/* Custom Control in AI msg */
 .action-row{display: flex; gap: 8px; flex-wrap: wrap; margin-top: 15px;}
 .jump-btn{display:inline-flex; align-items:center; gap:8px; padding:10px 16px; background:var(--accent); color:var(--bg-main); border-radius:10px; font-size:12px; font-weight:700; cursor:pointer; border:none; transition:0.2s;}
 .notebook-btn{display:inline-flex; align-items:center; gap:8px; padding:10px 16px; background:var(--gold); color:var(--bg-main); border-radius:10px; font-size:12px; font-weight:700; cursor:pointer; border:none; transition:0.2s;}
@@ -136,6 +139,10 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
             <span class="info-lab">최종 개정일</span>
         </div>
     </div>
+    <!-- Direct Link to specific NotebookLM project -->
+    <button class="system-link-btn" onclick="window.open('https://notebooklm.google.com/', '_blank')">
+        🚀 법규집 - NotebookLM 바로가기
+    </button>
   </div>
 
   <div class="tab-nav">
@@ -189,7 +196,7 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
         <div style="background: rgba(15,23,42,0.95); padding: 50px; border-radius: 30px; border: 1px solid var(--border); text-align: center; max-width: 550px;">
           <h3 style="color:var(--accent); margin-bottom:20px; font-size:22px;">데이터 보안 연동</h3>
           <p style="font-size:15px; color:var(--text-s); line-height:1.8; margin-bottom:30px;">
-            브라우저 보안 제약으로 인해 파일을 자동으로 로드할 수 없습니다.<br>
+            보안 제약으로 파일을 자동으로 로드할 수 없습니다.<br>
             저장소의 <b>laws.pdf</b>와 <b>laws_data.json</b>을 아래 버튼으로 연결해 주세요.
           </p>
           <button class="ai-toggle-btn" style="width:100%; margin-bottom:12px;" onclick="document.getElementById('pdfIn').click()">📂 laws.pdf 연결하기</button>
@@ -210,7 +217,7 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
     <button class="pager-btn" style="border-radius:20px; padding:6px 15px;" onclick="toggleAI()">닫기</button>
   </div>
   <div class="ai-body" id="aiChat">
-    <div class="ai-msg ai-msg-ai">데이터 분석 준비 완료. 키워드를 입력하시면 관련 조문을 찾고, 노트북LM 분석용 데이터를 생성해 드립니다.</div>
+    <div class="ai-msg ai-msg-ai">반갑습니다. 본문 전체 데이터를 기반으로 정확한 법적 근거를 찾아드립니다. 정밀한 추론이 필요할 경우 하단의 <b>노트북LM 분석 버튼</b>을 활용하세요.</div>
   </div>
   <div class="ai-input-box">
     <input type="text" class="s-input" id="aiInput" placeholder="예: 총회 성원 요건, 징계 절차 등">
@@ -240,6 +247,7 @@ const ALL_REGS = [
   {n:'제수당지급에관한지침',p:845,cat:'지침'},{n:'변호사 권익위원회 시행세칙',p:852,cat:'지침'},{n:'변호사윤리교육지침',p:857,cat:'지침'},{n:'회지윤리지침',p:858,cat:'지침'},{n:'심의수수료 지침',p:863,cat:'지침'},{n:'외국법자문사등록시행세칙',p:865,cat:'지침'},{n:'대한변협 사무국 직원 맞춤형 복지제도 운영지침',p:908,cat:'지침'},{n:'법관 및 검사 임용지원자 평가지침',p:913,cat:'지침'},{n:'외국법자문법률사무소 공동사건처리등을 위한 시행세칙',p:917,cat:'지침'},{n:'협회 회의실 이용에 관한 지침',p:932,cat:'지침'},{n:'법관평가의 방법 및 평가결과의 공개 등에 관한 지침',p:936,cat:'지침'},{n:'검사평가의 방법 및 평가결과 공개 등에 관한 지침',p:943,cat:'지침'},{n:'대한변호사협회 개인정보 처리지침',p:955,cat:'지침'},{n:'법제연구원 운영세칙',p:991,cat:'지침'},{n:'Task Force(TF) 지침',p:1001,cat:'지침'},{n:'대한변호사협회 직무관련 범죄 고소(고발) 지침',p:1004,cat:'지침'},{n:'전관비리신고센터운영에관한지침',p:1007,cat:'지침'},{n:'보고서 등 원고료 산정기준에 관한 지침',p:1010,cat:'지침'},{n:'회의비, 수당등에관한지침',p:1013,cat:'지침'},{n:'대한변호사협회 노사협의회 지침',p:1020,cat:'지침'},{n:'변호사신분증지침',p:1026,cat:'지침'},{n:'SNS 등을 통한 업무에 관한 지침',p:1029,cat:'지침'},{n:'지원금 지급 지침',p:1031,cat:'지침'},{n:'대한변호사협회 변호사정보센터 개인정보처리방침',p:1034,cat:'지침'},{n:'전국지방변호사회장협의회 정책 및 연구과제 등 지원 지침',p:1043,cat:'지침'},{n:'인권보고서 원고료 등 작성 수당 산정기준에 관한 지침',p:1045,cat:'지침'},{n:'우수변호사 심사 및 선정 등에 관한 지침',p:1048,cat:'지침'},{n:'합작법무법인 내 선임변호사 및 선임외국법자문사의 겸직허가 신고 등 지침',p:1053,cat:'지침'},{n:'대한변협 임직원 성희롱·성폭력 예방 및 2차 피해 방지 지침',p:1055,cat:'지침'},{n:'보도자료등에 관한 지침',p:1063,cat:'지침'},{n:'변호사시험 합격자 연수 학사관리지침',p:1068,cat:'지침'},{n:'대한변협 전문변호사회 지원센터 운영에 관한 시행지침',p:1082,cat:'지침'},{n:'인사평가에 관한 지침',p:1083,cat:'지침'}
 ];
 const CATS = ['전체','법령','회칙','사업계획','회의','등록','징계','법제인권','연수','업무홍보','공익','외국법','회계','사무국','지침'];
+const NOTEBOOK_LM_PROJECT_URL = "https://notebooklm.google.com/"; // 사용자의 노트북LM 주소로 교체 가능
 
 let pdfDoc = null, curPdfPg = 1, scale = 1.4, isRendering = false;
 let globalJsonData = [];
@@ -269,7 +277,7 @@ async function initApp() {
         initCatBar(); renderPage(1); performSearch(); initInteractive();
     } catch (e) {
         loadingUI.style.display = 'none'; recoveryUI.style.display = 'block';
-        initCatBar();
+        initCatZone();
     }
 }
 
@@ -314,8 +322,6 @@ function performSearch() {
     } else {
         if(globalJsonData.length === 0) { wrap.innerHTML = '<div style="color:var(--text-s); text-align:center; padding:50px;">데이터베이스를 연결하세요.</div>'; return; }
         if(tokens.length === 0) { wrap.innerHTML = '<div style="color:var(--text-s); text-align:center; padding:50px;">검색어를 입력하세요.</div>'; return; }
-        
-        // Advanced intersection search
         const results = globalJsonData.filter(item => tokens.every(t => (item.content || "").toLowerCase().includes(t))).slice(0, 30);
         results.forEach(r => {
             const d = document.createElement('div');
@@ -341,7 +347,6 @@ async function askAI() {
     if (globalJsonData.length === 0) { chat.innerHTML += `<div class="ai-msg ai-msg-ai">DB가 연결되지 않았습니다.</div>`; return; }
     chat.innerHTML += `<div class="ai-msg ai-msg-ai" id="aiTemp">🔍 AI 검색 엔진이 데이터를 분석 중입니다...</div>`;
     
-    // Local Analysis (Improved)
     const tokens = q.split(/\s+/).filter(w => w.length > 1);
     let matchPool = [];
     globalJsonData.forEach(item => {
@@ -359,23 +364,21 @@ async function askAI() {
     setTimeout(() => {
         let res = "";
         if (top.length > 0) {
-            // Build full context for clipboard
-            let fullContext = `--- 법규집 검색 결과 (질문: ${q}) ---\n\n`;
-            res = `<b>${top.length}개의 관련 조문</b>을 찾았습니다. 정교한 법률 추론이 필요하시면 하단의 <b>노트북LM 버튼</b>을 이용해 주세요.<br><br>`;
+            let fullContextForCopy = `--- 법규집 분석 데이터 (질문: ${q}) ---\n\n`;
+            res = `<b>${top.length}개의 관련 조문</b>을 찾았습니다. 정교한 분석이 필요하시면 하단의 <b>노트북LM 버튼</b>을 이용해 주세요.<br><br>`;
             
             top.forEach((m, i) => {
                 let regName = "관련 조문";
                 for(let j=0; j<ALL_REGS.length; j++) if(m.pg >= ALL_REGS[j].p && (j+1 === ALL_REGS.length || m.pg < ALL_REGS[j+1].p)) { regName = ALL_REGS[j].n; break; }
                 res += `${i+1}. 📄 <b>${regName} (P.${m.pg})</b><br>`;
                 res += `<small style="color:var(--text-s)">"...${m.snip.replace(/\n/g, ' ')}..."</small><br>`;
-                res += `<div class="action-row"><button class="jump-btn" onclick="renderPage(${m.pg}); toggleAI();">📍 이동</button></div><br>`;
-                fullContext += `[P.${m.pg} ${regName}]: ${m.content}\n\n`;
+                res += `<div class="action-row"><button class="jump-btn" onclick="renderPage(${m.pg}); toggleAI();">📍 조문 바로가기</button></div><br>`;
+                fullContextForCopy += `[P.${m.pg} ${regName}]: ${m.content}\n\n`;
             });
 
-            // Bridge to NotebookLM
-            res += `<div style="margin-top:10px; padding:15px; background:rgba(251,191,36,0.15); border-radius:15px; border:1px solid var(--gold);">`;
-            res += `<p style="font-size:12px; color:var(--text-p); margin-bottom:12px;">💡 위 ${top.length}개 조문 텍스트를 노트북LM으로 보내 정밀 분석하시겠습니까?</p>`;
-            res += `<button class="notebook-btn" onclick="copyAndJumpToNotebook('${encodeURIComponent(fullContext.replace(/'/g, "\\'"))}')">🚀 노트북LM으로 정밀 분석하기</button>`;
+            res += `<div style="margin-top:10px; padding:18px; background:rgba(251,191,36,0.1); border-radius:18px; border:1px solid rgba(251,191,36,0.3);">`;
+            res += `<p style="font-size:12.5px; color:var(--gold); margin-bottom:15px; line-height:1.5;">💡 위 ${top.length}개 조문을 '법규집 - NotebookLM'으로 보내 정밀 분석하시겠습니까?</p>`;
+            res += `<button class="notebook-btn" onclick="copyAndJumpToNotebook('${encodeURIComponent(fullContextForCopy.replace(/'/g, "\\'"))}')">🚀 노트북LM으로 이동 및 텍스트 복사</button>`;
             res += `</div>`;
         } else {
             res = "죄송합니다. 현재 법규집 본문에서 해당 키워드와 일치하는 명확한 근거를 찾지 못했습니다.";
@@ -396,12 +399,12 @@ function copyAndJumpToNotebook(context) {
     document.body.removeChild(el);
     
     const msg = document.createElement('div');
-    msg.innerText = "✅ 텍스트 복사 완료! 노트북LM 페이지가 열립니다. [소스 추가] -> [텍스트 복사]에 붙여넣으세요.";
-    msg.style = "position:fixed; top:20px; left:50%; transform:translateX(-50%); background:var(--green); padding:15px 25px; border-radius:10px; z-index:9999; font-weight:700;";
+    msg.innerText = "✅ 텍스트 복사 완료! '법규집 - NotebookLM'으로 이동합니다. [소스 추가]에 붙여넣으세요.";
+    msg.style = "position:fixed; top:30px; left:50%; transform:translateX(-50%); background:var(--gold); color:var(--bg-main); padding:20px 40px; border-radius:15px; z-index:9999; font-weight:800; box-shadow:0 10px 30px rgba(0,0,0,0.5);";
     document.body.appendChild(msg);
     
     setTimeout(() => {
-        window.open('https://notebooklm.google.com/', '_blank');
+        window.open(NOTEBOOK_LM_PROJECT_URL, '_blank');
         msg.remove();
     }, 2000);
 }
