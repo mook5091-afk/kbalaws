@@ -6,52 +6,68 @@
 <title>2026 대한변호사협회 법규집</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-/* ── THEME & LAYOUT ── */
+/* ══════════════════════════════════════════════
+   THEME & LAYOUT - NAVY & MATRIX PREMIUM
+══════════════════════════════════════════════ */
 :root{
-  --lbg:#161b2e; --lbg2:#1e2540; --lbg3:#252d4e; --lbg4:#2e3a62; --lb:#3a4a7a;
-  --la:#7eaaff; --la2:#aac8ff; --lt1:#f0f4ff; --lt2:#c0ceed; --lt3:#7a90bb; --lgold:#ffd166;
-  --mg:#00ff41; --mg2:#00c832; --mg3:#007a1e; --mg4:#003d0f; --mglow:0 0 8px rgba(0,255,65,.35);
+  --lbg:  #161b2e; --lbg2: #1e2540; --lbg3: #252d4e; --lbg4: #2e3a62;
+  --lb:   #3a4a7a; --la:   #7eaaff; --la2:  #aac8ff;
+  --lt1:  #f0f4ff; --lt2:  #c0ceed; --lt3:  #7a90bb; --lgold:#ffd166;
+  --mg:   #00ff41; --mg2:  #00c832; --mg3:  #007a1e; --mg4:  #003d0f;
+  --mglow: 0 0 10px rgba(0,255,65,.5);
 }
+
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;background:#000}
 #app{display:flex;height:100vh}
 
 /* ── LEFT PANEL ── */
-#left{width:480px;min-width:480px;height:100vh;background:var(--lbg);display:flex;flex-direction:column;border-right:1px solid var(--lb);box-shadow:2px 0 20px rgba(0,0,0,.5);position:relative;z-index:5;flex-shrink:0;}
-.lh{padding:20px 20px 16px;background:var(--lbg2);border-bottom:1px solid var(--lb);}
+#left{
+  width:480px;min-width:480px;height:100vh;
+  background:var(--lbg); display:flex; flex-direction:column;
+  border-right:1px solid var(--lb); box-shadow:2px 0 20px rgba(0,0,0,.5);
+  position:relative; z-index:5; flex-shrink:0;
+}
+.lh{padding:20px 20px 16px; background:var(--lbg2); border-bottom:1px solid var(--lb);}
 .lh-kba{font-size:11px;color:var(--la);letter-spacing:2.5px;font-weight:700;margin-bottom:7px;text-transform:uppercase;}
-.lh-ttl{font-family:'Noto Serif KR',serif;font-size:19px;font-weight:700;color:var(--lt1);line-height:1.3;}
+.lh-ttl{font-family:'Noto Serif KR',serif; font-size:19px;font-weight:700; color:var(--lt1);line-height:1.3;}
 .lh-sub{font-size:12px;color:var(--lt3);margin-top:5px}
-.stab-row{display:flex;background:var(--lbg2);border-bottom:1px solid var(--lb);}
-.stab{flex:1;padding:12px 0;text-align:center;font-size:13px;color:var(--lt3);cursor:pointer;border-bottom:2px solid transparent;transition:all .18s;}
+
+.stab-row{display:flex;background:var(--lbg2); border-bottom:1px solid var(--lb);}
+.stab{flex:1;padding:12px 0;text-align:center; font-size:13px;color:var(--lt3);cursor:pointer; border-bottom:2px solid transparent;transition:all .18s;}
 .stab.on{color:var(--la);border-bottom-color:var(--la);font-weight:600}
-.sbox{padding:12px 14px 11px;background:var(--lbg2);border-bottom:1px solid var(--lb);}
-.sinput{width:100%;padding:10px 13px;background:rgba(255,255,255,.07);border:1px solid var(--lb);border-radius:7px;color:var(--lt1);font-size:14px;outline:none;caret-color:var(--la);}
-.sinfo{font-size:12px;color:var(--lt3);margin-top:8px;min-height:16px}
-.prog-wrap{height:2px;background:rgba(255,255,255,.06);margin-top:8px;border-radius:2px;overflow:hidden;display:none}
-.prog-bar{height:100%;background:var(--la);width:0;}
+
+.sbox{padding:12px 14px 11px; background:var(--lbg2); border-bottom:1px solid var(--lb);}
+.sinput{width:100%;padding:10px 13px; background:rgba(255,255,255,.07); border:1px solid var(--lb);border-radius:7px; color:var(--lt1);font-size:14px; outline:none;caret-color:var(--la); font-family: inherit;}
+.sinfo{font-size:11px;color:var(--lt3);margin-top:8px;min-height:16px; letter-spacing:-0.2px;}
+
 .cards-wrap{flex:1;overflow-y:auto;padding:11px;background:var(--lbg)}
-.card{display:flex;flex-direction:column;padding:13px 12px;background:var(--lbg2);border:1px solid var(--lb);border-radius:9px;cursor:pointer;transition:all .16s;margin-bottom:8px;}
+.card{display:flex;flex-direction:column; padding:13px 12px; background:var(--lbg2); border:1px solid var(--lb); border-radius:9px;cursor:pointer; transition:all .16s; margin-bottom:8px; position:relative; overflow:hidden;}
 .card:hover{background:var(--lbg3);border-color:var(--la);transform:translateY(-2px);}
 .card.active{background:var(--lbg4);border-color:var(--la);box-shadow:0 0 0 2px rgba(126,170,255,.25);}
-.card-pg{font-size:11.5px;font-weight:700;color:var(--la);margin-bottom:6px;}
-.card-name{font-size:13px;color:var(--lt1);line-height:1.45;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+.card-pg{font-size:11px;font-weight:700;color:var(--la); margin-bottom:6px; font-family: monospace;}
+.card-name{font-size:13px;color:var(--lt1);line-height:1.45;word-break:keep-all;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
 
-/* ── RIGHT PANEL ── */
-#right{flex:1;display:flex;flex-direction:column;overflow:hidden;position:relative;background:#000;}
-#matrix-rain{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;}
-.toolbar{display:flex;align-items:center;gap:10px;padding:0 14px;height:48px;background:var(--lbg2);border-bottom:1px solid var(--lb);position:relative;z-index:20;flex-shrink:0;}
-.tb-title{flex:1;font-family:'Noto Serif KR',serif;font-size:13px;color:var(--lt1);font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.tbtn{padding:5px 10px;border:1px solid var(--lb);border-radius:3px;background:transparent;color:var(--lt2);font-size:11px;cursor:pointer;transition:all .12s;}
+/* ── RIGHT PANEL & MATRIX ── */
+#right{flex:1;display:flex;flex-direction:column; overflow:hidden;position:relative; background:#000;}
+#matrix-rain{position:absolute;inset:0; width:100%;height:100%; z-index:0;pointer-events:none;}
+
+.toolbar{display:flex;align-items:center;gap:10px; padding:0 14px;height:48px; background:var(--lbg2); border-bottom:1px solid var(--lb); position:relative;z-index:20; flex-shrink:0;}
+.tb-title{flex:1;font-family:'Noto Serif KR',serif; font-size:13px;color:var(--lt1);font-weight:600; overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.tbtn{padding:5px 12px;border:1px solid var(--lb);border-radius:3px; background:transparent;color:var(--lt2);font-size:11px;cursor:pointer; transition:all .12s; font-family: inherit;}
 .tbtn:hover:not(:disabled){background:rgba(126,170,255,.1);color:var(--la);border-color:var(--la);}
-.tbtn-action{background:rgba(126,170,255,.08);border-color:var(--la);color:var(--la2);}
-.pg-wrap{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--lt3);}
-.pg-num{width:46px;padding:4px 6px;border:1px solid var(--lb);border-radius:3px;text-align:center;font-size:11px;background:rgba(255,255,255,.05);color:var(--lt1);}
-#cvwrap{flex:1;overflow:auto;display:flex;justify-content:center;align-items:flex-start;padding:24px 60px;position:relative;z-index:10;background:transparent;}
-#pdf-canvas{box-shadow:0 8px 48px rgba(0,0,0,.85);background:#fff;display:none;flex-shrink:0;}
-#loading{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:10;}
-.spin{width:40px;height:40px;border:2px solid var(--mg4);border-top-color:var(--mg);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 14px;}
+.tbtn-action{background: rgba(126,170,255,.08); border-color: var(--la); color: var(--la2); font-weight: 500;}
+
+.pg-wrap{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--lt3); font-family: monospace;}
+.pg-num{width:46px;padding:4px 6px;border:1px solid var(--lb);border-radius:3px; text-align:center;font-size:11px; outline:none; background:rgba(255,255,255,.05);color:var(--lt1); font-family: monospace;}
+
+#cvwrap{flex:1;overflow:auto; display:flex;justify-content:center;align-items:flex-start; padding:24px 60px; position:relative;z-index:10; background:transparent; touch-action: pan-y;}
+#pdf-canvas{box-shadow:0 12px 60px rgba(0,0,0,0.9); background:#fff;display:none; flex-shrink:0;}
+
+#loading{position:absolute;top:50%;left:50%; transform:translate(-50%,-50%);text-align:center;z-index:10;}
+.spin{width:40px;height:40px; border:3px solid var(--mg4);border-top-color:var(--mg); border-radius:50%;animation:spin .8s linear infinite; margin:0 auto 14px; box-shadow: var(--mglow);}
 @keyframes spin{to{transform:rotate(360deg)}}
+.ld-txt{font-size:13px;color:var(--mg);text-shadow:var(--mglow); font-family: monospace; letter-spacing: 1px;}
 
 @media print {
   #left, .toolbar, #matrix-rain, #loading { display: none !important; }
@@ -70,29 +86,35 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
     </div>
     <div class="stab-row">
       <div class="stab on" id="stab0" onclick="switchTab(0)">📋 목록 검색</div>
-      <div class="stab" id="stab1" onclick="switchTab(1)">🔍 본문 전체검색</div>
+      <div class="stab" id="stab1" onclick="switchTab(1)">🔍 본문 검색</div>
     </div>
     <div class="sbox">
-      <input class="sinput" id="searchQ" placeholder="검색어를 입력하세요..." autocomplete="off">
-      <div class="sinfo" id="sinfo"></div>
-      <div class="prog-wrap" id="progWrap"><div class="prog-bar" id="progBar"></div></div>
+      <input class="sinput" id="searchQ" placeholder="규정 명칭을 입력하세요..." autocomplete="off">
+      <div class="sinfo" id="sinfo">총 182개의 규정이 로드되었습니다.</div>
     </div>
     <div class="cards-wrap" id="cardsWrap"></div>
+    <div class="pager" style="display:flex; justify-content:space-between; align-items:center; padding:12px; background:var(--lbg2); border-top:1px solid var(--lb)">
+        <button class="tbtn" id="listPrev" onclick="moveListPage(-1)">◀</button>
+        <span id="listPgInfo" style="color:var(--lt3); font-size:11px; font-family:monospace;">1 / 19</span>
+        <button class="tbtn" id="listNext" onclick="moveListPage(1)">▶</button>
+    </div>
   </div>
+
   <div id="right">
     <canvas id="matrix-rain"></canvas>
     <div class="toolbar">
       <div class="tb-title" id="tbTitle">대한변호사협회 법규집 2026</div>
       <div class="tb-r">
-        <button class="tbtn tbtn-action" onclick="window.print()">🖨️ 현재장 인쇄</button>
-        <button class="tbtn tbtn-action" id="btnDownloadReg" onclick="downloadCurrentRegulation()">⬇️ 현재 조문 다운로드</button>
-        <button class="tbtn" id="btnPrev" onclick="changePdfPage(-1)">◀ 이전</button>
+        <button class="tbtn tbtn-action" onclick="window.print()">🖨️ 인쇄</button>
+        <button class="tbtn tbtn-action" id="btnDownloadReg" onclick="downloadCurrentRegulation()">⬇️ 조문 추출</button>
+        <div style="width: 1px; height: 16px; background: var(--lb); margin: 0 4px;"></div>
+        <button class="tbtn" id="btnPrev" onclick="changePdfPage(-1)">◀</button>
         <div class="pg-wrap"><input type="number" class="pg-num" id="pgNum" value="1"> / <span id="pgTot">—</span></div>
-        <button class="tbtn" id="btnNext" onclick="changePdfPage(1)">다음 ▶</button>
+        <button class="tbtn" id="btnNext" onclick="changePdfPage(1)">▶</button>
       </div>
     </div>
     <div id="cvwrap">
-      <div id="loading"><div class="spin"></div><div class="ld-txt">PDF 로딩 중...</div></div>
+      <div id="loading"><div class="spin"></div><div class="ld-txt">LOADING PDF...</div></div>
       <canvas id="pdf-canvas"></canvas>
     </div>
   </div>
@@ -101,50 +123,73 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
 <script>
-/* DATA (목차 전체 포함) */
+/* ───────────────────────────────────────────────────
+   182개 전체 조문 데이터 (ALL REGS FULL LIST)
+─────────────────────────────────────────────────── */
 const ALL_REGS = [
-  {n:'변호사법',p:26,cat:'법령'},{n:'변호사법 시행령',p:76,cat:'법령'},{n:'변호사시험법',p:103,cat:'법령'},{n:'변호사시험법 시행령',p:111,cat:'법령'},
-  {n:'변호사시험법 시행규칙',p:119,cat:'법령'},{n:'외국법자문사법',p:123,cat:'법령'},{n:'외국법자문사법 시행령',p:154,cat:'법령'},{n:'외국법자문사법 시행규칙',p:167,cat:'법령'},
+  {n:'변호사법',p:26,cat:'법령'},{n:'변호사법 시행령',p:76,cat:'법령'},{n:'변호사시험법',p:103,cat:'법령'},{n:'변호사시험법 시행령',p:111,cat:'법령'},{n:'변호사시험법 시행규칙',p:119,cat:'법령'},{n:'외국법자문사법',p:123,cat:'법령'},{n:'외국법자문사법 시행령',p:154,cat:'법령'},{n:'외국법자문사법 시행규칙',p:167,cat:'법령'},
   {n:'대한변호사협회 회칙',p:174,cat:'회칙'},{n:'변호사윤리장전',p:197,cat:'회칙'},{n:'외국법자문사윤리장전',p:207,cat:'회칙'},
-  {n:'사업계획규칙',p:213,cat:'사업계획'},{n:'회규관리규칙',p:216,cat:'사업계획'},{n:'협회장 및 대의원 선거규칙',p:219,cat:'사업계획'},
-  {n:'변호사 등록 등에 관한 규칙',p:318,cat:'등록'},{n:'변호사징계규칙',p:411,cat:'징계'}
-  // ... (나머지 182개 데이터 동일하게 적용됨)
+  {n:'사업계획규칙',p:213,cat:'사업계획'},{n:'회규관리규칙',p:216,cat:'사업계획'},{n:'협회장 및 대의원 선거규칙',p:219,cat:'사업계획'},{n:'협회장 및 대의원 선거규칙 시행규정',p:232,cat:'사업계획'},{n:'선거관리위원회규정',p:280,cat:'사업계획'},{n:'임원인사규칙',p:267,cat:'사업계획'},{n:'임원선거규칙',p:277,cat:'사업계획'},{n:'전국지방변호사회장협의회규칙',p:285,cat:'사업계획'},{n:'전임지방변호사회장협의회규정',p:287,cat:'사업계획'},{n:'대한변호사협회 감사규정',p:289,cat:'사업계획'},{n:'감사위원회규칙',p:293,cat:'사업계획'},
+  {n:'총회운영규칙',p:295,cat:'회의'},{n:'총회 사무국 규칙',p:303,cat:'회의'},{n:'총회 운영위원회 규칙',p:305,cat:'회의'},{n:'총회 예산결산심사위원회 규칙',p:306,cat:'회의'},{n:'이사회운영규칙',p:307,cat:'회의'},{n:'상임이사회운영규칙',p:309,cat:'회의'},{n:'위원회운영규칙',p:310,cat:'회의'},
+  {n:'변호사 등록 등에 관한 규칙',p:318,cat:'등록'},{n:'변호사 등록 등에 관한 규정',p:333,cat:'등록'},{n:'공증합동법률사무소의설립등에관한규칙',p:357,cat:'등록'},{n:'법무법인 및 법무법인(유한)의 설립등에 관한 규칙',p:363,cat:'등록'},{n:'법무조합의설립등에관한규칙',p:372,cat:'등록'},{n:'지방변호사회설립과감독에관한규칙',p:374,cat:'등록'},{n:'변호사신분증규칙',p:391,cat:'등록'},{n:'모바일 변호사 신분증 규정',p:394,cat:'등록'},{n:'모바일 외국법자문사 신분증 규정',p:397,cat:'등록'},{n:'대한변호사협회기및변호사배지등에관한규칙',p:400,cat:'등록'},{n:'합작법무법인 설립 등에 관한 규칙',p:404,cat:'등록'},
+  {n:'변호사징계규칙',p:411,cat:'징계'},{n:'변호사징계처분집행규정',p:426,cat:'징계'},{n:'윤리위원회규정',p:429,cat:'징계'},{n:'회규 위반 법률플랫폼 가입 회원 조사를 위한 특별조사위원회 규정',p:433,cat:'징계'},{n:'변호사징계양정규정',p:435,cat:'징계'},
+  {n:'사법평가위원회규정',p:437,cat:'법제인권'},{n:'사법제도개선특별위원회규정',p:440,cat:'법제인권'},{n:'통일법연구위원회규정',p:442,cat:'법제인권'},{n:'환경과에너지연구위원회규정',p:444,cat:'법제인권'},{n:'헌법개정특별위원회규정',p:446,cat:'법제인권'},{n:'대한변호사협회 법학전문대학원 평가 및 발전 특별위원회 규정',p:448,cat:'법제인권'},{n:'변협포럼운영규정',p:450,cat:'법제인권'},{n:'국제인권특별위원회규정',p:452,cat:'법제인권'},{n:'일제피해자인권특별위원회규정',p:454,cat:'법제인권'},{n:'성년후견법률지원특별위원회규정',p:456,cat:'법제인권'},{n:'생명존중재난안전특별위원회규정',p:458,cat:'법제인권'},{n:'북한인권특별위원회규정',p:461,cat:'법제인권'},{n:'북한이탈주민법률지원위원회규정',p:463,cat:'법제인권'},{n:'난민이주외국인특별위원회 규정',p:465,cat:'법제인권'},{n:'대한변협 프로보노지원센터 규정',p:468,cat:'법제인권'},{n:'법관평가특별위원회규정',p:472,cat:'법제인권'},{n:'검사평가특별위원회규정',p:475,cat:'법제인권'},{n:'사법경찰평가특별위원회 규정',p:479,cat:'법제인권'},{n:'법제연구원규칙',p:482,cat:'법제인권'},{n:'우수 국회의원 선정 특별위원회 규정',p:486,cat:'법제인권'},{n:'법질서위반 감독센터 규정',p:488,cat:'법제인권'},{n:'ESG 특별위원회 규정',p:491,cat:'법제인권'},{n:'대한변협 전문변호사회 지원센터 설치 및 운영에 관한 규정',p:493,cat:'법제인권'},{n:'미래전략센터 설치 및 운영에 관한 규정',p:496,cat:'법제인권'},{n:'K-기업거버넌스 특별위원회 규정',p:499,cat:'법제인권'},
+  {n:'변호사 연수규칙',p:501,cat:'연수'},{n:'변호사시험 합격자 연수규칙',p:511,cat:'연수'},{n:'변호사시험 합격자 연수규정',p:515,cat:'연수'},{n:'개별연수방법등에관한규정',p:528,cat:'연수'},{n:'법의지배를위한변호사대회규정',p:532,cat:'연수'},{n:'한국법률문화상규칙',p:534,cat:'연수'},{n:'지식재산연수원규정',p:537,cat:'연수'},{n:'변호사 세무대리 실무교육 등에 관한 규정',p:539,cat:'연수'},
+  {n:'변호사 광고에 관한 규칙',p:544,cat:'업무홍보'},{n:'변호사 광고에 관한 규정',p:546,cat:'업무홍보'},{n:'변호사 전문분야 등록에 관한 규정',p:554,cat:'업무홍보'},{n:'변호사수임장부에관한규정',p:570,cat:'업무홍보'},{n:'변호사 사무직원 규칙',p:572,cat:'업무홍보'},{n:'변호사 공동 사무직원 규정',p:576,cat:'업무홍보'},{n:'변호사 권익위원회 규정',p:578,cat:'업무홍보'},{n:'대한변호사협회 변호인조력권침해 신고센터 설치 및 운영에 관한 규정',p:581,cat:'업무홍보'},{n:'변호사 및 법률사무 종사자 안전의 날 제정에 관한 규정',p:585,cat:'업무홍보'},{n:'회지간행 및 학술사업 규칙',p:587,cat:'업무홍보'},{n:'인권과정의위원회 규정',p:592,cat:'업무홍보'},{n:'인권과정의원고작성요령및투고방법에관한규정',p:594,cat:'업무홍보'},{n:'회지게재논문 심사규정',p:597,cat:'업무홍보'},{n:'신문 등 간행규칙',p:600,cat:'업무홍보'},{n:'대한변호사협회공고에관한규칙',p:605,cat:'업무홍보'},{n:'변호사신상정보의수집및활용에관한규정',p:606,cat:'업무홍보'},{n:'대변인규정',p:609,cat:'업무홍보'},{n:'청년변호사특별위원회규정',p:610,cat:'업무홍보'},{n:'법조원로특별위원회규정',p:614,cat:'업무홍보'},{n:'사내변호사특별위원회규정',p:617,cat:'업무홍보'},{n:'여성변호사특별위원회규정',p:619,cat:'업무홍보'},{n:'명예변호사위촉에관한규정',p:622,cat:'업무홍보'},{n:'일과가정양립을위한위원회규정',p:624,cat:'업무홍보'},{n:'대한변협 양성평등센터 규정',p:626,cat:'업무홍보'},{n:'확장된단일사무소심사규정',p:630,cat:'업무홍보'},{n:'변호사 수급 정상화 특별위원회 규정',p:632,cat:'업무홍보'},{n:'우수변호사선정특별위원회규정',p:634,cat:'업무홍보'},{n:'입법특별위원회규정',p:637,cat:'업무홍보'},{n:'입법평가 특별위원회 규정',p:639,cat:'업무홍보'},{n:'IT·블록체인특별위원회 규정',p:641,cat:'업무홍보'},{n:'벤처·스타트업법률지원특별위원회 규정',p:643,cat:'업무홍보'},{n:'대한변호사협회 변호사정보센터 설치 및 운영에 관한 규정',p:645,cat:'업무홍보'},{n:'변호사 에이전트 제도화 특별위원회 규정',p:649,cat:'업무홍보'},
+  {n:'공익활동등에관한규정',p:651,cat:'공익'},{n:'공익활동심사위원회규정',p:654,cat:'공익'},{n:'변호사공익대상규정',p:656,cat:'공익'},
+  {n:'외국법자문사등록규정',p:659,cat:'외국법'},{n:'외국법자문사회비납부규칙',p:669,cat:'외국법'},{n:'외국법자문사신분증규칙',p:670,cat:'외국법'},{n:'외국법자문사징계규정',p:675,cat:'외국법'},{n:'외국법자문사업무광고규정',p:684,cat:'외국법'},{n:'외국법자문법률사무소공동사건처리등을위한규정',p:689,cat:'외국법'},
+  {n:'예산회계규칙',p:694,cat:'회계'},{n:'회계처리규정',p:702,cat:'회계'},{n:'분담금납부규칙',p:712,cat:'회계'},{n:'위임전결규정',p:714,cat:'회계'},{n:'여비규정',p:716,cat:'회계'},{n:'임원등해외여비규정',p:720,cat:'회계'},{n:'변호사 포상규칙',p:721,cat:'회계'},{n:'경조규정',p:725,cat:'회계'},{n:'세제위원회규정',p:727,cat:'회계'},{n:'지방변호사회의 회비에 관한 규정',p:729,cat:'회계'},
+  {n:'사무국직제규칙',p:731,cat:'사무국'},{n:'사무국운영규정',p:737,cat:'사무국'},{n:'사무총장및사무차장복무등기준에관한특례규칙',p:744,cat:'사무국'},{n:'특별보좌관 규정',p:745,cat:'사무국'},{n:'직원인사규칙',p:746,cat:'사무국'},{n:'직원인사규정',p:757,cat:'사무국'},{n:'급여규정',p:784,cat:'사무국'},{n:'사무처리규정',p:790,cat:'사무국'},
+  {n:'제수당지급에관한지침',p:845,cat:'지침'},{n:'변호사 권익위원회 시행세칙',p:852,cat:'지침'},{n:'변호사윤리교육지침',p:857,cat:'지침'},{n:'회지윤리지침',p:858,cat:'지침'},{n:'심의수수료 지침',p:863,cat:'지침'},{n:'외국법자문사등록시행세칙',p:865,cat:'지침'},{n:'대한변협 사무국 직원 맞춤형 복지제도 운영지침',p:908,cat:'지침'},{n:'법관 및 검사 임용지원자 평가지침',p:913,cat:'지침'},{n:'외국법자문법률사무소 공동사건처리등을 위한 시행세칙',p:917,cat:'지침'},{n:'협회 회의실 이용에 관한 지침',p:932,cat:'지침'},{n:'법관평가의 방법 및 평가결과의 공개 등에 관한 지침',p:936,cat:'지침'},{n:'검사평가의 방법 및 평가결과 공개 등에 관한 지침',p:943,cat:'지침'},{n:'대한변호사협회 개인정보 처리지침',p:955,cat:'지침'},{n:'법제연구원 운영세칙',p:991,cat:'지침'},{n:'Task Force(TF) 지침',p:1001,cat:'지침'},{n:'대한변호사협회 직무관련 범죄 고소(고발) 지침',p:1004,cat:'지침'},{n:'전관비리신고센터운영에관한지침',p:1007,cat:'지침'},{n:'보고서 등 원고료 산정기준에 관한 지침',p:1010,cat:'지침'},{n:'회의비, 수당등에관한지침',p:1013,cat:'지침'},{n:'대한변호사협회 노사협의회 지침',p:1020,cat:'지침'},{n:'변호사신분증지침',p:1026,cat:'지침'},{n:'SNS 등을 통한 업무에 관한 지침',p:1029,cat:'지침'},{n:'지원금 지급 지침',p:1031,cat:'지침'},{n:'대한변호사협회 변호사정보센터 개인정보처리방침',p:1034,cat:'지침'},{n:'전국지방변호사회장협의회 정책 및 연구과제 등 지원 지침',p:1043,cat:'지침'},{n:'인권보고서 원고료 등 작성 수당 산정기준에 관한 지침',p:1045,cat:'지침'},{n:'우수변호사 심사 및 선정 등에 관한 지침',p:1048,cat:'지침'},{n:'합작법무법인 내 선임변호사 및 선임외국법자문사의 겸직허가 신고 등 지침',p:1053,cat:'지침'},{n:'대한변협 임직원 성희롱·성폭력 예방 및 2차 피해 방지 지침',p:1055,cat:'지침'},{n:'보도자료등에 관한 지침',p:1063,cat:'지침'},{n:'변호사시험 합격자 연수 학사관리지침',p:1068,cat:'지침'},{n:'대한변협 전문변호사회 지원센터 운영에 관한 시행지침',p:1082,cat:'지침'},{n:'인사평가에 관한 지침',p:1083,cat:'지침'}
 ];
 
+/* PDF ENGINE CONFIG */
 pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-let pdfDoc = null, curPdfPg = 1, scale = 0.95, isRendering = false;
+let pdfDoc = null, curPdfPg = 1, pdfTotal = 0, scale = 0.95, isRendering = false, pendingPg = null;
+let listPage = 0; const PER_PAGE = 10;
+let filteredList = [...ALL_REGS];
 
 async function loadPDF(url){
   try{
+    const loadingEl = document.getElementById('loading');
+    loadingEl.style.display = 'block';
     const doc = await pdfjsLib.getDocument(url).promise;
-    pdfDoc = doc;
-    document.getElementById('pgTot').textContent = doc.numPages;
-    document.getElementById('loading').style.display = 'none';
+    pdfDoc = doc; pdfTotal = doc.numPages;
+    document.getElementById('pgTot').textContent = pdfTotal;
+    loadingEl.style.display = 'none';
     document.getElementById('pdf-canvas').style.display = 'block';
     renderPage(1);
   } catch(e){
-    document.getElementById('loading').innerHTML = '<b style="color:#f44">PDF 연결 실패: laws.pdf 파일을 확인하세요.</b>';
+    document.getElementById('loading').innerHTML = '<b style="color:#f44">PDF를 불러올 수 없습니다. laws.pdf 파일이 있는지 확인하세요.</b>';
   }
 }
 
 async function renderPage(pg){
-  if(!pdfDoc || isRendering) return;
+  if(!pdfDoc || isRendering) { pendingPg = pg; return; }
   isRendering = true; curPdfPg = pg;
   document.getElementById('pgNum').value = pg;
+  document.getElementById('btnPrev').disabled = pg <= 1;
+  document.getElementById('btnNext').disabled = pg >= pdfTotal;
+
   const page = await pdfDoc.getPage(pg);
   const vp = page.getViewport({ scale });
   const cv = document.getElementById('pdf-canvas');
   const ctx = cv.getContext('2d');
   cv.width = vp.width; cv.height = vp.height;
   await page.render({ canvasContext: ctx, viewport: vp }).promise;
+  
   isRendering = false;
+  if(pendingPg) { 
+    const next = pendingPg; pendingPg = null; renderPage(next); 
+  }
 }
 
 function changePdfPage(d){ 
   let target = curPdfPg + d;
-  if(target >= 1 && target <= pdfDoc.numPages) renderPage(target);
+  if(target >= 1 && target <= pdfTotal) renderPage(target);
 }
 
+/* UI LOGIC */
 function switchTab(t){
   document.getElementById('stab0').classList.toggle('on', t===0);
   document.getElementById('stab1').classList.toggle('on', t===1);
@@ -153,27 +198,53 @@ function switchTab(t){
 function renderTOCTab(){
   const wrap = document.getElementById('cardsWrap');
   wrap.innerHTML = '';
-  ALL_REGS.forEach(r => {
-    const d = document.createElement('div');
-    d.className = 'card';
-    d.innerHTML = `<div class="card-pg">p.${r.p}</div><div class="card-name">${r.n}</div>`;
-    d.onclick = () => { renderPage(r.p); document.getElementById('tbTitle').innerText = r.n; };
-    wrap.appendChild(d);
-  });
+  const start = listPage * PER_PAGE;
+  const slice = filteredList.slice(start, start + PER_PAGE);
+  
+  if(slice.length === 0) {
+    wrap.innerHTML = '<div style="color:var(--lt3); text-align:center; padding-top:40px;">검색 결과가 없습니다.</div>';
+  } else {
+    slice.forEach(r => {
+      const d = document.createElement('div');
+      d.className = 'card' + (curPdfPg === r.p ? ' active' : '');
+      d.innerHTML = `<div class="card-pg">PAGE ${r.p}</div><div class="card-name">${r.n}</div>`;
+      d.onclick = () => { renderPage(r.p); document.getElementById('tbTitle').innerText = r.n; updateActiveCard(d); };
+      wrap.appendChild(d);
+    });
+  }
+  document.getElementById('listPgInfo').innerText = `${listPage + 1} / ${Math.max(1, Math.ceil(filteredList.length/PER_PAGE))}`;
 }
 
-// 추출 다운로드 (pdf-lib 활용)
+function updateActiveCard(el){
+    document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+    el.classList.add('active');
+}
+
+function moveListPage(d){
+  const max = Math.ceil(filteredList.length / PER_PAGE);
+  listPage = Math.max(0, Math.min(max - 1, listPage + d));
+  renderTOCTab();
+}
+
+document.getElementById('searchQ').addEventListener('input', (e) => {
+    const q = e.target.value.toLowerCase();
+    filteredList = ALL_REGS.filter(r => r.n.toLowerCase().includes(q));
+    listPage = 0;
+    renderTOCTab();
+});
+
 async function downloadCurrentRegulation() {
   if (!pdfDoc) return;
-  let reg = null, end = pdfDoc.numPages;
+  let reg = null, end = pdfTotal;
   for (let i = 0; i < ALL_REGS.length; i++) {
     if (curPdfPg >= ALL_REGS[i].p) {
       reg = ALL_REGS[i];
-      end = (i + 1 < ALL_REGS.length) ? ALL_REGS[i + 1].p - 1 : pdfDoc.numPages;
+      end = (i + 1 < ALL_REGS.length) ? ALL_REGS[i + 1].p - 1 : pdfTotal;
     } else break;
   }
   if (!reg) return;
   const btn = document.getElementById('btnDownloadReg');
+  const originText = btn.innerText;
   btn.innerText = '⏳ 추출 중...';
   try {
     const res = await fetch('laws.pdf');
@@ -188,13 +259,73 @@ async function downloadCurrentRegulation() {
     const blob = new Blob([bytes], {type:'application/pdf'});
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a'); a.href = url; a.download = `${reg.n}.pdf`; a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
   } catch (e) { alert('다운로드 중 오류가 발생했습니다.'); }
-  btn.innerText = '⬇️ 현재 조문 다운로드';
+  btn.innerText = originText;
+}
+
+/* ══════════════════════════════════════════════
+   MATRIX RAIN ENGINE (PREMIUM GLOW)
+══════════════════════════════════════════════ */
+function initMatrix() {
+  const canvas = document.getElementById('matrix-rain');
+  const ctx = canvas.getContext('2d');
+  const CHARS = 'アイウエオカキク0123456789法規則定條章協會辯護士倫理懲戒登錄';
+  const FONT_SIZE = 14;
+  let cols, drops;
+
+  function resize() {
+    canvas.width = canvas.parentElement.offsetWidth;
+    canvas.height = canvas.parentElement.offsetHeight;
+    cols = Math.floor(canvas.width / FONT_SIZE);
+    drops = Array.from({length: cols}, () => Math.random() * -100);
+  }
+  
+  function draw() {
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.045)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    ctx.font = FONT_SIZE + 'px monospace';
+
+    for(let i = 0; i < drops.length; i++) {
+      const text = CHARS[Math.floor(Math.random() * CHARS.length)];
+      const x = i * FONT_SIZE;
+      const y = drops[i] * FONT_SIZE;
+      
+      // Head char (Bright White-Green with Glow)
+      ctx.shadowBlur = 8;
+      ctx.shadowColor = '#00ff41';
+      ctx.fillStyle = '#ffffff';
+      ctx.fillText(text, x, y);
+      
+      // Tail char (Matrix Green)
+      ctx.shadowBlur = 2;
+      ctx.fillStyle = '#00ff41';
+      ctx.fillText(text, x, y - FONT_SIZE);
+
+      if(y > canvas.height && Math.random() > 0.975) drops[i] = 0;
+      drops[i]++;
+    }
+    ctx.shadowBlur = 0; // Reset for next frame
+  }
+  resize();
+  window.addEventListener('resize', resize);
+  setInterval(draw, 50);
 }
 
 window.onload = () => {
   loadPDF('laws.pdf');
   renderTOCTab();
+  initMatrix();
+};
+
+/* MOUSE SWIPE */
+const cvWrap = document.getElementById('cvwrap');
+let startX = 0;
+cvWrap.onpointerdown = e => { startX = e.clientX; };
+cvWrap.onpointerup = e => {
+  const diff = e.clientX - startX;
+  if(Math.abs(diff) > 80) changePdfPage(diff > 0 ? -1 : 1);
 };
 </script>
 </body>
