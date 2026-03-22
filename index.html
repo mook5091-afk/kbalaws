@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2026 대한변호사협회 법규집 ✨ ULTIMATE 5.0 (Optimized)</title>
+<title>2026 대한변호사협회 법규집 ✨ NOTEBOOK-LM CONNECT</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 /* ══════════════════════════════════════════════
@@ -11,17 +11,9 @@
 ══════════════════════════════════════════════ */
 :root{
   --sidebar-w: 460px;
-  --bg-main: #020617; 
-  --bg-panel: #0f172a; 
-  --bg-card: #1e293b;
-  --accent: #38bdf8; 
-  --text-p: #f8fafc; 
-  --text-s: #94a3b8; 
-  --text-m: #475569; 
-  --gold: #fbbf24; 
-  --green: #10b981; 
-  --purple: #818cf8; 
-  --glass: rgba(255, 255, 255, 0.03);
+  --bg-main: #020617; --bg-panel: #0f172a; --bg-card: #1e293b;
+  --accent: #38bdf8; --text-p: #f8fafc; --text-s: #94a3b8; --text-m: #475569; 
+  --gold: #fbbf24; --green: #10b981; --purple: #818cf8; 
   --border: rgba(255, 255, 255, 0.1);
 }
 
@@ -39,81 +31,76 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
 
 .header-box{padding:30px 24px 20px; background: linear-gradient(180deg, var(--bg-panel) 0%, var(--bg-main) 100%);}
 .header-top{display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;}
-.lh-ttl{font-family:'Noto Serif KR',serif; font-size:24px; font-weight:700; letter-spacing:-1px; color:var(--text-p);}
-.status-tag{display:inline-flex; align-items:center; gap:6px; font-size:10.5px; padding:3px 10px; border-radius:12px; background:rgba(255,255,255,0.03); color:var(--text-s);}
-.dot{width:6px; height:6px; border-radius:50%; background:var(--text-m);}
-.dot.ready{background:var(--green); box-shadow: 0 0 10px var(--green);}
+.header-ttl{font-family:'Noto Serif KR',serif; font-size:24px; font-weight:700; letter-spacing:-1px;}
 
 .info-grid{display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px;}
-.info-item{background: var(--glass); border: 1px solid var(--border); padding: 12px; border-radius: 12px; text-align: center;}
+.info-item{background: rgba(255,255,255,0.03); border: 1px solid var(--border); padding: 12px; border-radius: 12px; text-align: center;}
 .info-val{display: block; font-size: 18px; font-weight: 700; color: var(--accent); font-family: monospace;}
 .info-lab{display: block; font-size: 10px; color: var(--text-s); margin-top: 4px; text-transform: uppercase; letter-spacing: 1px;}
 
 .system-link-btn{
-    width: 100%; padding: 12px; background: rgba(251, 191, 36, 0.08); border: 1px dashed var(--gold); 
-    border-radius: 12px; color: var(--gold); font-size: 12px; font-weight: 700; cursor: pointer;
+    width: 100%; padding: 14px; background: rgba(251, 191, 36, 0.1); border: 1px solid var(--gold); 
+    border-radius: 12px; color: var(--gold); font-size: 13px; font-weight: 700; cursor: pointer;
     display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.2s;
 }
-.system-link-btn:hover{ background: var(--gold); color: var(--bg-main); border-style: solid; transform: translateY(-2px);}
+.system-link-btn:hover{ background: var(--gold); color: var(--bg-main); transform: translateY(-2px);}
 
-.tab-nav{display:flex; padding:0 20px; gap: 15px; border-bottom:1px solid var(--lb); background: var(--bg-main);}
-.tab{padding:15px 5px; font-size:14px; color:var(--text-s); cursor:pointer; transition:0.2s; position:relative; font-weight: 500;}
+.tab-nav{display:flex; padding:0 20px; border-bottom:1px solid var(--border);}
+.tab{padding:15px 15px; font-size:14px; color:var(--text-s); cursor:pointer; position:relative; font-weight: 500;}
 .tab.on{color:var(--accent); font-weight:700;}
 .tab.on::after{content:''; position:absolute; bottom:-1px; left:0; width:100%; height:3px; background:var(--accent); border-radius:3px 3px 0 0;}
 
-.search-container{padding:20px; background:var(--bg-main);}
-.s-input{width:100%; padding:14px 18px; background:var(--bg-panel); border:1px solid var(--lb); border-radius:12px; color:var(--text-p); font-size:14.5px; outline:none; transition:0.3s;}
+.search-container{padding:20px;}
+.s-input{width:100%; padding:14px 18px; background:var(--bg-panel); border:1px solid var(--border); border-radius:12px; color:var(--text-p); font-size:14.5px; outline:none; transition:0.3s;}
 .s-input:focus{border-color:var(--accent); box-shadow: 0 0 0 4px rgba(56,189,248,0.15);}
 
-.cat-container{padding: 0 20px 15px;}
-.cat-grid{display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px;}
-.c-chip{padding: 8px 2px; border-radius: 8px; background: var(--bg-panel); border: 1px solid var(--lb); color: var(--text-s); font-size: 10.5px; text-align: center; cursor: pointer; transition: 0.2s; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+.cat-grid{display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; padding: 0 20px 15px;}
+.c-chip{padding: 8px 2px; border-radius: 8px; background: var(--bg-panel); border: 1px solid var(--border); color: var(--text-s); font-size: 10px; text-align: center; cursor: pointer; transition: 0.2s; overflow: hidden; white-space: nowrap;}
 .c-chip.active{ background: var(--accent); color: var(--bg-main); font-weight: 700; border-color: var(--accent); }
 
-.list-container{flex:1; overflow-y:auto; padding:15px; background:var(--bg-main); scroll-behavior: smooth;}
-.reg-card{padding:20px; background:var(--bg-panel); border: 1px solid var(--border); border-radius:16px; cursor:pointer; margin-bottom:15px; transition:0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.15);}
+.list-container{flex:1; overflow-y:auto; padding:15px; scroll-behavior: smooth;}
+.reg-card{padding:20px; background:var(--bg-panel); border: 1px solid var(--border); border-radius:16px; cursor:pointer; margin-bottom:15px; transition:0.3s;}
 .reg-card:hover{border-color:var(--accent); transform:translateY(-4px); background:rgba(255,255,255,0.02);}
 .reg-card.active{border-color:var(--accent); background:rgba(56,189,248,0.06);}
-.reg-pg-tag{font-size:10px; color:var(--accent); font-weight: 800; margin-bottom:10px; letter-spacing:1px; background: rgba(56,189,248,0.1); width: fit-content; padding: 3px 8px; border-radius: 6px;}
-.reg-name{font-size:15.5px; line-height:1.6; font-weight:600; color:var(--text-p);}
-.reg-snip{font-size:13px; color:var(--text-s); margin-top:14px; line-height:1.7; border-top: 1px solid var(--border); padding-top:14px;}
+.reg-pg-tag{font-size:10px; color:var(--accent); font-weight: 800; margin-bottom:10px; background: rgba(56,189,248,0.1); width: fit-content; padding: 3px 8px; border-radius: 6px;}
+.reg-name{font-size:15.5px; line-height:1.6; font-weight:600;}
+.reg-snip{font-size:13px; color:var(--text-s); margin-top:12px; line-height:1.7; border-top: 1px solid var(--border); padding-top:12px;}
 
 .pager-box{padding:18px 24px; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; background:var(--bg-panel);}
-.pager-btn{background: var(--glass); border: 1px solid var(--border); color: var(--text-p); padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: 600; transition: 0.2s;}
-.pager-btn:hover{background: var(--accent); color: var(--bg-main); border-color: var(--accent);}
+.pager-btn{background: rgba(255,255,255,0.03); border: 1px solid var(--border); color: var(--text-p); padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: 600; transition: 0.2s;}
 
 /* ── RIGHT VIEW ── */
 #right{flex:1; display:flex; flex-direction:column; position:relative; background:#000; overflow:hidden;}
-#matrix-rain{position:absolute; inset:0; z-index:0; pointer-events:none; opacity: 0.12;}
-
 .top-nav{display:flex; align-items:center; gap:15px; padding:0 30px; height:70px; background:rgba(2,6,23,0.8); backdrop-filter:blur(30px); border-bottom:1px solid var(--border); z-index:20;}
 .viewer-title{flex:1; font-size:16px; font-weight:600; font-family:'Noto Serif KR',serif;}
 
-.icon-btn{width:44px; height:44px; display:flex; align-items:center; justify-content:center; background:var(--glass); border:1px solid var(--border); border-radius:12px; color:var(--accent); cursor:pointer; transition:0.3s;}
-.icon-btn:hover{background:var(--accent); color:var(--bg-main); transform: translateY(-2px);}
+.icon-btn{width:44px; height:44px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius:12px; color:var(--accent); cursor:pointer; transition:0.3s;}
+.icon-btn:hover{background:var(--accent); color:var(--bg-main);}
 
-.ai-toggle-btn{background: linear-gradient(135deg, var(--accent), var(--purple)); border:none; color:white; padding: 12px 24px; border-radius: 12px; font-size: 13px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 20px rgba(129,140,248,0.3); transition: 0.3s;}
+.ai-toggle-btn{background: linear-gradient(135deg, var(--gold), #b45309); border:none; color:white; padding: 12px 24px; border-radius: 12px; font-size: 13px; font-weight: 800; cursor: pointer; box-shadow: 0 4px 20px rgba(251,191,36,0.3); transition: 0.3s;}
 
 #cvwrap{flex:1; overflow:auto; display:flex; justify-content:center; align-items: flex-start; padding:50px; position:relative; z-index:10; cursor: zoom-in;}
 #pdf-canvas{box-shadow: 0 50px 150px rgba(0,0,0,1); background:#fff; display:none; border-radius:4px;}
 
-/* AI Search Modal */
+/* AI & NotebookLM Modal */
 #aiModal{position:fixed; bottom:30px; right:30px; width:500px; height:700px; background:var(--bg-panel); border:1px solid var(--border); border-radius:28px; z-index:2000; display:none; flex-direction:column; box-shadow:0 30px 100px rgba(0,0,0,0.9); overflow:hidden; backdrop-filter: blur(20px);}
 .ai-header{padding:25px 30px; background:rgba(255,255,255,0.02); border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center;}
 .ai-body{flex:1; overflow-y:auto; padding:30px; scroll-behavior: smooth;}
-.ai-msg{padding:18px 22px; border-radius:20px; margin-bottom:24px; font-size:14.5px; line-height:1.8; max-width:92%; box-shadow: 0 4px 15px rgba(0,0,0,0.2);}
-.ai-msg-ai{background:rgba(56,189,248,0.05); border-left:6px solid var(--accent); color:var(--text-p); border-top-left-radius:4px;}
-.ai-msg-user{background:var(--bg-card); margin-left:auto; text-align:right; color:var(--accent); border-bottom-right-radius:4px;}
+.ai-msg{padding:20px; border-radius:20px; margin-bottom:24px; font-size:14.5px; line-height:1.8; box-shadow: 0 4px 15px rgba(0,0,0,0.2);}
+.ai-msg-ai{background:rgba(251,191,36,0.05); border-left:6px solid var(--gold); color:var(--text-p);}
+.ai-msg-user{background:var(--bg-card); margin-left:auto; text-align:right; color:var(--accent); max-width:85%;}
 
 .action-row{display: flex; gap: 8px; flex-wrap: wrap; margin-top: 15px;}
-.jump-btn{display:inline-flex; align-items:center; gap:8px; padding:10px 16px; background:var(--accent); color:var(--bg-main); border-radius:10px; font-size:12px; font-weight:700; cursor:pointer; border:none; transition:0.2s;}
-.notebook-btn{display:inline-flex; align-items:center; gap:8px; padding:10px 16px; background:var(--gold); color:var(--bg-main); border-radius:10px; font-size:12px; font-weight:700; cursor:pointer; border:none; transition:0.2s;}
+.jump-btn{display:inline-flex; align-items:center; gap:8px; padding:10px 16px; background:var(--accent); color:var(--bg-main); border-radius:10px; font-size:12px; font-weight:700; cursor:pointer; border:none;}
+.notebook-btn{display:inline-flex; align-items:center; gap:8px; padding:10px 18px; background:var(--gold); color:var(--bg-main); border-radius:12px; font-size:13px; font-weight:800; cursor:pointer; border:none; width:100%; justify-content:center;}
+
+.ai-input-box{padding:25px; background:var(--bg-main); border-top:1px solid var(--border); display:flex; gap:12px; align-items:center;}
 
 #loading{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:500; text-align:center; width: 100%;}
 .spin{width:60px; height:60px; border:6px solid rgba(56,189,248,0.1); border-top-color:var(--accent); border-radius:50%; animation:spin 1s linear infinite; margin: 0 auto;}
 
 @keyframes spin{to{transform:rotate(360deg)}}
-@media print { #left, .top-nav, #matrix-rain, #aiModal { display: none !important; } }
+@media print { #left, .top-nav, #aiModal { display: none !important; } }
 </style>
 </head>
 <body>
@@ -124,7 +111,7 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
         <div class="lh-ttl">대한변협 법규집 ✨</div>
         <div class="status-tag">
             <div id="dbDot" class="dot"></div>
-            <span id="dbStatus">연결 확인 중</span>
+            <span id="dbStatus">연결 대기</span>
         </div>
     </div>
     <div class="info-grid">
@@ -134,11 +121,12 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
         </div>
         <div class="info-item">
             <span class="info-val">26.02.26</span>
-            <span class="info-lab">최종 개정일</span>
+            <span class="info-lab">데이터 업데이트</span>
         </div>
     </div>
+    <!-- Direct Connection Button to YOUR NotebookLM -->
     <button class="system-link-btn" onclick="window.open('https://notebooklm.google.com/notebook/b9a1f239-3c1e-40c1-a5de-2d3322cd650f', '_blank')">
-        🚀 법규집 - NotebookLM 바로가기
+        📚 법규집 - NotebookLM 즉시 접속
     </button>
   </div>
 
@@ -148,13 +136,10 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
   </div>
 
   <div class="search-container">
-    <input class="s-input" id="searchQ" placeholder="검색어 또는 페이지 입력..." autocomplete="off">
+    <input class="s-input" id="searchQ" placeholder="검색어 또는 페이지 번호..." autocomplete="off">
   </div>
 
-  <div class="cat-container" id="catZone">
-    <div class="cat-grid" id="catBar"></div>
-  </div>
-
+  <div class="cat-grid" id="catBar"></div>
   <div class="list-container" id="cardsWrap"></div>
 
   <div class="pager-box">
@@ -165,12 +150,11 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
 </div>
 
 <div id="right">
-  <canvas id="matrix-rain"></canvas>
   <div class="top-nav">
     <button class="icon-btn" onclick="toggleSidebar()">☰</button>
-    <div class="viewer-title" id="tbTitle">데이터베이스 로드 중...</div>
+    <div class="viewer-title" id="tbTitle">준비 중...</div>
     <div style="display:flex; gap:15px; align-items:center;">
-      <button class="ai-toggle-btn" onclick="toggleAI()">✨ AI 검색 엔진</button>
+      <button class="ai-toggle-btn" onclick="toggleAI()">🔥 AI 정밀 분석 (NotebookLM)</button>
       <div style="width:1px; height:25px; background:var(--border);"></div>
       <div style="display:flex; gap:8px;">
         <button class="icon-btn" style="width:36px; height:36px; font-size:14px;" onclick="changePdfPage(-1)">◀</button>
@@ -185,12 +169,12 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
     <div id="loading">
       <div id="loadingUI">
         <div class="spin"></div>
-        <div style="color:var(--accent); font-family:monospace; margin-top:20px; font-size:14px; letter-spacing:4px; font-weight:700;">ACCELERATING...</div>
+        <div style="color:var(--accent); font-family:monospace; margin-top:20px; font-size:14px; letter-spacing:4px; font-weight:700;">SYNCING REGS...</div>
       </div>
       <div id="recoveryUI" style="display:none;">
           <div style="background: rgba(15,23,42,0.95); padding: 50px; border-radius: 30px; border: 1px solid var(--border); text-align: center; max-width: 550px;">
-            <h3 style="color:var(--accent); margin-bottom:20px; font-size:22px;">데이터 보안 연동</h3>
-            <button class="ai-toggle-btn" style="width:100%; margin-bottom:12px;" onclick="document.getElementById('pdfIn').click()">📂 laws.pdf 연결</button>
+            <h3 style="color:var(--accent); margin-bottom:20px; font-size:22px;">보안 시스템 연동</h3>
+            <button class="system-link-btn" style="margin-bottom:12px; background:var(--accent); color:var(--bg-main); border:none;" onclick="document.getElementById('pdfIn').click()">📂 laws.pdf 연결</button>
             <input type="file" id="pdfIn" style="display:none" accept=".pdf" onchange="handleManualPdf(this)">
             <button class="pager-btn" style="width:100%; padding:14px;" onclick="document.getElementById('jsonIn').click()">📂 laws_data.json 연결</button>
             <input type="file" id="jsonIn" style="display:none" accept=".json" onchange="handleManualJson(this)">
@@ -203,22 +187,27 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
 
 <div id="aiModal">
   <div class="ai-header">
-    <span style="font-weight:800; color:var(--accent); font-size:18px;">✨ AI 법규 검색 엔진</span>
+    <span style="font-weight:800; color:var(--gold); font-size:18px;">🔥 AI 정밀 분석 엔진</span>
     <button class="pager-btn" style="border-radius:20px; padding:6px 15px;" onclick="toggleAI()">닫기</button>
   </div>
   <div class="ai-body" id="aiChat">
-    <div class="ai-msg ai-msg-ai">고속 엔진이 활성화되었습니다. 키워드를 입력하시면 1,128페이지에서 즉시 조문을 찾아드립니다.</div>
+    <div class="ai-msg ai-msg-ai">
+        정교한 법률 분석을 위해 <b>노트북LM</b> 프로젝트와 연동됩니다.<br><br>
+        1. 질문 키워드를 입력하여 관련 조문을 검색하세요.<br>
+        2. 검색된 데이터를 복사하여 노트북LM에 붙여넣으세요.<br>
+        3. 구글의 강력한 AI 지능으로 답변을 확인하실 수 있습니다.
+    </div>
   </div>
   <div class="ai-input-box">
-    <input type="text" class="s-input" id="aiInput" placeholder="예: 총회 성원 요건, 징계 절차 등">
-    <button class="ai-toggle-btn" style="padding:14px 28px;" onclick="askAI()">검색</button>
+    <input type="text" class="s-input" id="aiInput" placeholder="질문 키워드 입력 (예: 징계 양정 기준)">
+    <button class="ai-toggle-btn" style="padding:14px 28px;" onclick="askAI()">조문 검색</button>
   </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>
 /* ───────────────────────────────────────────────────
-   SYSTEM CONFIG & REFINED DATA
+   COMPLETE SYSTEM LOGIC (NOTEBOOK-LM CENTRIC)
 ─────────────────────────────────────────────────── */
 const ALL_REGS = [
   {n:'변호사법',p:26,cat:'법령'},{n:'변호사법 시행령',p:76,cat:'법령'},{n:'변호사시험법',p:103,cat:'법령'},{n:'변호사시험법 시행령',p:111,cat:'법령'},{n:'변호사시험법 시행규칙',p:119,cat:'법령'},{n:'외국법자문사법',p:123,cat:'법령'},{n:'외국법자문사법 시행령',p:154,cat:'법령'},{n:'외국법자문사법 시행규칙',p:167,cat:'법령'},
@@ -237,42 +226,32 @@ const ALL_REGS = [
   {n:'제수당지급에관한지침',p:845,cat:'지침'},{n:'변호사 권익위원회 시행세칙',p:852,cat:'지침'},{n:'변호사윤리교육지침',p:857,cat:'지침'},{n:'회지윤리지침',p:858,cat:'지침'},{n:'심의수수료 지침',p:863,cat:'지침'},{n:'외국법자문사등록시행세칙',p:865,cat:'지침'},{n:'대한변협 사무국 직원 맞춤형 복지제도 운영지침',p:908,cat:'지침'},{n:'법관 및 검사 임용지원자 평가지침',p:913,cat:'지침'},{n:'외국법자문법률사무소 공동사건처리등을 위한 시행세칙',p:917,cat:'지침'},{n:'협회 회의실 이용에 관한 지침',p:932,cat:'지침'},{n:'법관평가의 방법 및 평가결과의 공개 등에 관한 지침',p:936,cat:'지침'},{n:'검사평가의 방법 및 평가결과 공개 등에 관한 지침',p:943,cat:'지침'},{n:'대한변호사협회 개인정보 처리지침',p:955,cat:'지침'},{n:'법제연구원 운영세칙',p:991,cat:'지침'},{n:'Task Force(TF) 지침',p:1001,cat:'지침'},{n:'대한변호사협회 직무관련 범죄 고소(고발) 지침',p:1004,cat:'지침'},{n:'전관비리신고센터운영에관한지침',p:1007,cat:'지침'},{n:'보고서 등 원고료 산정기준에 관한 지침',p:1010,cat:'지침'},{n:'회의비, 수당등에관한지침',p:1013,cat:'지침'},{n:'대한변호사협회 노사협의회 지침',p:1020,cat:'지침'},{n:'변호사신분증지침',p:1026,cat:'지침'},{n:'SNS 등을 통한 업무에 관한 지침',p:1029,cat:'지침'},{n:'지원금 지급 지침',p:1031,cat:'지침'},{n:'대한변호사협회 변호사정보센터 개인정보처리방침',p:1034,cat:'지침'},{n:'전국지방변호사회장협의회 정책 및 연구과제 등 지원 지침',p:1043,cat:'지침'},{n:'인권보고서 원고료 등 작성 수당 산정기준에 관한 지침',p:1045,cat:'지침'},{n:'우수변호사 심사 및 선정 등에 관한 지침',p:1048,cat:'지침'},{n:'합작법무법인 내 선임변호사 및 선임외국법자문사의 겸직허가 신고 등 지침',p:1053,cat:'지침'},{n:'대한변협 임직원 성희롱·성폭력 예방 및 2차 피해 방지 지침',p:1055,cat:'지침'},{n:'보도자료등에 관한 지침',p:1063,cat:'지침'},{n:'변호사시험 합격자 연수 학사관리지침',p:1068,cat:'지침'},{n:'대한변협 전문변호사회 지원센터 운영에 관한 시행지침',p:1082,cat:'지침'},{n:'인사평가에 관한 지침',p:1083,cat:'지침'}
 ];
 const CATS = ['전체','법령','회칙','사업계획','회의','등록','징계','법제인권','연수','업무홍보','공익','외국법','회계','사무국','지침'];
-const NOTEBOOK_LM_URL = "https://notebooklm.google.com/notebook/b9a1f239-3c1e-40c1-a5de-2d3322cd650f";
+const TARGET_NOTEBOOK_URL = "https://notebooklm.google.com/notebook/b9a1f239-3c1e-40c1-a5de-2d3322cd650f";
 
 let pdfDoc = null, curPdfPg = 1, scale = 1.4, isRendering = false;
-let globalJsonData = []; // Full Data
-let normalizedData = []; // Pre-processed search cache
+let globalJsonData = [];
+let normalizedData = [];
 let curTab = 0, activeCat = '전체', listPage = 0, searchTimeout = null;
 const PER_PAGE = 12;
 
 async function initApp() {
-    const dbStatus = document.getElementById('dbStatus');
-    const dbDot = document.getElementById('dbDot');
-    const tbTitle = document.getElementById('tbTitle');
-    const loadingUI = document.getElementById('loadingUI');
-    const recoveryUI = document.getElementById('recoveryUI');
-
     try {
         const jsonRes = await fetch('laws_data.json?t=' + Date.now());
         if(jsonRes.ok) {
             globalJsonData = await jsonRes.json();
-            // SPEED OPTIMIZATION: Pre-normalize data for fast lookups
-            normalizedData = globalJsonData.map(item => ({
-                p: item.page,
-                c: (item.content || "").toLowerCase()
-            }));
-            dbStatus.innerText = "DB 동기화 완료";
-            dbDot.classList.add('ready');
+            normalizedData = globalJsonData.map(item => ({ p: item.page, c: (item.content || "").toLowerCase() }));
+            document.getElementById('dbStatus').innerText = "DB 동기화 완료";
+            document.getElementById('dbDot').classList.add('ready');
         }
-        const pdfTask = pdfjsLib.getDocument('laws.pdf');
-        pdfDoc = await pdfTask.promise;
+        pdfDoc = await pdfjsLib.getDocument('laws.pdf').promise;
         document.getElementById('totPg').textContent = pdfDoc.numPages;
-        loadingUI.style.display = 'none';
+        document.getElementById('loading').style.display = 'none';
         document.getElementById('pdf-canvas').style.display = 'block';
-        tbTitle.innerText = "2026 대한변호사협회 법규집";
+        document.getElementById('tbTitle').innerText = "2026 대한변호사협회 법규집";
         initCatBar(); renderPage(1); performSearch(); initInteractive();
     } catch (e) {
-        loadingUI.style.display = 'none'; recoveryUI.style.display = 'block';
+        document.getElementById('loadingUI').style.display = 'none';
+        document.getElementById('recoveryUI').style.display = 'block';
         initCatBar();
     }
 }
@@ -284,143 +263,95 @@ function initInteractive() {
     cvWrap.addEventListener('wheel', (e) => {
         if (e.ctrlKey) {
             e.preventDefault();
-            const step = 0.22;
-            scale = (e.deltaY < 0) ? Math.min(scale + step, 4.0) : Math.max(scale - step, 0.4);
+            scale = (e.deltaY < 0) ? Math.min(scale + 0.2, 4.0) : Math.max(scale - 0.2, 0.4);
             renderPage(curPdfPg);
         }
     }, { passive: false });
     canvas.addEventListener('click', (e) => {
         const rect = canvas.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        changePdfPage(x < rect.width / 2 ? -1 : 1);
+        changePdfPage((e.clientX - rect.left) < rect.width / 2 ? -1 : 1);
     });
 }
 
-/* ── REFINED TOKEN SEARCH ENGINE ── */
+/* ── SEARCH & NOTEBOOK LM DATA BRIDGE ── */
 function performSearch() {
     const qRaw = document.getElementById('searchQ').value.trim().toLowerCase();
-    const wrap = document.getElementById('cardsWrap');
-    wrap.innerHTML = '';
+    const wrap = document.getElementById('cardsWrap'); wrap.innerHTML = '';
     const tokens = qRaw.split(/\s+/).filter(t => t.length > 0);
 
     if(curTab === 0) {
         let filtered = ALL_REGS.filter(r => (activeCat === '전체' || r.cat === activeCat));
-        if(tokens.length > 0) filtered = filtered.filter(r => tokens.every(t => r.n.toLowerCase().includes(t)));
-        const totalPgs = Math.ceil(filtered.length / PER_PAGE);
-        document.getElementById('listPgInfo').innerText = `${listPage + 1} / ${totalPgs || 1}`;
-        filtered.slice(listPage * PER_PAGE, (listPage + 1) * PER_PAGE).forEach(r => {
-            const d = document.createElement('div');
-            d.className = 'reg-card' + (curPdfPg === r.p ? ' active' : '');
+        if(tokens.length) filtered = filtered.filter(r => tokens.every(t => r.n.toLowerCase().includes(t)));
+        document.getElementById('listPgInfo').innerText = `${listPage+1} / ${Math.ceil(filtered.length/PER_PAGE) || 1}`;
+        filtered.slice(listPage*PER_PAGE, (listPage+1)*PER_PAGE).forEach(r => {
+            const d = document.createElement('div'); d.className = 'reg-card' + (curPdfPg === r.p ? ' active' : '');
             d.innerHTML = `<div class="reg-pg-tag">INDEX P.${r.p}</div><div class="reg-name">${r.n}</div>`;
             d.onclick = () => { renderPage(r.p); document.getElementById('tbTitle').innerText = r.n; updateActive(d); };
             wrap.appendChild(d);
         });
     } else {
-        if(normalizedData.length === 0) { wrap.innerHTML = '<div style="color:var(--text-s); text-align:center; padding:50px;">데이터베이스를 연결하세요.</div>'; return; }
-        if(tokens.length === 0) { wrap.innerHTML = '<div style="color:var(--text-s); text-align:center; padding:50px;">검색어를 입력하세요.</div>'; return; }
-        
-        // High speed filtered scan using normalized cache
-        const results = normalizedData.filter(item => tokens.every(t => item.c.indexOf(t) !== -1)).slice(0, 30);
-        
-        results.forEach(r => {
-            const d = document.createElement('div');
-            d.className = 'reg-card';
-            let regName = "식별 조문";
-            for(let i=0; i<ALL_REGS.length; i++) if(r.p >= ALL_REGS[i].p && (i+1 === ALL_REGS.length || r.p < ALL_REGS[i+1].p)) { regName = ALL_REGS[i].n; break; }
-            
-            // Get original content for snippet
-            const originalContent = globalJsonData.find(o => o.page === r.p).content || "";
-            const snipIdx = r.c.indexOf(tokens[0]);
-            const snip = "..." + originalContent.substring(Math.max(0, snipIdx - 40), Math.min(originalContent.length, snipIdx + 100)) + "...";
-            
-            d.innerHTML = `<div class="reg-pg-tag">PAGE ${r.p} | ${regName}</div><div class="reg-snip">${snip}</div>`;
+        if(!normalizedData.length || !tokens.length) return;
+        normalizedData.filter(item => tokens.every(t => item.c.includes(t))).slice(0, 30).forEach(r => {
+            const d = document.createElement('div'); d.className = 'reg-card';
+            const original = globalJsonData.find(o => o.page === r.p).content || "";
+            d.innerHTML = `<div class="reg-pg-tag">PAGE ${r.p}</div><div class="reg-name">${original.substring(0, 80)}...</div>`;
             d.onclick = () => { renderPage(r.p); }; wrap.appendChild(d);
         });
-        if(results.length === 0) wrap.innerHTML = '<div style="color:var(--text-s); text-align:center; padding:50px;">일치하는 내용이 없습니다.</div>';
     }
 }
 
-/* ── AI SEARCH & NOTEBOOK LM BRIDGE ── */
 async function askAI() {
-    const input = document.getElementById('aiInput');
     const chat = document.getElementById('aiChat');
-    const q = input.value.trim(); if(!q) return;
-    input.value = '';
+    const q = document.getElementById('aiInput').value.trim(); if(!q) return;
+    document.getElementById('aiInput').value = '';
     chat.innerHTML += `<div class="ai-msg ai-msg-user">${q}</div>`;
+    chat.innerHTML += `<div class="ai-msg ai-msg-ai" id="aiTemp">🔍 관련 조문을 스캔하여 노트북LM 전송 데이터를 생성 중...</div>`;
     chat.scrollTop = chat.scrollHeight;
 
-    if (normalizedData.length === 0) { chat.innerHTML += `<div class="ai-msg ai-msg-ai">DB가 연결되지 않았습니다.</div>`; return; }
-    chat.innerHTML += `<div class="ai-msg ai-msg-ai" id="aiTemp">🔍 고속 엔진이 조문을 분석 중입니다...</div>`;
-    
-    // Asynchronous processing to prevent UI lag
     setTimeout(() => {
         const tokens = q.split(/\s+/).filter(w => w.length > 1);
         let matchPool = [];
-        
         normalizedData.forEach(item => {
-            let score = 0; tokens.forEach(t => { if(item.c.indexOf(t) !== -1) score += 10; }); 
-            if(score > 0) {
-                const idx = item.c.indexOf(tokens[0]);
-                matchPool.push({
-                    pg: item.p, 
-                    score: score, 
-                    content: globalJsonData.find(o => o.page === item.p).content,
-                    snip: item.c.substring(Math.max(0, idx - 20), idx + 250)
-                });
-            }
+            let score = 0; tokens.forEach(t => { if(item.c.includes(t)) score += 10; });
+            if(score > 0) matchPool.push({ p: item.p, score, txt: globalJsonData.find(o => o.page === item.p).content });
         });
-
         matchPool.sort((a,b) => b.score - a.score);
-        const top = matchPool.slice(0, 4);
-        
-        let res = "";
-        if (top.length > 0) {
-            let fullTextForNotebook = `--- 법규집 검색 결과 (질문: ${q}) ---\n\n`;
-            res = `<b>${top.length}개의 관련 근거</b>를 본문에서 추출했습니다. 정밀한 법률 추론이 필요하시면 하단의 <b>노트북LM 분석</b> 버튼을 클릭하세요.<br><br>`;
-            
-            top.forEach((m, i) => {
-                let regName = "관련 조문";
-                for(let j=0; j<ALL_REGS.length; j++) if(m.pg >= ALL_REGS[j].p && (j+1 === ALL_REGS.length || m.pg < ALL_REGS[j+1].p)) { regName = ALL_REGS[j].n; break; }
-                res += `${i+1}. 📄 <b>${regName} (P.${m.pg})</b><br>`;
-                res += `<small style="color:var(--text-s)">"...${m.snip.replace(/\n/g, ' ')}..."</small><br>`;
-                res += `<div class="action-row"><button class="jump-btn" onclick="renderPage(${m.pg}); toggleAI();">📍 조문 바로가기</button></div><br>`;
-                fullTextForNotebook += `[P.${m.pg} ${regName}]: ${m.content}\n\n`;
-            });
+        const top = matchPool.slice(0, 5);
 
-            res += `<div style="margin-top:10px; padding:18px; background:rgba(251,191,36,0.1); border-radius:18px; border:1px solid rgba(251,191,36,0.3);">`;
-            res += `<p style="font-size:12.5px; color:var(--gold); margin-bottom:15px; line-height:1.5;">💡 이 조문들을 노트북LM 프로젝트로 보내 정밀 분석하시겠습니까?</p>`;
-            res += `<button class="notebook-btn" onclick="copyAndJumpToNotebook('${encodeURIComponent(fullTextForNotebook.replace(/'/g, "\\'"))}')">🚀 노트북LM으로 분석하기 (텍스트 복사)</button>`;
-            res += `</div>`;
+        if(top.length) {
+            let fullDataText = `--- 법규집 분석 요청 (질문: ${q}) ---\n\n`;
+            let resHtml = `노트북LM이 질문에 답변할 수 있도록 <b>${top.length}개의 주요 법적 근거</b>를 준비했습니다.<br><br>`;
+            top.forEach((m, i) => {
+                resHtml += `📄 <b>조문 근거 ${i+1} (P.${m.p})</b><br><div class="action-row"><button class="jump-btn" onclick="renderPage(${m.p}); toggleAI();">📍 이동</button></div><br>`;
+                fullDataText += `[근거 P.${m.p}]: ${m.txt}\n\n`;
+            });
+            resHtml += `<button class="notebook-btn" onclick="copyAndJumpToNotebook('${encodeURIComponent(fullDataText.replace(/'/g, "\\'"))}')">🚀 노트북LM에서 질문하고 답변받기</button>`;
+            document.getElementById('aiTemp').innerHTML = resHtml;
         } else {
-            res = "죄송합니다. 현재 법규집 본문에서 해당 키워드와 일치하는 명확한 근거를 찾지 못했습니다.";
+            document.getElementById('aiTemp').innerHTML = "관련 근거를 찾지 못했습니다. 다른 검색어로 시도하세요.";
         }
-        document.getElementById('aiTemp').innerHTML = res;
         document.getElementById('aiTemp').id = '';
         chat.scrollTop = chat.scrollHeight;
-    }, 100);
+    }, 400);
 }
 
 function copyAndJumpToNotebook(context) {
     const text = decodeURIComponent(context);
-    const el = document.createElement('textarea');
-    el.value = text; document.body.appendChild(el);
+    const el = document.createElement('textarea'); el.value = text; document.body.appendChild(el);
     el.select(); document.execCommand('copy'); document.body.removeChild(el);
     
     const msg = document.createElement('div');
-    msg.innerText = "✅ 텍스트 복사 완료! 노트북LM 페이지가 열립니다. [소스 추가]에 붙여넣으세요.";
-    msg.style = "position:fixed; top:30px; left:50%; transform:translateX(-50%); background:var(--gold); color:var(--bg-main); padding:20px 40px; border-radius:15px; z-index:9999; font-weight:800; box-shadow:0 10px 40px rgba(0,0,0,0.6); border: 2px solid white;";
+    msg.innerText = "✅ 조문 복사 완료! '법규집 - NotebookLM'으로 이동합니다. [텍스트 복사] 소스에 붙여넣으세요.";
+    msg.style = "position:fixed; top:30px; left:50%; transform:translateX(-50%); background:var(--gold); color:var(--bg-main); padding:20px 40px; border-radius:15px; z-index:9999; font-weight:800; box-shadow:0 10px 40px rgba(0,0,0,0.6);";
     document.body.appendChild(msg);
     
-    setTimeout(() => {
-        window.open(NOTEBOOK_LM_URL, '_blank');
-        msg.remove();
-    }, 2000);
+    setTimeout(() => { window.open(TARGET_NOTEBOOK_URL, '_blank'); msg.remove(); }, 2000);
 }
 
-/* ── UI UTILS ── */
-function toggleSidebar() { document.getElementById('left').classList.toggle('collapsed'); setTimeout(() => window.dispatchEvent(new Event('resize')), 400); }
+/* ── UI HELPERS ── */
+function toggleSidebar() { document.getElementById('left').classList.toggle('collapsed'); }
 function toggleAI() { const m = document.getElementById('aiModal'); m.style.display = m.style.display === 'flex' ? 'none' : 'flex'; }
-function switchTab(t) { curTab = t; listPage = 0; document.getElementById('tab0').classList.toggle('on', t===0); document.getElementById('tab1').classList.toggle('on', t===1); document.getElementById('catZone').style.display = t===0?'block':'none'; performSearch(); }
+function switchTab(t) { curTab = t; listPage = 0; document.getElementById('tab0').classList.toggle('on', t===0); document.getElementById('tab1').classList.toggle('on', t===1); performSearch(); }
 function updateActive(el){ document.querySelectorAll('.reg-card').forEach(c => c.classList.remove('active')); el.classList.add('active'); }
 function changePdfPage(d){ if(pdfDoc) { let t = curPdfPg + d; if(t>=1 && t<=pdfDoc.numPages) renderPage(t); } }
 function moveListPage(d) { listPage = Math.max(0, listPage + d); performSearch(); }
@@ -432,47 +363,18 @@ function initCatBar() {
         bar.appendChild(chip);
     });
 }
-function handleManualPdf(input) { const file = input.files[0]; if (!file) return; const reader = new FileReader(); reader.onload = async (e) => { pdfDoc = await pdfjsLib.getDocument({ data: e.target.result }).promise; document.getElementById('totPg').textContent = pdfDoc.numPages; document.getElementById('recoveryUI').style.display = 'none'; document.getElementById('pdf-canvas').style.display = 'block'; renderPage(1); initInteractive(); }; reader.readAsArrayBuffer(file); }
-function handleManualJson(input) { const file = input.files[0]; if (!file) return; const reader = new FileReader(); reader.onload = (e) => { globalJsonData = JSON.parse(e.target.result); normalizedData = globalJsonData.map(item => ({ p: item.page, c: (item.content || "").toLowerCase() })); document.getElementById('dbStatus').innerText = "DB 로드 완료"; document.getElementById('dbDot').classList.add('ready'); performSearch(); }; reader.readAsText(file); }
-
 async function renderPage(pg){
-    if(!pdfDoc || isRendering) return;
-    isRendering = true; curPdfPg = pg;
+    if(!pdfDoc || isRendering) return; isRendering = true; curPdfPg = pg;
     document.getElementById('curPg').textContent = pg;
-    try {
-        const page = await pdfDoc.getPage(pg);
-        const vp = page.getViewport({ scale });
-        const cv = document.getElementById('pdf-canvas');
-        const ctx = cv.getContext('2d');
-        cv.width = vp.width; cv.height = vp.height;
-        await page.render({ canvasContext: ctx, viewport: vp }).promise;
-    } catch(e) {}
+    const page = await pdfDoc.getPage(pg); const vp = page.getViewport({ scale });
+    const cv = document.getElementById('pdf-canvas'); const ctx = cv.getContext('2d');
+    cv.width = vp.width; cv.height = vp.height; await page.render({ canvasContext: ctx, viewport: vp }).promise;
     isRendering = false;
 }
+function handleManualPdf(input) { const file = input.files[0]; if (!file) return; const reader = new FileReader(); reader.onload = async (e) => { pdfDoc = await pdfjsLib.getDocument({ data: e.target.result }).promise; document.getElementById('totPg').textContent = pdfDoc.numPages; document.getElementById('recoveryUI').style.display = 'none'; document.getElementById('pdf-canvas').style.display = 'block'; renderPage(1); }; reader.readAsArrayBuffer(file); }
+function handleManualJson(input) { const file = input.files[0]; if (!file) return; const reader = new FileReader(); reader.onload = (e) => { globalJsonData = JSON.parse(e.target.result); normalizedData = globalJsonData.map(item => ({ p: item.page, c: (item.content || "").toLowerCase() })); performSearch(); }; reader.readAsText(file); }
 
-function initMatrix() {
-    const canvas = document.getElementById('matrix-rain');
-    const ctx = canvas.getContext('2d');
-    const CHARS = '0123456789대한변협법규집분석시스템';
-    const FONT_SIZE = 15;
-    let cols, drops;
-    function resize() { canvas.width = canvas.parentElement.offsetWidth; canvas.height = canvas.parentElement.offsetHeight; cols = Math.floor(canvas.width / FONT_SIZE); drops = Array.from({length: cols}, () => Math.random() * -100); }
-    function draw() {
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.1)'; ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.font = FONT_SIZE + 'px monospace';
-        for(let i = 0; i < drops.length; i++) {
-            const text = CHARS[Math.floor(Math.random() * CHARS.length)];
-            ctx.shadowBlur = 10; ctx.shadowColor = '#10b981'; ctx.fillStyle = '#10b981';
-            ctx.fillText(text, i * FONT_SIZE, drops[i] * FONT_SIZE);
-            if(drops[i] * FONT_SIZE > canvas.height && Math.random() > 0.985) drops[i] = 0;
-            drops[i]++;
-        }
-        requestAnimationFrame(draw);
-    }
-    resize(); window.addEventListener('resize', resize); requestAnimationFrame(draw);
-}
-
-window.onload = () => { initApp(); initMatrix(); };
+window.onload = initApp;
 document.getElementById('searchQ').oninput = () => { clearTimeout(searchTimeout); searchTimeout = setTimeout(performSearch, 250); };
 document.getElementById('aiInput').onkeydown = e => { if(e.key === 'Enter') askAI(); };
 </script>
