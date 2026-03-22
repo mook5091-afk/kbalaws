@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2026 대한변호사협회 법규집 ✨ ULTIMATE 5.5</title>
+<title>2026 대한변호사협회 법규집 ✨ ULTIMATE 5.6</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 <!-- PDF Extraction & Multi-page Library -->
 <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
@@ -70,43 +70,34 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
 .reg-card.active{border-color:var(--accent); background:rgba(56,189,248,0.06);}
 .reg-pg-tag{font-size:10px; color:var(--accent); font-weight: 800; margin-bottom:10px; background: rgba(56,189,248,0.1); width: fit-content; padding: 3px 8px; border-radius: 6px;}
 .reg-name{font-size:15.5px; line-height:1.6; font-weight:600;}
-.reg-snip{font-size:13px; color:var(--text-s); margin-top:12px; line-height:1.7; border-top: 1px solid var(--border); padding-top:12px;}
+.reg-snip{font-size:13px; color:var(--text-s); margin-top:12px; line-height:1.7; border-top: 1px solid var(--border); padding-top:14px;}
 
 .pager-box{padding:18px 24px; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; background:var(--bg-panel);}
 .pager-btn{background: rgba(255,255,255,0.03); border: 1px solid var(--border); color: var(--text-p); padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: 600; transition: 0.2s;}
 
 /* ── RIGHT VIEW ── */
 #right{flex:1; display:flex; flex-direction:column; position:relative; background:#000; overflow:hidden;}
-.top-nav{display:flex; align-items:center; gap:15px; padding:0 30px; height:70px; background:rgba(2,6,23,0.8); backdrop-filter:blur(30px); border-bottom:1px solid var(--border); z-index:20;}
+.top-nav{display:flex; align-items:center; gap:12px; padding:0 30px; height:70px; background:rgba(2,6,23,0.8); backdrop-filter:blur(30px); border-bottom:1px solid var(--border); z-index:20;}
 .viewer-title{flex:1; font-size:16px; font-weight:600; font-family:'Noto Serif KR',serif;}
 
-.icon-btn{width:44px; height:44px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius:12px; color:var(--accent); cursor:pointer; transition:0.3s;}
+.icon-btn{width:44px; height:44px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius:12px; color:var(--accent); cursor:pointer; transition:0.3s; font-size:18px;}
 .icon-btn:hover{background:var(--accent); color:var(--bg-main);}
 
 .action-btn-group{display: flex; gap: 8px;}
 .tbtn-tool{background: var(--bg-card); border: 1px solid var(--border); color: var(--text-p); padding: 10px 18px; border-radius: 12px; font-size: 13px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: 0.2s;}
 .tbtn-tool:hover{border-color: var(--accent); color: var(--accent); background: rgba(56,189,248,0.1);}
-.tbtn-tool.printing { background: var(--gold); color: #000; }
 
 #cvwrap{flex:1; overflow:auto; display:flex; justify-content:center; align-items: flex-start; padding:50px; position:relative; z-index:10; cursor: zoom-in; scroll-behavior: smooth;}
 #pdf-canvas{box-shadow: 0 50px 150px rgba(0,0,0,1); background:#fff; display:none; border-radius:4px;}
-
-/* Search Summary Modal */
-#summaryModal{position:fixed; bottom:30px; right:30px; width:520px; height:750px; background:var(--bg-panel); border:1px solid var(--border); border-radius:28px; z-index:2000; display:none; flex-direction:column; box-shadow:0 30px 100px rgba(0,0,0,0.9); overflow:hidden; backdrop-filter: blur(20px);}
-.sm-header{padding:25px 30px; background:rgba(255,255,255,0.02); border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center;}
-.sm-body{flex:1; overflow-y:auto; padding:30px; scroll-behavior: smooth;}
-.sm-msg{padding:20px; border-radius:20px; margin-bottom:24px; font-size:14.5px; line-height:1.8; box-shadow: 0 4px 15px rgba(0,0,0,0.2);}
-.sm-msg-sys{background:rgba(56,189,248,0.05); border-left:6px solid var(--accent); color:var(--text-p);}
-
-.action-row{display: flex; gap: 8px; flex-wrap: wrap; margin-top: 15px;}
-.jump-btn{display:inline-flex; align-items:center; gap:8px; padding:10px 16px; background:var(--accent); color:var(--bg-main); border-radius:10px; font-size:12px; font-weight:700; cursor:pointer; border:none;}
 
 #loading{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:500; text-align:center; width: 100%;}
 .spin{width:60px; height:60px; border:6px solid rgba(56,189,248,0.1); border-top-color:var(--accent); border-radius:50%; animation:spin 1s linear infinite; margin: 0 auto;}
 
 @keyframes spin{to{transform:rotate(360deg)}}
+
+/* PRINT STYLES */
 @media print {
-    #left, .top-nav, #summaryModal, .pager-box { display: none !important; }
+    #left, .top-nav, .pager-box { display: none !important; }
     #right { width: 100% !important; height: auto !important; position: static !important; overflow: visible !important; }
     #cvwrap { padding: 0 !important; overflow: visible !important; display: block !important; }
     #pdf-canvas { box-shadow: none !important; width: 100% !important; height: auto !important; }
@@ -131,13 +122,13 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
         </div>
         <div class="info-item">
             <span class="info-val">26.02.26</span>
-            <span class="info-lab">데이터 업데이트</span>
+            <span class="info-lab">최종 업데이트</span>
         </div>
     </div>
   </div>
 
   <div class="tab-nav">
-    <div class="tab on" id="tab0" onclick="switchTab(0)">규정 인덱스</div>
+    <div class="tab on" id="tab0" onclick="switchTab(0)">인덱스 탐색</div>
     <div class="tab" id="tab1" onclick="switchTab(1)">본문 정밀 검색</div>
   </div>
 
@@ -158,7 +149,7 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
 <div id="right">
   <div class="top-nav">
     <button class="icon-btn" onclick="toggleSidebar()">☰</button>
-    <div class="viewer-title" id="tbTitle">준비 중...</div>
+    <div class="viewer-title" id="tbTitle">데이터 로드 중...</div>
     <div class="action-btn-group">
         <button class="tbtn-tool" onclick="downloadCurrentRegulation('save')" id="btnSave">💾 조문 저장</button>
         <button class="tbtn-tool" onclick="downloadCurrentRegulation('print')" id="btnPrint">🖨️ 조문 전체 인쇄</button>
@@ -193,7 +184,7 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>
 /* ───────────────────────────────────────────────────
-   COMPLETE SYSTEM LOGIC (v5.6 - Full Extraction & Scoring)
+   COMPLETE SYSTEM LOGIC (v5.7 - Advanced Search & Highlighting)
 ─────────────────────────────────────────────────── */
 const ALL_REGS = [
   {n:'변호사법',p:26,cat:'법령'},{n:'변호사법 시행령',p:76,cat:'법령'},{n:'변호사시험법',p:103,cat:'법령'},{n:'변호사시험법 시행령',p:111,cat:'법령'},{n:'변호사시험법 시행규칙',p:119,cat:'법령'},{n:'외국법자문사법',p:123,cat:'법령'},{n:'외국법자문사법 시행령',p:154,cat:'법령'},{n:'외국법자문사법 시행규칙',p:167,cat:'법령'},
@@ -224,7 +215,6 @@ async function initApp() {
         const jsonRes = await fetch('laws_data.json?t=' + Date.now());
         if(jsonRes.ok) {
             globalJsonData = await jsonRes.json();
-            // Pre-process for high-speed scoring
             normalizedData = globalJsonData.map(item => ({ p: item.page, c: (item.content || "").toLowerCase().replace(/\s+/g, ' ') }));
             document.getElementById('dbStatus').innerText = "DB 동기화 완료";
             document.getElementById('dbDot').classList.add('ready');
@@ -255,7 +245,7 @@ function initInteractive() {
     });
 }
 
-/* ── REFINED SCORING SEARCH ENGINE ── */
+/* ── SEARCH ENGINE (SCORING & TOKENS) ── */
 function performSearch() {
     const qRaw = document.getElementById('searchQ').value.trim().toLowerCase();
     const wrap = document.getElementById('cardsWrap'); wrap.innerHTML = '';
@@ -277,125 +267,122 @@ function performSearch() {
             return;
         }
         
-        // --- SCORING ALGORITHM ---
         let matches = [];
         normalizedData.forEach(item => {
             let score = 0;
             const content = item.c;
-            
-            // 1. Exact phrase match bonus
             if (content.includes(qRaw)) score += 100;
-            
-            // 2. Individual tokens match
             let allFound = true;
             tokens.forEach(t => {
                 if (content.includes(t)) {
-                    score += 10;
-                    // Density bonus
+                    score += 20;
                     const count = (content.match(new RegExp(t, 'g')) || []).length;
                     score += count;
-                } else {
-                    allFound = false;
-                }
+                } else allFound = false;
             });
-            
-            // Filter: All tokens must be present for Tab 1
-            if (allFound) {
-                // 3. Proximity bonus (simulated)
-                const pos1 = content.indexOf(tokens[0]);
-                const pos2 = content.indexOf(tokens[tokens.length-1]);
-                if (Math.abs(pos1 - pos2) < 200) score += 20;
-
-                matches.push({ p: item.p, score });
-            }
+            if (allFound) matches.push({ p: item.p, score });
         });
 
-        // Sort by score descending
         matches.sort((a, b) => b.score - a.score).slice(0, 40).forEach(m => {
             const d = document.createElement('div'); d.className = 'reg-card';
             const original = globalJsonData.find(o => o.page === m.p).content || "";
-            let regName = "기타 조문";
+            let regName = "조문";
             for(let i=0; i<ALL_REGS.length; i++) if(m.p >= ALL_REGS[i].p && (i+1 === ALL_REGS.length || m.p < ALL_REGS[i+1].p)) { regName = ALL_REGS[i].n; break; }
-            
             const firstIdx = original.toLowerCase().indexOf(tokens[0]);
             const snip = "..." + original.substring(Math.max(0, firstIdx - 40), firstIdx + 100) + "...";
             
             d.innerHTML = `
-                <div class="reg-pg-tag">PAGE ${m.p} | 연관성: ${Math.round(m.score)}</div>
+                <div class="reg-pg-tag">PAGE ${m.p} | 정확도: ${Math.round(m.score)}</div>
                 <div class="reg-name" style="font-size:13px; color:var(--accent)">${regName}</div>
                 <div class="reg-snip">${snip}</div>
             `;
-            d.onclick = () => { renderPage(m.p); }; wrap.appendChild(d);
+            d.onclick = () => { renderPage(m.p, tokens); }; wrap.appendChild(d);
         });
-        
         if(matches.length === 0) wrap.innerHTML = '<div style="color:var(--text-s); text-align:center; padding:50px;">일치하는 내용이 없습니다.</div>';
     }
 }
 
+/* ── PDF RENDER & HIGHLIGHT ENGINE ── */
+async function renderPage(pg, highlightTokens = null){
+    if(!pdfDoc || isRendering) return; isRendering = true; curPdfPg = pg;
+    document.getElementById('curPg').textContent = pg;
+    try {
+        const page = await pdfDoc.getPage(pg);
+        const vp = page.getViewport({ scale });
+        const cv = document.getElementById('pdf-canvas');
+        const ctx = cv.getContext('2d');
+        cv.width = vp.width; cv.height = vp.height;
+        await page.render({ canvasContext: ctx, viewport: vp }).promise;
+
+        // --- NEW: HIGHLIGHT LOGIC ---
+        if (!highlightTokens) {
+            const qRaw = document.getElementById('searchQ').value.trim().toLowerCase();
+            highlightTokens = qRaw.split(/\s+/).filter(t => t.length > 0);
+        }
+
+        if (highlightTokens && highlightTokens.length > 0) {
+            const textContent = await page.getTextContent();
+            ctx.globalAlpha = 0.4;
+            ctx.fillStyle = "yellow";
+            
+            textContent.items.forEach(item => {
+                const str = item.str.toLowerCase();
+                highlightTokens.forEach(token => {
+                    if (str.includes(token)) {
+                        const tx = pdfjsLib.Util.transform(vp.transform, item.transform);
+                        const fontHeight = Math.sqrt(tx[2]*tx[2] + tx[3]*tx[3]);
+                        const x = tx[4];
+                        const y = tx[5] - fontHeight;
+                        const width = item.width * scale;
+                        ctx.fillRect(x, y, width, fontHeight * 1.2);
+                    }
+                });
+            });
+            ctx.globalAlpha = 1.0;
+        }
+    } catch(e) { console.error(e); }
+    isRendering = false;
+}
+
 /* ── REFINED EXTRACTION & PRINT (Full Range) ── */
 async function downloadCurrentRegulation(mode) {
-  if (!pdfDoc) { alert("PDF 파일이 로드되지 않았습니다."); return; }
-  
-  // 1. Determine Regulation Range
-  let reg = null;
-  let end = pdfDoc.numPages;
+  if (!pdfDoc) return;
+  let reg = null, end = pdfDoc.numPages;
   for (let i = 0; i < ALL_REGS.length; i++) {
     if (curPdfPg >= ALL_REGS[i].p) {
       reg = ALL_REGS[i];
       end = (i + 1 < ALL_REGS.length) ? ALL_REGS[i + 1].p - 1 : pdfDoc.numPages;
     } else break;
   }
-  
-  if (!reg) { alert("조문 정보를 찾을 수 없습니다."); return; }
+  if (!reg) return;
   
   const btn = mode === 'save' ? document.getElementById('btnSave') : document.getElementById('btnPrint');
   const originalText = btn.innerText;
   btn.innerText = '⌛ 처리 중...';
-  btn.classList.add('printing');
   btn.disabled = true;
 
   try {
     const res = await fetch('laws.pdf');
     const buf = await res.arrayBuffer();
     const { PDFDocument } = PDFLib;
-    
     const srcDoc = await PDFDocument.load(buf);
     const newDoc = await PDFDocument.create();
-    
-    // Copy the entire range of the regulation
     const range = Array.from({length: end - reg.p + 1}, (_, i) => reg.p - 1 + i);
     const copiedPages = await newDoc.copyPages(srcDoc, range);
     copiedPages.forEach(p => newDoc.addPage(p));
-    
     const bytes = await newDoc.save();
     const blob = new Blob([bytes], {type:'application/pdf'});
     const url = URL.createObjectURL(blob);
 
     if (mode === 'save') {
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `[추출] ${reg.n}.pdf`;
-        a.click();
+        const a = document.createElement('a'); a.href = url; a.download = `[추출] ${reg.n}.pdf`; a.click();
     } else {
-        // --- IMPROVED PRINTING ---
         const iframe = document.createElement('iframe');
-        iframe.style.display = 'none';
-        iframe.src = url;
+        iframe.style.display = 'none'; iframe.src = url;
         document.body.appendChild(iframe);
-        iframe.onload = () => {
-            iframe.contentWindow.focus();
-            iframe.contentWindow.print();
-            setTimeout(() => { document.body.removeChild(iframe); }, 1000);
-        };
+        iframe.onload = () => { iframe.contentWindow.focus(); iframe.contentWindow.print(); setTimeout(() => document.body.removeChild(iframe), 1000); };
     }
-  } catch (e) {
-    console.error(e);
-    alert('조문 추출 실패 (laws.pdf 파일 확인)');
-  } finally {
-    btn.innerText = originalText;
-    btn.classList.remove('printing');
-    btn.disabled = false;
-  }
+  } catch (e) { alert('처리 실패'); } finally { btn.innerText = originalText; btn.disabled = false; }
 }
 
 /* ── UI HELPERS ── */
@@ -411,14 +398,6 @@ function initCatBar() {
         chip.onclick = () => { document.querySelectorAll('.c-chip').forEach(el => el.classList.remove('active')); chip.classList.add('active'); activeCat = c; listPage = 0; performSearch(); };
         bar.appendChild(chip);
     });
-}
-async function renderPage(pg){
-    if(!pdfDoc || isRendering) return; isRendering = true; curPdfPg = pg;
-    document.getElementById('curPg').textContent = pg;
-    const page = await pdfDoc.getPage(pg); const vp = page.getViewport({ scale });
-    const cv = document.getElementById('pdf-canvas'); const ctx = cv.getContext('2d');
-    cv.width = vp.width; cv.height = vp.height; await page.render({ canvasContext: ctx, viewport: vp }).promise;
-    isRendering = false;
 }
 function handleManualPdf(input) { const file = input.files[0]; if (!file) return; const reader = new FileReader(); reader.onload = async (e) => { pdfDoc = await pdfjsLib.getDocument({ data: e.target.result }).promise; document.getElementById('totPg').textContent = pdfDoc.numPages; document.getElementById('recoveryUI').style.display = 'none'; document.getElementById('pdf-canvas').style.display = 'block'; renderPage(1); }; reader.readAsArrayBuffer(file); }
 function handleManualJson(input) { const file = input.files[0]; if (!file) return; const reader = new FileReader(); reader.onload = (e) => { globalJsonData = JSON.parse(e.target.result); normalizedData = globalJsonData.map(item => ({ p: item.page, c: (item.content || "").toLowerCase() })); performSearch(); }; reader.readAsText(file); }
