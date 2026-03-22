@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2026 대한변호사협회 법규집 ✨ ULTIMATE 5.0 (Full Features)</title>
+<title>2026 대한변호사협회 법규집 ✨ ULTIMATE 5.5</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-<!-- PDF Extraction Library -->
+<!-- PDF Extraction & Multi-page Library -->
 <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
 <style>
 /* ══════════════════════════════════════════════
@@ -23,6 +23,7 @@
   --gold: #fbbf24; 
   --green: #10b981; 
   --purple: #818cf8; 
+  --glass: rgba(255, 255, 255, 0.03);
   --border: rgba(255, 255, 255, 0.1);
 }
 
@@ -50,64 +51,60 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
 .info-val{display: block; font-size: 18px; font-weight: 700; color: var(--accent); font-family: monospace;}
 .info-lab{display: block; font-size: 10px; color: var(--text-s); margin-top: 4px; text-transform: uppercase; letter-spacing: 1px;}
 
-.system-link-btn{
-    width: 100%; padding: 12px; background: rgba(251, 191, 36, 0.08); border: 1px dashed var(--gold); 
-    border-radius: 12px; color: var(--gold); font-size: 12px; font-weight: 700; cursor: pointer;
-    display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.2s;
-}
-.system-link-btn:hover{ background: var(--gold); color: var(--bg-main); border-style: solid; transform: translateY(-2px);}
-
-.tab-nav{display:flex; padding:0 20px; border-bottom:1px solid var(--border);}
+.tab-nav{display:flex; padding:0 20px; border-bottom:1px solid var(--border); background: var(--bg-main);}
 .tab{padding:15px 15px; font-size:14px; color:var(--text-s); cursor:pointer; position:relative; font-weight: 500;}
 .tab.on{color:var(--accent); font-weight:700;}
 .tab.on::after{content:''; position:absolute; bottom:-1px; left:0; width:100%; height:3px; background:var(--accent); border-radius:3px 3px 0 0;}
 
-.search-container{padding:20px;}
+.search-container{padding:20px; background:var(--bg-main);}
 .s-input{width:100%; padding:14px 18px; background:var(--bg-panel); border:1px solid var(--border); border-radius:12px; color:var(--text-p); font-size:14.5px; outline:none; transition:0.3s;}
 .s-input:focus{border-color:var(--accent); box-shadow: 0 0 0 4px rgba(56,189,248,0.15);}
 
-.cat-grid{display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; padding: 0 20px 15px;}
+.cat-grid{display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; padding: 0 20px 15px; background: var(--bg-main);}
 .c-chip{padding: 8px 2px; border-radius: 8px; background: var(--bg-panel); border: 1px solid var(--border); color: var(--text-s); font-size: 10px; text-align: center; cursor: pointer; transition: 0.2s; overflow: hidden; white-space: nowrap;}
 .c-chip.active{ background: var(--accent); color: var(--bg-main); font-weight: 700; border-color: var(--accent); }
 
-.list-container{flex:1; overflow-y:auto; padding:15px; scroll-behavior: smooth;}
-.reg-card{padding:20px; background:var(--bg-panel); border: 1px solid var(--border); border-radius:16px; cursor:pointer; margin-bottom:15px; transition:0.3s;}
+.list-container{flex:1; overflow-y:auto; padding:15px; background:var(--bg-main); scroll-behavior: smooth;}
+.reg-card{padding:20px; background:var(--bg-panel); border: 1px solid var(--border); border-radius:16px; cursor:pointer; margin-bottom:15px; transition:0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2);}
 .reg-card:hover{border-color:var(--accent); transform:translateY(-4px); background:rgba(255,255,255,0.02);}
 .reg-card.active{border-color:var(--accent); background:rgba(56,189,248,0.06);}
 .reg-pg-tag{font-size:10px; color:var(--accent); font-weight: 800; margin-bottom:10px; background: rgba(56,189,248,0.1); width: fit-content; padding: 3px 8px; border-radius: 6px;}
 .reg-name{font-size:15.5px; line-height:1.6; font-weight:600;}
+.reg-snip{font-size:13px; color:var(--text-s); margin-top:12px; line-height:1.7; border-top: 1px solid var(--border); padding-top:12px;}
 
 .pager-box{padding:18px 24px; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; background:var(--bg-panel);}
 .pager-btn{background: rgba(255,255,255,0.03); border: 1px solid var(--border); color: var(--text-p); padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: 600; transition: 0.2s;}
 
 /* ── RIGHT VIEW ── */
 #right{flex:1; display:flex; flex-direction:column; position:relative; background:#000; overflow:hidden;}
-.top-nav{display:flex; align-items:center; gap:12px; padding:0 30px; height:70px; background:rgba(2,6,23,0.8); backdrop-filter:blur(30px); border-bottom:1px solid var(--border); z-index:20;}
+.top-nav{display:flex; align-items:center; gap:15px; padding:0 30px; height:70px; background:rgba(2,6,23,0.8); backdrop-filter:blur(30px); border-bottom:1px solid var(--border); z-index:20;}
 .viewer-title{flex:1; font-size:16px; font-weight:600; font-family:'Noto Serif KR',serif;}
 
-.icon-btn{width:44px; height:44px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius:12px; color:var(--accent); cursor:pointer; transition:0.3s; font-size:18px;}
+.icon-btn{width:44px; height:44px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius:12px; color:var(--accent); cursor:pointer; transition:0.3s;}
 .icon-btn:hover{background:var(--accent); color:var(--bg-main);}
 
-.action-btn-group{display: flex; gap: 8px; align-items: center;}
-.tbtn-tool{background: var(--bg-card); border: 1px solid var(--border); color: var(--text-p); padding: 10px 15px; border-radius: 10px; font-size: 13px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 6px;}
-.tbtn-tool:hover{border-color: var(--accent); color: var(--accent);}
+.action-btn-group{display: flex; gap: 8px;}
+.tbtn-tool{background: var(--bg-card); border: 1px solid var(--border); color: var(--text-p); padding: 10px 18px; border-radius: 12px; font-size: 13px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: 0.2s;}
+.tbtn-tool:hover{border-color: var(--accent); color: var(--accent); background: rgba(56,189,248,0.1);}
+.tbtn-tool.printing { background: var(--gold); color: #000; }
 
 #cvwrap{flex:1; overflow:auto; display:flex; justify-content:center; align-items: flex-start; padding:50px; position:relative; z-index:10; cursor: zoom-in; scroll-behavior: smooth;}
 #pdf-canvas{box-shadow: 0 50px 150px rgba(0,0,0,1); background:#fff; display:none; border-radius:4px;}
 
-/* AI & Summary Modal */
-#summaryModal{position:fixed; bottom:30px; right:30px; width:500px; height:700px; background:var(--bg-panel); border:1px solid var(--border); border-radius:28px; z-index:2000; display:none; flex-direction:column; box-shadow:0 30px 100px rgba(0,0,0,0.9); overflow:hidden; backdrop-filter: blur(20px);}
+/* Search Summary Modal */
+#summaryModal{position:fixed; bottom:30px; right:30px; width:520px; height:750px; background:var(--bg-panel); border:1px solid var(--border); border-radius:28px; z-index:2000; display:none; flex-direction:column; box-shadow:0 30px 100px rgba(0,0,0,0.9); overflow:hidden; backdrop-filter: blur(20px);}
 .sm-header{padding:25px 30px; background:rgba(255,255,255,0.02); border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center;}
 .sm-body{flex:1; overflow-y:auto; padding:30px; scroll-behavior: smooth;}
 .sm-msg{padding:20px; border-radius:20px; margin-bottom:24px; font-size:14.5px; line-height:1.8; box-shadow: 0 4px 15px rgba(0,0,0,0.2);}
 .sm-msg-sys{background:rgba(56,189,248,0.05); border-left:6px solid var(--accent); color:var(--text-p);}
 
+.action-row{display: flex; gap: 8px; flex-wrap: wrap; margin-top: 15px;}
+.jump-btn{display:inline-flex; align-items:center; gap:8px; padding:10px 16px; background:var(--accent); color:var(--bg-main); border-radius:10px; font-size:12px; font-weight:700; cursor:pointer; border:none;}
+
 #loading{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:500; text-align:center; width: 100%;}
 .spin{width:60px; height:60px; border:6px solid rgba(56,189,248,0.1); border-top-color:var(--accent); border-radius:50%; animation:spin 1s linear infinite; margin: 0 auto;}
 
 @keyframes spin{to{transform:rotate(360deg)}}
-
-/* PRINT STYLES */
 @media print {
     #left, .top-nav, #summaryModal, .pager-box { display: none !important; }
     #right { width: 100% !important; height: auto !important; position: static !important; overflow: visible !important; }
@@ -124,7 +121,7 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
         <div class="lh-ttl">대한변협 법규집 ✨</div>
         <div class="status-tag">
             <div id="dbDot" class="dot"></div>
-            <span id="dbStatus">연결 확인 중</span>
+            <span id="dbStatus">연결 대기</span>
         </div>
     </div>
     <div class="info-grid">
@@ -134,21 +131,18 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
         </div>
         <div class="info-item">
             <span class="info-val">26.02.26</span>
-            <span class="info-lab">최종 업데이트</span>
+            <span class="info-lab">데이터 업데이트</span>
         </div>
     </div>
-    <button class="system-link-btn" onclick="window.open('https://notebooklm.google.com/notebook/b9a1f239-3c1e-40c1-a5de-2d3322cd650f', '_blank')">
-        🚀 정밀 분석용 NotebookLM 접속
-    </button>
   </div>
 
   <div class="tab-nav">
-    <div class="tab on" id="tab0" onclick="switchTab(0)">인덱스 탐색</div>
+    <div class="tab on" id="tab0" onclick="switchTab(0)">규정 인덱스</div>
     <div class="tab" id="tab1" onclick="switchTab(1)">본문 정밀 검색</div>
   </div>
 
   <div class="search-container">
-    <input class="s-input" id="searchQ" placeholder="검색어 또는 페이지 번호..." autocomplete="off">
+    <input class="s-input" id="searchQ" placeholder="검색어 또는 페이지 입력..." autocomplete="off">
   </div>
 
   <div class="cat-grid" id="catBar"></div>
@@ -164,29 +158,28 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
 <div id="right">
   <div class="top-nav">
     <button class="icon-btn" onclick="toggleSidebar()">☰</button>
-    <div class="viewer-title" id="tbTitle">데이터 로드 중...</div>
+    <div class="viewer-title" id="tbTitle">준비 중...</div>
     <div class="action-btn-group">
-      <!-- RESTORED: SAVE & PRINT BUTTONS -->
-      <button class="tbtn-tool" onclick="downloadCurrentRegulation()" id="btnSave">💾 조문 저장</button>
-      <button class="tbtn-tool" onclick="window.print()">🖨️ 인쇄</button>
-      <div style="width:1px; height:20px; background:var(--border); margin:0 10px;"></div>
-      <button class="pager-btn" style="width:36px; height:36px; padding:0; display:flex; align-items:center; justify-content:center;" onclick="changePdfPage(-1)">◀</button>
-      <div style="background:var(--bg-panel); padding:0 15px; border-radius:10px; display:flex; align-items:center; border:1px solid var(--border); height:36px;">
-          <span style="font-size:14px; color:var(--accent); font-family:monospace; font-weight:700;"><span id="curPg">1</span> / <span id="totPg">—</span></span>
-      </div>
-      <button class="pager-btn" style="width:36px; height:36px; padding:0; display:flex; align-items:center; justify-content:center;" onclick="changePdfPage(1)">▶</button>
+        <button class="tbtn-tool" onclick="downloadCurrentRegulation('save')" id="btnSave">💾 조문 저장</button>
+        <button class="tbtn-tool" onclick="downloadCurrentRegulation('print')" id="btnPrint">🖨️ 조문 전체 인쇄</button>
+        <div style="width:1px; height:20px; background:var(--border); margin:0 8px;"></div>
+        <button class="pager-btn" style="width:36px; height:36px; padding:0; display:flex; align-items:center; justify-content:center;" onclick="changePdfPage(-1)">◀</button>
+        <div style="background:var(--bg-panel); padding:0 15px; border-radius:10px; display:flex; align-items:center; border:1px solid var(--border); height:36px;">
+            <span style="font-size:14px; color:var(--accent); font-family:monospace; font-weight:700;"><span id="curPg">1</span> / <span id="totPg">—</span></span>
+        </div>
+        <button class="pager-btn" style="width:36px; height:36px; padding:0; display:flex; align-items:center; justify-content:center;" onclick="changePdfPage(1)">▶</button>
     </div>
   </div>
   <div id="cvwrap">
     <div id="loading">
       <div id="loadingUI">
         <div class="spin"></div>
-        <div style="color:var(--accent); font-family:monospace; margin-top:20px; font-size:14px; letter-spacing:4px; font-weight:700;">SYNCING REGS...</div>
+        <div style="color:var(--accent); font-family:monospace; margin-top:20px; font-size:14px; letter-spacing:4px; font-weight:700;">INITIALIZING...</div>
       </div>
       <div id="recoveryUI" style="display:none;">
           <div style="background: rgba(15,23,42,0.95); padding: 50px; border-radius: 30px; border: 1px solid var(--border); text-align: center; max-width: 550px;">
-            <h3 style="color:var(--accent); margin-bottom:20px; font-size:22px;">데이터 수동 연동</h3>
-            <button class="system-link-btn" style="margin-bottom:12px; background:var(--accent); color:var(--bg-main); border:none;" onclick="document.getElementById('pdfIn').click()">📂 laws.pdf 연결</button>
+            <h3 style="color:var(--accent); margin-bottom:20px; font-size:22px;">데이터 보안 연동</h3>
+            <button class="tbtn-tool" style="width:100%; margin-bottom:12px; background:var(--accent); color:var(--bg-main); border:none; justify-content: center;" onclick="document.getElementById('pdfIn').click()">📂 laws.pdf 연결</button>
             <input type="file" id="pdfIn" style="display:none" accept=".pdf" onchange="handleManualPdf(this)">
             <button class="pager-btn" style="width:100%; padding:14px;" onclick="document.getElementById('jsonIn').click()">📂 laws_data.json 연결</button>
             <input type="file" id="jsonIn" style="display:none" accept=".json" onchange="handleManualJson(this)">
@@ -197,21 +190,10 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
   </div>
 </div>
 
-<!-- Search Summary Modal -->
-<div id="summaryModal">
-  <div class="sm-header">
-    <span style="font-weight:800; color:var(--gold); font-size:18px;">🔍 본문 지능형 검색</span>
-    <button class="pager-btn" style="border-radius:20px; padding:6px 15px;" onclick="toggleSummary()">닫기</button>
-  </div>
-  <div class="sm-body" id="summaryChat">
-    <div class="sm-msg sm-msg-sys">검색어를 입력하시면 관련 조문을 즉시 찾아드립니다.</div>
-  </div>
-</div>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>
 /* ───────────────────────────────────────────────────
-   COMPLETE SYSTEM LOGIC (v5.5 - RESTORED)
+   COMPLETE SYSTEM LOGIC (v5.6 - Full Extraction & Scoring)
 ─────────────────────────────────────────────────── */
 const ALL_REGS = [
   {n:'변호사법',p:26,cat:'법령'},{n:'변호사법 시행령',p:76,cat:'법령'},{n:'변호사시험법',p:103,cat:'법령'},{n:'변호사시험법 시행령',p:111,cat:'법령'},{n:'변호사시험법 시행규칙',p:119,cat:'법령'},{n:'외국법자문사법',p:123,cat:'법령'},{n:'외국법자문사법 시행령',p:154,cat:'법령'},{n:'외국법자문사법 시행규칙',p:167,cat:'법령'},
@@ -242,7 +224,8 @@ async function initApp() {
         const jsonRes = await fetch('laws_data.json?t=' + Date.now());
         if(jsonRes.ok) {
             globalJsonData = await jsonRes.json();
-            normalizedData = globalJsonData.map(item => ({ p: item.page, c: (item.content || "").toLowerCase() }));
+            // Pre-process for high-speed scoring
+            normalizedData = globalJsonData.map(item => ({ p: item.page, c: (item.content || "").toLowerCase().replace(/\s+/g, ' ') }));
             document.getElementById('dbStatus').innerText = "DB 동기화 완료";
             document.getElementById('dbDot').classList.add('ready');
         }
@@ -272,7 +255,7 @@ function initInteractive() {
     });
 }
 
-/* ── SEARCH ENGINE ── */
+/* ── REFINED SCORING SEARCH ENGINE ── */
 function performSearch() {
     const qRaw = document.getElementById('searchQ').value.trim().toLowerCase();
     const wrap = document.getElementById('cardsWrap'); wrap.innerHTML = '';
@@ -289,24 +272,73 @@ function performSearch() {
             wrap.appendChild(d);
         });
     } else {
-        if(!normalizedData.length || !tokens.length) return;
-        normalizedData.filter(item => tokens.every(t => item.c.includes(t))).slice(0, 30).forEach(r => {
-            const d = document.createElement('div'); d.className = 'reg-card';
-            const original = globalJsonData.find(o => o.page === r.p).content || "";
-            d.innerHTML = `<div class="reg-pg-tag">PAGE ${r.p}</div><div class="reg-name">${original.substring(0, 80)}...</div>`;
-            d.onclick = () => { renderPage(r.p); }; wrap.appendChild(d);
+        if(!normalizedData.length || !tokens.length) {
+            wrap.innerHTML = '<div style="color:var(--text-s); text-align:center; padding:50px;">검색어를 입력하세요.</div>';
+            return;
+        }
+        
+        // --- SCORING ALGORITHM ---
+        let matches = [];
+        normalizedData.forEach(item => {
+            let score = 0;
+            const content = item.c;
+            
+            // 1. Exact phrase match bonus
+            if (content.includes(qRaw)) score += 100;
+            
+            // 2. Individual tokens match
+            let allFound = true;
+            tokens.forEach(t => {
+                if (content.includes(t)) {
+                    score += 10;
+                    // Density bonus
+                    const count = (content.match(new RegExp(t, 'g')) || []).length;
+                    score += count;
+                } else {
+                    allFound = false;
+                }
+            });
+            
+            // Filter: All tokens must be present for Tab 1
+            if (allFound) {
+                // 3. Proximity bonus (simulated)
+                const pos1 = content.indexOf(tokens[0]);
+                const pos2 = content.indexOf(tokens[tokens.length-1]);
+                if (Math.abs(pos1 - pos2) < 200) score += 20;
+
+                matches.push({ p: item.p, score });
+            }
         });
+
+        // Sort by score descending
+        matches.sort((a, b) => b.score - a.score).slice(0, 40).forEach(m => {
+            const d = document.createElement('div'); d.className = 'reg-card';
+            const original = globalJsonData.find(o => o.page === m.p).content || "";
+            let regName = "기타 조문";
+            for(let i=0; i<ALL_REGS.length; i++) if(m.p >= ALL_REGS[i].p && (i+1 === ALL_REGS.length || m.p < ALL_REGS[i+1].p)) { regName = ALL_REGS[i].n; break; }
+            
+            const firstIdx = original.toLowerCase().indexOf(tokens[0]);
+            const snip = "..." + original.substring(Math.max(0, firstIdx - 40), firstIdx + 100) + "...";
+            
+            d.innerHTML = `
+                <div class="reg-pg-tag">PAGE ${m.p} | 연관성: ${Math.round(m.score)}</div>
+                <div class="reg-name" style="font-size:13px; color:var(--accent)">${regName}</div>
+                <div class="reg-snip">${snip}</div>
+            `;
+            d.onclick = () => { renderPage(m.p); }; wrap.appendChild(d);
+        });
+        
+        if(matches.length === 0) wrap.innerHTML = '<div style="color:var(--text-s); text-align:center; padding:50px;">일치하는 내용이 없습니다.</div>';
     }
 }
 
-/* ── RESTORED: DOWNLOAD REGULATION SECTION ── */
-async function downloadCurrentRegulation() {
+/* ── REFINED EXTRACTION & PRINT (Full Range) ── */
+async function downloadCurrentRegulation(mode) {
   if (!pdfDoc) { alert("PDF 파일이 로드되지 않았습니다."); return; }
   
+  // 1. Determine Regulation Range
   let reg = null;
   let end = pdfDoc.numPages;
-  
-  // Find which regulation the current page belongs to
   for (let i = 0; i < ALL_REGS.length; i++) {
     if (curPdfPg >= ALL_REGS[i].p) {
       reg = ALL_REGS[i];
@@ -314,11 +346,12 @@ async function downloadCurrentRegulation() {
     } else break;
   }
   
-  if (!reg) { alert("현재 위치의 조문 정보를 찾을 수 없습니다."); return; }
+  if (!reg) { alert("조문 정보를 찾을 수 없습니다."); return; }
   
-  const btn = document.getElementById('btnSave');
+  const btn = mode === 'save' ? document.getElementById('btnSave') : document.getElementById('btnPrint');
   const originalText = btn.innerText;
   btn.innerText = '⌛ 처리 중...';
+  btn.classList.add('printing');
   btn.disabled = true;
 
   try {
@@ -329,6 +362,7 @@ async function downloadCurrentRegulation() {
     const srcDoc = await PDFDocument.load(buf);
     const newDoc = await PDFDocument.create();
     
+    // Copy the entire range of the regulation
     const range = Array.from({length: end - reg.p + 1}, (_, i) => reg.p - 1 + i);
     const copiedPages = await newDoc.copyPages(srcDoc, range);
     copiedPages.forEach(p => newDoc.addPage(p));
@@ -336,15 +370,30 @@ async function downloadCurrentRegulation() {
     const bytes = await newDoc.save();
     const blob = new Blob([bytes], {type:'application/pdf'});
     const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `[추출] ${reg.n}.pdf`;
-    a.click();
+
+    if (mode === 'save') {
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `[추출] ${reg.n}.pdf`;
+        a.click();
+    } else {
+        // --- IMPROVED PRINTING ---
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = url;
+        document.body.appendChild(iframe);
+        iframe.onload = () => {
+            iframe.contentWindow.focus();
+            iframe.contentWindow.print();
+            setTimeout(() => { document.body.removeChild(iframe); }, 1000);
+        };
+    }
   } catch (e) {
     console.error(e);
-    alert('조문 추출에 실패했습니다. (laws.pdf 접근성 확인 필요)');
+    alert('조문 추출 실패 (laws.pdf 파일 확인)');
   } finally {
     btn.innerText = originalText;
+    btn.classList.remove('printing');
     btn.disabled = false;
   }
 }
