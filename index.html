@@ -3,82 +3,118 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2026 대한변호사협회 법규집 ✨ AI ENGINE</title>
+<title>2026 대한변호사협회 법규집 ✨ ULTIMATE GRID</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 /* ══════════════════════════════════════════════
-   PREMIUM NAVY & MATRIX THEME
+   PREMIUM MODERN NAVY THEME (Content-Focused)
 ══════════════════════════════════════════════ */
 :root{
-  --sidebar-w: 480px;
-  --lbg: #0f172a; --lbg2: #1e293b; --lb: #334155; --la: #38bdf8;
-  --lt1: #f8fafc; --lt2: #cbd5e1; --lt3: #94a3b8; --lgold: #fbbf24;
-  --mg: #00ff41; --ai-purp: #a78bfa;
+  --sidebar-w: 460px;
+  --lbg: #020617; /* Deep Navy Background */
+  --lbg2: #0f172a; /* Card Background */
+  --lb: #1e293b; /* Border Color */
+  --la: #38bdf8; /* Accent Blue */
+  --lt1: #f8fafc; /* Primary Text */
+  --lt2: #94a3b8; /* Secondary Text */
+  --lt3: #475569; /* Muted Text */
+  --lgold: #fbbf24; /* Highlight Gold */
+  --mg: #10b981; /* Status Green */
+  --ai-purp: #818cf8; /* AI Purple */
 }
+
 *{box-sizing:border-box;margin:0;padding:0}
-body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; background:#000; color:var(--lt1); display:flex;}
+body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; background:var(--lbg); color:var(--lt1); display:flex;}
 
 /* ── LEFT SIDEBAR ── */
 #left{
   width: var(--sidebar-w); min-width: var(--sidebar-w); height:100%;
   background: var(--lbg); display:flex; flex-direction:column;
-  border-right:1px solid rgba(255,255,255,0.1); z-index:100;
-  transition: transform 0.3s ease;
+  border-right: 1px solid rgba(255,255,255,0.05); z-index:100;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 #left.collapsed { transform: translateX(calc(var(--sidebar-w) * -1)); margin-right: calc(var(--sidebar-w) * -1); }
 
 .lh{padding:24px; background: linear-gradient(180deg, var(--lbg2), var(--lbg)); border-bottom:1px solid var(--lb);}
-.lh-ttl{font-family:'Noto Serif KR',serif; font-size:20px;font-weight:700; color:var(--lt1);}
+.lh-ttl{font-family:'Noto Serif KR',serif; font-size:22px; font-weight:700; letter-spacing:-0.5px; color:var(--lt1);}
+.status-tag{display:inline-flex; align-items:center; gap:6px; font-size:10.5px; padding:3px 10px; border-radius:12px; background:rgba(255,255,255,0.03); margin-top:12px; color:var(--lt2);}
+.dot{width:6px; height:6px; border-radius:50%; background:var(--lt3);}
+.dot.ready{background:var(--mg); box-shadow: 0 0 10px var(--mg);}
 
-.stab-row{display:flex; border-bottom:1px solid var(--lb);}
-.stab{flex:1; padding:15px 0; text-align:center; font-size:13px; color:var(--lt3); cursor:pointer; transition:0.2s;}
-.stab.on{color:var(--la); font-weight:700; border-bottom:2px solid var(--la);}
+.stab-row{display:flex; background:var(--lbg2); padding:0 10px;}
+.stab{flex:1; padding:18px 0; text-align:center; font-size:13.5px; color:var(--lt2); cursor:pointer; transition:0.2s; position:relative;}
+.stab.on{color:var(--la); font-weight:700;}
+.stab.on::after{content:''; position:absolute; bottom:0; left:20%; width:60%; height:3px; background:var(--la); border-radius:3px 3px 0 0; box-shadow: 0 -2px 10px rgba(56,189,248,0.4);}
 
-.sbox{padding:15px 20px; border-bottom:1px solid var(--lb);}
-.sinput{width:100%; padding:12px; background:rgba(255,255,255,0.05); border:1px solid var(--lb); border-radius:8px; color:var(--lt1); outline:none;}
-.sinfo{font-size:11px; color:var(--lt3); margin-top:8px; display:flex; justify-content:space-between; font-family:monospace;}
+.sbox{padding:20px; background:var(--lbg); border-bottom:1px solid var(--lb);}
+.sinput{width:100%; padding:14px 18px; background:rgba(255,255,255,0.02); border:1px solid var(--lb); border-radius:12px; color:var(--lt1); font-size:14.5px; outline:none; transition:0.3s; box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);}
+.sinput:focus{border-color:var(--la); background:rgba(255,255,255,0.05); box-shadow: 0 0 0 3px rgba(56,189,248,0.15);}
 
-.cat-scroll{padding:10px; display:flex; gap:6px; overflow-x:auto; scrollbar-width:none; border-bottom:1px solid var(--lb);}
-.c-chip{padding:5px 12px; border-radius:15px; background:var(--lbg2); border:1px solid var(--lb); color:var(--lt3); font-size:11px; cursor:pointer; white-space:nowrap;}
-.c-chip.active{background:var(--la); color:var(--lbg); font-weight:700;}
+/* Category Grid (Updated to 5 per row) */
+.cat-grid{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+  padding: 12px 15px;
+  background: var(--lbg);
+  border-bottom: 1px solid var(--lb);
+}
+.c-chip{
+  padding: 8px 2px;
+  border-radius: 8px;
+  background: var(--lbg2);
+  border: 1px solid var(--lb);
+  color: var(--lt2);
+  font-size: 10.5px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.c-chip:hover{ border-color: var(--lt3); color: var(--lt1); }
+.c-chip.active{ background: var(--la); color: var(--lbg); font-weight: 700; border-color: var(--la); box-shadow: 0 4px 12px rgba(56,189,248,0.3); }
 
-.cards-wrap{flex:1; overflow-y:auto; padding:15px;}
-.card{padding:16px; background:var(--lbg2); border:1px solid rgba(255,255,255,0.05); border-radius:10px; cursor:pointer; margin-bottom:12px; transition:0.2s;}
-.card:hover{border-color:var(--la); transform:translateY(-2px);}
-.card.active{border-color:var(--la); background:rgba(56,189,248,0.1);}
-.card-pg{font-size:10px; color:var(--la); font-weight:700; margin-bottom:5px;}
-.card-name{font-size:14px; line-height:1.4;}
+.cards-wrap{flex:1; overflow-y:auto; padding:15px; background:var(--lbg);}
+.card{padding:20px; background:var(--lbg2); border: 1px solid rgba(255,255,255,0.03); border-radius:14px; cursor:pointer; margin-bottom:14px; transition:0.25s; box-shadow: 0 4px 12px rgba(0,0,0,0.1);}
+.card:hover{border-color:var(--la); transform:translateY(-3px); background:rgba(255,255,255,0.02); box-shadow: 0 8px 20px rgba(0,0,0,0.3);}
+.card.active{border-color:var(--la); background:rgba(56,189,248,0.05); box-shadow: 0 0 20px rgba(56,189,248,0.1);}
+.card-pg{font-size:10px; color:var(--la); font-weight:800; margin-bottom:8px; letter-spacing:1px; opacity:0.8;}
+.card-name{font-size:15px; line-height:1.6; font-weight:500; word-break:keep-all; color:var(--lt1);}
+.card-snip{font-size:12.5px; color:var(--lt2); margin-top:12px; line-height:1.7; border-top: 1px solid rgba(255,255,255,0.05); padding-top:12px; font-weight:300;}
 
 /* ── RIGHT VIEW ── */
-#right{flex:1; display:flex; flex-direction:column; position:relative; background:#000;}
-#matrix-rain{position:absolute; inset:0; z-index:0; pointer-events:none;}
+#right{flex:1; display:flex; flex-direction:column; position:relative; background:#000; overflow:hidden;}
+#matrix-rain{position:absolute; inset:0; z-index:0; pointer-events:none; opacity: 0.15;} /* Reduced opacity for better reading */
 
-.toolbar{display:flex; align-items:center; gap:12px; padding:0 20px; height:56px; background:rgba(15,23,42,0.8); backdrop-filter:blur(10px); border-bottom:1px solid var(--lb); z-index:20;}
-.tb-title{flex:1; font-size:14px; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.toolbar{display:flex; align-items:center; gap:12px; padding:0 24px; height:64px; background:rgba(2,6,23,0.85); backdrop-filter:blur(20px); border-bottom:1px solid var(--lb); z-index:20;}
+.tb-title{flex:1; font-size:15px; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-family:'Noto Serif KR',serif; color:var(--lt1);}
 
-.toggle-btn{width:36px; height:36px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.05); border:1px solid var(--lb); border-radius:6px; color:var(--la); cursor:pointer;}
+.toggle-btn{width:42px; height:42px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.04); border:1px solid var(--lb); border-radius:10px; color:var(--la); cursor:pointer; transition:0.3s; font-size:18px;}
+.toggle-btn:hover{background:var(--la); color:var(--lbg); transform: scale(1.05);}
 
-.tbtn{padding:8px 15px; border:1px solid var(--lb); border-radius:6px; background:transparent; color:var(--lt2); font-size:12px; cursor:pointer;}
-.tbtn:hover{background:var(--la); color:var(--lbg);}
-.tbtn-ai{background:rgba(167,139,250,0.15); border-color:var(--ai-purp); color:var(--ai-purp); font-weight:700;}
+.tbtn{padding:10px 18px; border:1px solid var(--lb); border-radius:8px; background:rgba(255,255,255,0.02); color:var(--lt1); font-size:12.5px; cursor:pointer; font-weight:600; transition:0.2s;}
+.tbtn:hover:not(:disabled){background:rgba(255,255,255,0.08); border-color:var(--lt2);}
+.tbtn-ai{background: linear-gradient(135deg, #4f46e5, #9333ea); border:none; color:white; box-shadow: 0 4px 15px rgba(129,140,248,0.3);}
+.tbtn-ai:hover{transform: translateY(-1px); box-shadow: 0 6px 20px rgba(129,140,248,0.5);}
 
-#cvwrap{flex:1; overflow:auto; display:flex; justify-content:center; align-items: flex-start; padding:40px; position:relative; z-index:10;}
-#pdf-canvas{box-shadow: 0 20px 80px rgba(0,0,0,0.8); background:#fff; display:none;}
+#cvwrap{flex:1; overflow:auto; display:flex; justify-content:center; align-items: flex-start; padding:50px; position:relative; z-index:10;}
+#pdf-canvas{box-shadow: 0 50px 120px rgba(0,0,0,0.9); background:#fff; display:none; border-radius:2px;}
 
 /* AI & System UI */
-#aiModal{position:fixed; bottom:25px; right:25px; width:450px; height:600px; background:var(--lbg); border:1px solid var(--lb); border-radius:15px; z-index:2000; display:none; flex-direction:column; box-shadow:0 20px 50px rgba(0,0,0,0.5);}
-.ai-bubble{padding:12px 16px; border-radius:12px; margin-bottom:12px; font-size:13.5px; line-height:1.6; max-width:85%;}
-.ai-bubble-ai{background:rgba(167,139,250,0.1); border-left:4px solid var(--ai-purp);}
-.ai-bubble-user{background:var(--lbg2); margin-left:auto; text-align:right; color:var(--la2);}
+#aiModal{position:fixed; bottom:30px; right:30px; width:480px; height:650px; background:var(--lbg); border:1px solid var(--lb); border-radius:24px; z-index:2000; display:none; flex-direction:column; box-shadow:0 30px 80px rgba(0,0,0,0.8); overflow:hidden;}
+.ai-chat{flex:1; overflow-y:auto; padding:28px; scroll-behavior: smooth;}
+.ai-bubble{padding:16px 20px; border-radius:18px; margin-bottom:20px; font-size:14px; line-height:1.8; max-width:90%; box-shadow: 0 4px 12px rgba(0,0,0,0.15);}
+.ai-bubble-ai{background:rgba(129,140,248,0.08); border-left:5px solid var(--ai-purp); color:var(--lt1); border-top-left-radius:4px;}
+.ai-bubble-user{background:var(--lb); margin-left:auto; text-align:right; color:var(--la2); border-bottom-right-radius:4px;}
 
 #loading{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:500; text-align:center; width: 100%;}
-.spin{width:40px; height:40px; border:3px solid rgba(56,189,248,0.2); border-top-color:var(--la); border-radius:50%; animation:spin 1s linear infinite; margin: 0 auto;}
-@keyframes spin{to{transform:rotate(360deg)}}
+.spin{width:54px; height:54px; border:5px solid rgba(56,189,248,0.1); border-top-color:var(--la); border-radius:50%; animation:spin 1s linear infinite; margin: 0 auto;}
 
-/* Recovery Box */
-.recovery-box { background: rgba(30,41,59,0.9); border: 2px solid var(--la); padding: 25px; border-radius: 15px; text-align: center; max-width: 440px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
-.recovery-btn { background: var(--la); color: var(--lbg); border: none; padding: 12px 24px; border-radius: 8px; font-weight: 700; cursor: pointer; margin-top: 15px; transition: 0.2s; }
-.recovery-btn:hover { background: var(--la2); transform: scale(1.05); }
+.recovery-panel { background: rgba(15,23,42,0.98); padding: 50px; border-radius: 24px; border: 1px solid var(--lb); max-width: 520px; text-align: center; backdrop-filter: blur(25px); box-shadow: 0 40px 100px rgba(0,0,0,0.6);}
+.recovery-btn { background: var(--la); color: var(--lbg); padding: 16px 32px; border-radius: 12px; font-weight: 700; cursor: pointer; border: none; margin-top: 25px; transition: 0.3s; font-size:15px;}
+.recovery-btn:hover { background: var(--la2); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(56,189,248,0.3);}
 
 @media print { #left, .toolbar, #matrix-rain, #aiModal { display: none !important; } }
 </style>
@@ -87,55 +123,60 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
 
 <div id="left">
   <div class="lh">
-    <div style="font-size:9px; color:var(--la); letter-spacing:2px; margin-bottom:5px;">KBA DIGITAL ARCHIVE</div>
     <div class="lh-ttl">대한변협 법규지능 ✨</div>
+    <div class="status-tag">
+        <div class="dot" id="dbDot"></div>
+        <span id="dbStatus">연결 확인 중...</span>
+    </div>
   </div>
   <div class="stab-row">
-    <div class="stab on" id="stab0" onclick="switchTab(0)">📋 규정</div>
-    <div class="stab" id="stab1" onclick="switchTab(1)">🔍 초고속 본문 검색</div>
+    <div class="stab on" id="stab0" onclick="switchTab(0)">목록 탐색</div>
+    <div class="stab" id="stab1" onclick="switchTab(1)">본문 검색</div>
   </div>
   <div class="sbox">
-    <input class="sinput" id="searchQ" placeholder="검색어를 입력하세요..." autocomplete="off">
-    <div class="sinfo" id="sinfo"><span>데이터 로드 중...</span><span id="idxStatus"></span></div>
+    <input class="sinput" id="searchQ" placeholder="규정명 또는 키워드 입력..." autocomplete="off">
   </div>
-  <div class="cat-scroll" id="catBar"></div>
+  <!-- Category Grid (5 items per row) -->
+  <div class="cat-grid" id="catBar"></div>
   <div class="cards-wrap" id="cardsWrap"></div>
+  <div style="padding:18px 24px; border-top:1px solid var(--lb); display:flex; justify-content:space-between; align-items:center; background:var(--lbg2);">
+    <button class="tbtn" style="padding:6px 14px;" onclick="moveListPage(-1)">이전</button>
+    <span id="listPgInfo" style="font-size:12px; color:var(--lt2); font-family:monospace; font-weight:600;">1 / --</span>
+    <button class="tbtn" style="padding:6px 14px;" onclick="moveListPage(1)">다음</button>
+  </div>
 </div>
 
 <div id="right">
   <canvas id="matrix-rain"></canvas>
   <div class="toolbar">
     <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
-    <div class="tb-title" id="tbTitle">시스템 연결 대기 중...</div>
-    <div style="display:flex; gap:8px;">
-      <button class="tbtn tbtn-ai" onclick="toggleAI()">✨ AI 상담</button>
-      <button class="tbtn" onclick="changePdfPage(-1)">◀</button>
-      <span style="font-size:12px; color:var(--lt3); min-width:50px; text-align:center;"><span id="curPg">1</span> / <span id="totPg">—</span></span>
-      <button class="tbtn" onclick="changePdfPage(1)">▶</button>
+    <div class="tb-title" id="tbTitle">시스템 동기화 완료</div>
+    <div style="display:flex; gap:12px; align-items:center;">
+      <button class="tbtn tbtn-ai" onclick="toggleAI()">✨ AI 큐레이션</button>
+      <div style="width:1px; height:20px; background:rgba(255,255,255,0.1);"></div>
+      <button class="tbtn" style="padding:8px 14px;" onclick="changePdfPage(-1)">◀</button>
+      <span style="font-size:14px; color:var(--la); font-family:monospace; font-weight:700; min-width:80px; text-align:center;"><span id="curPg">1</span> / <span id="totPg">—</span></span>
+      <button class="tbtn" style="padding:8px 14px;" onclick="changePdfPage(1)">▶</button>
     </div>
   </div>
   <div id="cvwrap">
     <div id="loading">
       <div id="loadingUI">
         <div class="spin"></div>
-        <div style="color:var(--mg); font-family:monospace; margin-top:10px; font-size:12px;">SYSTEM BOOTING...</div>
+        <div style="color:var(--la); font-family:monospace; margin-top:20px; font-size:13px; letter-spacing:3px; font-weight:700;">INITIALIZING...</div>
       </div>
-      <!-- 보안 환경 대응용 수동 복구 UI -->
       <div id="recoveryUI" style="display:none;">
-        <div class="recovery-box">
-          <div style="color:var(--la); font-weight:700; margin-bottom:10px; font-size:18px;">보안 시스템 연동 필요</div>
-          <div style="font-size:13px; color:var(--lt2); line-height:1.6;">
-            현재 미리보기 환경에서는 보안상 파일을 자동으로 가져오지 못합니다.<br>
-            저장소에 올리신 <b>laws.pdf</b> 파일을 직접 한 번만 선택해 주세요.
-          </div>
-          <button class="recovery-btn" onclick="document.getElementById('pdfInput').click()">📂 laws.pdf 파일 연결</button>
-          <input type="file" id="pdfInput" style="display:none" accept=".pdf" onchange="handleManualPdf(this)">
-          
-          <div style="margin-top:20px; font-size:11px; color:var(--lt3);">
-            (본문 검색을 위해 <b>laws_data.json</b>도 필요할 수 있습니다.)
-          </div>
-          <button class="recovery-btn" style="background:var(--lbg3); color:var(--lt1); padding:8px 16px; font-size:12px;" onclick="document.getElementById('jsonInput').click()">📂 laws_data.json 연결 (선택)</button>
-          <input type="file" id="jsonInput" style="display:none" accept=".json" onchange="handleManualJson(this)">
+        <div class="recovery-panel">
+          <h3 style="color:var(--la); margin-bottom:18px; font-size:20px;">보안 시스템 연동 필요</h3>
+          <p style="font-size:14px; color:var(--lt2); line-height:1.7;">
+            현재 환경에서는 보안 정책으로 인해 파일을 자동으로 불러올 수 없습니다.<br>
+            시스템 정상화를 위해 <b>laws.pdf</b> 파일을 직접 연결해 주세요.
+          </p>
+          <button class="recovery-btn" onclick="document.getElementById('pdfIn').click()">📂 laws.pdf 파일 연결</button>
+          <input type="file" id="pdfIn" style="display:none" accept=".pdf" onchange="handleManualPdf(this)">
+          <div style="margin-top:25px; font-size:11px; color:var(--lt3); padding:10px; background:rgba(255,255,255,0.02); border-radius:8px;">본문 검색을 위해 laws_data.json도 필요합니다.</div>
+          <button class="tbtn" style="margin-top:12px; border-color:var(--lt3); color:var(--lt2); width:100%;" onclick="document.getElementById('jsonIn').click()">📂 laws_data.json 데이터셋 연결</button>
+          <input type="file" id="jsonIn" style="display:none" accept=".json" onchange="handleManualJson(this)">
         </div>
       </div>
     </div>
@@ -143,25 +184,25 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
   </div>
 </div>
 
-<!-- AI Assistant -->
+<!-- AI Modal -->
 <div id="aiModal">
-  <div style="padding:18px; background:var(--lbg2); border-bottom:1px solid var(--lb); display:flex; justify-content:space-between; align-items:center;">
-    <span style="font-weight:700; color:var(--ai-purp);">✨ AI 법규 비서</span>
-    <button class="tbtn" style="padding:4px 8px;" onclick="toggleAI()">닫기</button>
+  <div style="padding:22px 28px; background:var(--lbg2); border-bottom:1px solid var(--lb); display:flex; justify-content:space-between; align-items:center;">
+    <span style="font-weight:800; color:var(--ai-purp); font-size:16px; letter-spacing:-0.5px;">✨ AI 법규 비서</span>
+    <button class="tbtn" style="padding:6px 12px; border-radius:20px; font-size:11px;" onclick="toggleAI()">ESC</button>
   </div>
-  <div class="ai-chat" id="aiChat" style="flex:1; overflow-y:auto; padding:20px;">
-    <div class="ai-bubble ai-bubble-ai">시스템이 준비되었습니다. 질문을 입력하세요.</div>
+  <div class="ai-chat" id="aiChat">
+    <div class="ai-bubble ai-bubble-ai">데이터베이스 분석 준비 완료. 법규와 관련된 어떤 질문이든 답변해 드립니다.</div>
   </div>
-  <div style="padding:15px; border-top:1px solid var(--lb); display:flex; gap:8px;">
-    <input type="text" class="sinput" id="aiInput" placeholder="질문하세요...">
-    <button class="tbtn tbtn-ai" onclick="askAI()">질문</button>
+  <div style="padding:24px; background:var(--lbg); border-top:1px solid var(--lb); display:flex; gap:12px; align-items:center;">
+    <input type="text" class="sinput" id="aiInput" placeholder="질문을 입력해 주세요...">
+    <button class="tbtn tbtn-ai" style="padding:14px 24px; border-radius:12px;" onclick="askAI()">질문</button>
   </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>
 /* ───────────────────────────────────────────────────
-   CORE DATA
+   COMPLETE 182 REGULATIONS DATA
 ─────────────────────────────────────────────────── */
 const apiKey = ""; 
 const ALL_REGS = [
@@ -182,105 +223,86 @@ const ALL_REGS = [
 ];
 const CATS = ['전체','법령','회칙','사업계획','회의','등록','징계','법제인권','연수','업무홍보','공익','외국법','회계','사무국','지침'];
 
-/* ───────────────────────────────────────────────────
-   SYSTEM ENGINE
-─────────────────────────────────────────────────── */
-let pdfDoc = null, curPdfPg = 1, scale = 1.3, isRendering = false;
+let pdfDoc = null, curPdfPg = 1, scale = 1.4, isRendering = false;
 let globalJsonData = [];
-let curTab = 0, activeCat = '전체', searchTimeout = null;
+let curTab = 0, activeCat = '전체', listPage = 0, searchTimeout = null;
+const PER_PAGE = 10;
 
-// URL Parsing Fix: Construct absolute URLs based on current context
-function getAbsoluteUrl(filename) {
-    if (window.location.protocol === 'blob:') {
-        // We are in a sandbox, cannot reliably use relative paths with fetch.
-        // Return null to trigger recovery mode.
-        return null;
-    }
-    const base = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
-    return base + filename;
-}
-
+/* ───────────────────────────────────────────────────
+   INITIALIZATION
+─────────────────────────────────────────────────── */
 async function initApp() {
-    const sinfo = document.getElementById('sinfo');
+    const dbStatus = document.getElementById('dbStatus');
+    const dbDot = document.getElementById('dbDot');
     const tbTitle = document.getElementById('tbTitle');
     const loadingUI = document.getElementById('loadingUI');
     const recoveryUI = document.getElementById('recoveryUI');
 
     try {
-        const jsonUrl = getAbsoluteUrl('laws_data.json');
-        const pdfUrl = getAbsoluteUrl('laws.pdf');
-
-        if (!jsonUrl || !pdfUrl) throw new Error("Sandbox URL mismatch");
-
-        // Load JSON
-        const jsonRes = await fetch(jsonUrl + '?t=' + Date.now());
+        // 1. JSON Load
+        const jsonRes = await fetch('laws_data.json?t=' + Date.now());
         if(jsonRes.ok) {
             globalJsonData = await jsonRes.json();
-            sinfo.innerHTML = `<span>데이터베이스 연결 성공</span><span>✨ AI 준비됨</span>`;
+            dbStatus.innerText = "데이터베이스 동기화 완료";
+            dbDot.classList.add('ready');
         }
 
-        // Load PDF
-        const loadingTask = pdfjsLib.getDocument(pdfUrl);
+        // 2. PDF Load
+        const loadingTask = pdfjsLib.getDocument('laws.pdf');
         pdfDoc = await loadingTask.promise;
         document.getElementById('totPg').textContent = pdfDoc.numPages;
         
         loadingUI.style.display = 'none';
         document.getElementById('pdf-canvas').style.display = 'block';
-        tbTitle.innerText = "대한변호사협회 법규집 2026";
+        tbTitle.innerText = "대한변호사협회 법규집";
         
         renderPage(1);
         initCatBar();
         performSearch();
     } catch (e) {
-        console.warn("Auto-loading blocked. Awaiting manual link.", e);
         loadingUI.style.display = 'none';
         recoveryUI.style.display = 'block';
-        tbTitle.innerText = "시스템 연결 대기";
-        sinfo.innerHTML = `<span style="color:#f44">연결 대기 중</span>`;
+        tbTitle.innerText = "시스템 오프라인";
         initCatBar();
         performSearch();
     }
 }
 
 /* ───────────────────────────────────────────────────
-   MANUAL RECOVERY HANDLERS
+   MANUAL LOADING
 ─────────────────────────────────────────────────── */
-async function handleManualPdf(input) {
-    const file = input.files[0];
-    if (!file) return;
+function handleManualPdf(input) {
+    const file = input.files[0]; if (!file) return;
     const reader = new FileReader();
     reader.onload = async (e) => {
         try {
-            const buffer = e.target.result;
-            const loadingTask = pdfjsLib.getDocument({ data: buffer });
+            const loadingTask = pdfjsLib.getDocument({ data: e.target.result });
             pdfDoc = await loadingTask.promise;
             document.getElementById('totPg').textContent = pdfDoc.numPages;
-            
             document.getElementById('recoveryUI').style.display = 'none';
             document.getElementById('pdf-canvas').style.display = 'block';
-            document.getElementById('tbTitle').innerText = "대한변협 법규집 (로컬 연동)";
             renderPage(1);
-        } catch(err) { alert("PDF 로드 실패"); }
+        } catch(err) { alert("PDF 해석 실패"); }
     };
     reader.readAsArrayBuffer(file);
 }
 
-async function handleManualJson(input) {
-    const file = input.files[0];
-    if (!file) return;
+function handleManualJson(input) {
+    const file = input.files[0]; if (!file) return;
     const reader = new FileReader();
     reader.onload = (e) => {
         try {
             globalJsonData = JSON.parse(e.target.result);
-            document.getElementById('sinfo').innerHTML = `<span>DB 수동 연결 성공</span><span>✨ AI 엔진 활성</span>`;
+            document.getElementById('dbStatus').innerText = "DB 수동 동기화 성공";
+            document.getElementById('dbDot').classList.add('ready');
             performSearch();
-        } catch(err) { alert("JSON 파싱 실패"); }
+        } catch(err) { alert("JSON 형식 오류"); }
     };
     reader.readAsText(file);
 }
 
 /* ───────────────────────────────────────────────────
-   RENDER & SEARCH
+   SEARCH & RENDER
 ─────────────────────────────────────────────────── */
 async function renderPage(pg){
     if(!pdfDoc || isRendering) return;
@@ -305,7 +327,12 @@ function performSearch() {
     if(curTab === 0) {
         let filtered = ALL_REGS.filter(r => (activeCat === '전체' || r.cat === activeCat));
         if(q) filtered = filtered.filter(r => r.n.toLowerCase().includes(q));
-        filtered.forEach(r => {
+        
+        const totalPgs = Math.ceil(filtered.length / PER_PAGE);
+        document.getElementById('listPgInfo').innerText = `${listPage + 1} / ${totalPgs || 1}`;
+        
+        const slice = filtered.slice(listPage * PER_PAGE, (listPage + 1) * PER_PAGE);
+        slice.forEach(r => {
             const d = document.createElement('div');
             d.className = 'card' + (curPdfPg === r.p ? ' active' : '');
             d.innerHTML = `<div class="card-pg">P.${r.p}</div><div class="card-name">${r.n}</div>`;
@@ -314,26 +341,39 @@ function performSearch() {
         });
     } else {
         if(globalJsonData.length === 0) {
-            wrap.innerHTML = '<div style="color:var(--lt3); text-align:center; padding:40px;">본문 데이터베이스가 연결되지 않았습니다.</div>';
+            wrap.innerHTML = '<div style="color:var(--lt3); text-align:center; padding:50px; font-size:13px; line-height:1.6;">데이터베이스가 연결되지 않았습니다.<br>laws_data.json 파일이 필요합니다.</div>';
             return;
         }
-        if(!q) { wrap.innerHTML = '<div style="color:var(--lt3); text-align:center; padding:40px;">검색어를 입력하세요.</div>'; return; }
+        if(!q) { wrap.innerHTML = '<div style="color:var(--lt3); text-align:center; padding:50px; font-size:13px;">검색어를 입력하여 1,128페이지를 탐색하세요.</div>'; return; }
 
-        const results = globalJsonData.filter(item => item.content.toLowerCase().includes(q)).slice(0, 30);
+        const results = globalJsonData.filter(item => {
+            const body = item.content || item.text || "";
+            return body.toLowerCase().includes(q);
+        }).slice(0, 30);
+
         results.forEach(r => {
             const d = document.createElement('div');
             d.className = 'card';
-            const idx = r.content.toLowerCase().indexOf(q);
-            const snip = "..." + r.content.substring(Math.max(0, idx - 40), Math.min(r.content.length, idx + 60)) + "...";
-            let regName = "조문";
+            const body = r.content || r.text || "";
+            const idx = body.toLowerCase().indexOf(q);
+            const snip = "..." + body.substring(Math.max(0, idx - 45), Math.min(body.length, idx + 75)) + "...";
+            
+            let regName = "기타 조문";
             for(let i=0; i<ALL_REGS.length; i++) {
-                if(r.page >= ALL_REGS[i].p && (i+1 === ALL_REGS.length || r.page < ALL_REGS[i+1].p)) { regName = ALL_REGS[i].n; break; }
+                if(r.page >= ALL_REGS[i].p && (i+1 === ALL_REGS.length || r.page < ALL_REGS[i+1].p)) {
+                    regName = ALL_REGS[i].n; break;
+                }
             }
-            d.innerHTML = `<div class="card-pg">PAGE ${r.page}</div><div class="card-name">${regName}</div><div style="font-size:11.5px;color:var(--lt3);margin-top:8px;line-height:1.4;">${snip.replace(new RegExp(q, 'gi'), m => `<b style="color:var(--lgold)">${m}</b>`)}</div>`;
+
+            d.innerHTML = `
+                <div class="card-pg">PAGE ${r.page}</div>
+                <div class="card-name">${regName}</div>
+                <div class="card-snip">${snip.replace(new RegExp(q, 'gi'), m => `<b style="color:var(--lgold)">${m}</b>`)}</div>
+            `;
             d.onclick = () => { renderPage(r.page); document.getElementById('tbTitle').innerText = regName; };
             wrap.appendChild(d);
         });
-        if(results.length === 0) wrap.innerHTML = '<div style="color:var(--lt3); text-align:center; padding:40px;">일치하는 내용이 없습니다.</div>';
+        if(results.length === 0) wrap.innerHTML = '<div style="color:var(--lt2); text-align:center; padding:50px;">일치하는 내용을 찾을 수 없습니다.</div>';
     }
 }
 
@@ -345,7 +385,7 @@ async function askAI() {
 
     input.value = '';
     chat.innerHTML += `<div class="ai-bubble ai-bubble-user">${q}</div>`;
-    chat.innerHTML += `<div class="ai-bubble ai-bubble-ai" id="aiTemp">✨ 최적의 조문을 분석 중입니다...</div>`;
+    chat.innerHTML += `<div class="ai-bubble ai-bubble-ai" id="aiTemp">✨ 분석 엔진 가동 중...</div>`;
     chat.scrollTop = chat.scrollHeight;
 
     let context = "";
@@ -353,19 +393,20 @@ async function askAI() {
         const keywords = q.split(' ').filter(w => w.length > 1);
         let matchPool = [];
         globalJsonData.forEach(item => {
+            const body = item.content || item.text || "";
             let score = 0;
-            keywords.forEach(k => { if(item.content.includes(k)) score++; });
-            if(score > 0) matchPool.push({pg: item.page, txt: item.content.substring(0, 800), score});
+            keywords.forEach(k => { if(body.includes(k)) score++; });
+            if(score > 0) matchPool.push({pg: item.page, txt: body.substring(0, 1000), score});
         });
         matchPool.sort((a,b) => b.score - a.score).slice(0, 4).forEach(m => {
             context += `[Page ${m.pg}]: ${m.txt}\n\n`;
         });
     }
 
-    const prompt = `법규집 발췌 데이터:\n${context}\n질문: ${q}\n위 데이터를 바탕으로 친절하게 답변하세요. 근거 페이지를 꼭 명시하세요.`;
+    const prompt = `법규집 발췌 데이터:\n${context}\n질문: ${q}\n위 내용을 바탕으로 정확하게 답변하세요. 출처 페이지를 명시하세요.`;
     const ans = await callGemini(prompt);
-    document.getElementById('aiTemp').innerHTML = ans.replace(/\n/g, '<br>');
-    document.getElementById('aiTemp').id = '';
+    const tempDiv = document.getElementById('aiTemp');
+    if(tempDiv) { tempDiv.innerHTML = ans.replace(/\n/g, '<br>'); tempDiv.id = ''; }
     chat.scrollTop = chat.scrollHeight;
 }
 
@@ -374,19 +415,20 @@ async function callGemini(q) {
     try {
         const res = await fetch(url, {
             method: 'POST', headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ contents: [{ parts: [{ text: q }] }], systemInstruction: { parts: [{ text: "대한변협 법규 비서입니다. 한국어로 답변하세요." }] } })
+            body: JSON.stringify({ contents: [{ parts: [{ text: q }] }], systemInstruction: { parts: [{ text: "대한변협 전문 법률 비서입니다. 정중하게 답하세요." }] } })
         });
         const data = await res.json();
         return data.candidates[0].content.parts[0].text;
-    } catch(e) { return "AI 통신 실패"; }
+    } catch(e) { return "AI 시스템 일시적 장애"; }
 }
 
 /* UI UTILS */
-function toggleSidebar() { document.getElementById('left').classList.toggle('collapsed'); setTimeout(() => window.dispatchEvent(new Event('resize')), 350); }
+function toggleSidebar() { document.getElementById('left').classList.toggle('collapsed'); setTimeout(() => window.dispatchEvent(new Event('resize')), 400); }
 function toggleAI() { const m = document.getElementById('aiModal'); m.style.display = m.style.display === 'flex' ? 'none' : 'flex'; }
-function switchTab(t) { curTab = t; document.getElementById('stab0').classList.toggle('on', t===0); document.getElementById('stab1').classList.toggle('on', t===1); document.getElementById('catBar').style.display = t===0?'flex':'none'; performSearch(); }
+function switchTab(t) { curTab = t; listPage = 0; document.getElementById('stab0').classList.toggle('on', t===0); document.getElementById('stab1').classList.toggle('on', t===1); document.getElementById('catBar').style.display = t===0?'grid':'none'; performSearch(); }
 function updateActive(el){ document.querySelectorAll('.card').forEach(c => c.classList.remove('active')); el.classList.add('active'); }
 function changePdfPage(d){ if(pdfDoc) { let t = curPdfPg + d; if(t>=1 && t<=pdfDoc.numPages) renderPage(t); } }
+function moveListPage(d) { listPage = Math.max(0, listPage + d); performSearch(); }
 function initCatBar() {
     const bar = document.getElementById('catBar');
     bar.innerHTML = '';
@@ -394,7 +436,7 @@ function initCatBar() {
         const chip = document.createElement('div');
         chip.className = 'c-chip' + (c === '전체' ? ' active' : '');
         chip.innerText = c;
-        chip.onclick = () => { document.querySelectorAll('.c-chip').forEach(el => el.classList.remove('active')); chip.classList.add('active'); activeCat = c; performSearch(); };
+        chip.onclick = () => { document.querySelectorAll('.c-chip').forEach(el => el.classList.remove('active')); chip.classList.add('active'); activeCat = c; listPage = 0; performSearch(); };
         bar.appendChild(chip);
     });
 }
@@ -402,22 +444,19 @@ function initCatBar() {
 /* MATRIX RAIN */
 function initMatrix() {
     const canvas = document.getElementById('matrix-rain');
-    if(!canvas) return;
     const ctx = canvas.getContext('2d');
-    const CHARS = 'アイウエ오0123456789法規則定條章協會辯護士倫리징계등록';
-    const FONT_SIZE = 14;
+    const CHARS = '0123456789대한변호사협회법규집시스템데이터분석';
+    const FONT_SIZE = 15;
     let cols, drops;
     function resize() { canvas.width = canvas.parentElement.offsetWidth; canvas.height = canvas.parentElement.offsetHeight; cols = Math.floor(canvas.width / FONT_SIZE); drops = Array.from({length: cols}, () => Math.random() * -100); }
     function draw() {
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.1)'; ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.font = FONT_SIZE + 'px monospace';
         for(let i = 0; i < drops.length; i++) {
             const text = CHARS[Math.floor(Math.random() * CHARS.length)];
-            ctx.shadowBlur = 10; ctx.shadowColor = '#00ff41'; ctx.fillStyle = '#ffffff';
+            ctx.shadowBlur = 10; ctx.shadowColor = '#059669'; ctx.fillStyle = '#10b981';
             ctx.fillText(text, i * FONT_SIZE, drops[i] * FONT_SIZE);
-            ctx.shadowBlur = 0; ctx.fillStyle = '#00ff41';
-            ctx.fillText(text, i * FONT_SIZE, (drops[i]-1) * FONT_SIZE);
-            if(drops[i] * FONT_SIZE > canvas.height && Math.random() > 0.975) drops[i] = 0;
+            if(drops[i] * FONT_SIZE > canvas.height && Math.random() > 0.985) drops[i] = 0;
             drops[i]++;
         }
         requestAnimationFrame(draw);
@@ -426,7 +465,7 @@ function initMatrix() {
 }
 
 window.onload = () => { initApp(); initMatrix(); };
-document.getElementById('searchQ').oninput = () => { clearTimeout(searchTimeout); searchTimeout = setTimeout(performSearch, 200); };
+document.getElementById('searchQ').oninput = () => { clearTimeout(searchTimeout); searchTimeout = setTimeout(performSearch, 250); };
 document.getElementById('aiInput').onkeydown = e => { if(e.key === 'Enter') askAI(); };
 </script>
 </body>
