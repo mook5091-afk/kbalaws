@@ -100,17 +100,16 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
 .ai-msg-ai{background:rgba(56,189,248,0.05); border-left:6px solid var(--accent); color:var(--text-p); border-top-left-radius:4px;}
 .ai-msg-user{background:var(--bg-card); margin-left:auto; text-align:right; color:var(--accent); border-bottom-right-radius:4px;}
 
-/* Jump Button in AI msg */
-.jump-btn{display:inline-flex; align-items:center; gap:8px; margin-top:15px; padding:10px 18px; background:var(--accent); color:var(--bg-main); border-radius:10px; font-size:12.5px; font-weight:700; cursor:pointer; border:none; transition:0.2s;}
-.jump-btn:hover{background:var(--text-p); transform: translateX(5px);}
+/* Custom Control in AI msg */
+.action-row{display: flex; gap: 8px; flex-wrap: wrap; margin-top: 15px;}
+.jump-btn{display:inline-flex; align-items:center; gap:8px; padding:10px 16px; background:var(--accent); color:var(--bg-main); border-radius:10px; font-size:12px; font-weight:700; cursor:pointer; border:none; transition:0.2s;}
+.notebook-btn{display:inline-flex; align-items:center; gap:8px; padding:10px 16px; background:var(--gold); color:var(--bg-main); border-radius:10px; font-size:12px; font-weight:700; cursor:pointer; border:none; transition:0.2s;}
+.jump-btn:hover, .notebook-btn:hover{transform: translateY(-2px); filter: brightness(1.1);}
 
 .ai-input-box{padding:25px; background:var(--bg-main); border-top:1px solid var(--border); display:flex; gap:12px; align-items:center;}
 
 #loading{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:500; text-align:center; width: 100%;}
 .spin{width:60px; height:60px; border:6px solid rgba(56,189,248,0.1); border-top-color:var(--accent); border-radius:50%; animation:spin 1s linear infinite; margin: 0 auto;}
-
-/* Recovery Glass UI */
-.glass-panel { background: rgba(15,23,42,0.9); padding: 50px; border-radius: 30px; border: 1px solid var(--border); max-width: 550px; text-align: center; backdrop-filter: blur(40px); box-shadow: 0 50px 120px rgba(0,0,0,0.8);}
 
 @keyframes spin{to{transform:rotate(360deg)}}
 @media print { #left, .top-nav, #matrix-rain, #aiModal { display: none !important; } }
@@ -187,7 +186,7 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
         <div style="color:var(--accent); font-family:monospace; margin-top:20px; font-size:14px; letter-spacing:4px; font-weight:700;">ANALYZING REGS...</div>
       </div>
       <div id="recoveryUI" style="display:none;">
-        <div class="glass-panel">
+        <div style="background: rgba(15,23,42,0.95); padding: 50px; border-radius: 30px; border: 1px solid var(--border); text-align: center; max-width: 550px;">
           <h3 style="color:var(--accent); margin-bottom:20px; font-size:22px;">데이터 보안 연동</h3>
           <p style="font-size:15px; color:var(--text-s); line-height:1.8; margin-bottom:30px;">
             브라우저 보안 제약으로 인해 파일을 자동으로 로드할 수 없습니다.<br>
@@ -211,7 +210,7 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
     <button class="pager-btn" style="border-radius:20px; padding:6px 15px;" onclick="toggleAI()">닫기</button>
   </div>
   <div class="ai-body" id="aiChat">
-    <div class="ai-msg ai-msg-ai">반갑습니다. 본문 전체 데이터를 기반으로 가장 정확한 법적 근거를 찾아드립니다. 궁금한 키워드를 입력하세요.</div>
+    <div class="ai-msg ai-msg-ai">데이터 분석 준비 완료. 키워드를 입력하시면 관련 조문을 찾고, 노트북LM 분석용 데이터를 생성해 드립니다.</div>
   </div>
   <div class="ai-input-box">
     <input type="text" class="s-input" id="aiInput" placeholder="예: 총회 성원 요건, 징계 절차 등">
@@ -258,7 +257,7 @@ async function initApp() {
         const jsonRes = await fetch('laws_data.json?t=' + Date.now());
         if(jsonRes.ok) {
             globalJsonData = await jsonRes.json();
-            dbStatus.innerText = "데이터 동기화 완료";
+            dbStatus.innerText = "DB 동기화 완료";
             dbDot.classList.add('ready');
         }
         const pdfTask = pdfjsLib.getDocument('laws.pdf');
@@ -315,6 +314,8 @@ function performSearch() {
     } else {
         if(globalJsonData.length === 0) { wrap.innerHTML = '<div style="color:var(--text-s); text-align:center; padding:50px;">데이터베이스를 연결하세요.</div>'; return; }
         if(tokens.length === 0) { wrap.innerHTML = '<div style="color:var(--text-s); text-align:center; padding:50px;">검색어를 입력하세요.</div>'; return; }
+        
+        // Advanced intersection search
         const results = globalJsonData.filter(item => tokens.every(t => (item.content || "").toLowerCase().includes(t))).slice(0, 30);
         results.forEach(r => {
             const d = document.createElement('div');
@@ -328,7 +329,7 @@ function performSearch() {
     }
 }
 
-/* ── AI SEARCH ENGINE (FREE LOCAL) ── */
+/* ── AI SEARCH & NOTEBOOK LM BRIDGE ── */
 async function askAI() {
     const input = document.getElementById('aiInput');
     const chat = document.getElementById('aiChat');
@@ -338,8 +339,9 @@ async function askAI() {
     chat.scrollTop = chat.scrollHeight;
 
     if (globalJsonData.length === 0) { chat.innerHTML += `<div class="ai-msg ai-msg-ai">DB가 연결되지 않았습니다.</div>`; return; }
-    chat.innerHTML += `<div class="ai-msg ai-msg-ai" id="aiTemp">🔍 AI가 1,128페이지의 조문을 정밀 분석 중입니다...</div>`;
+    chat.innerHTML += `<div class="ai-msg ai-msg-ai" id="aiTemp">🔍 AI 검색 엔진이 데이터를 분석 중입니다...</div>`;
     
+    // Local Analysis (Improved)
     const tokens = q.split(/\s+/).filter(w => w.length > 1);
     let matchPool = [];
     globalJsonData.forEach(item => {
@@ -347,24 +349,34 @@ async function askAI() {
         let score = 0; tokens.forEach(t => { if(body.includes(t.toLowerCase())) score += 10; }); 
         if(score > 0) {
             const idx = body.indexOf(tokens[0].toLowerCase());
-            matchPool.push({pg: item.page, score: score, snip: body.substring(Math.max(0, idx - 20), idx + 220)});
+            matchPool.push({pg: item.page, score: score, content: item.content, snip: body.substring(Math.max(0, idx - 20), idx + 250)});
         }
     });
 
     matchPool.sort((a,b) => b.score - a.score);
-    const top = matchPool.slice(0, 3);
+    const top = matchPool.slice(0, 4);
     
     setTimeout(() => {
         let res = "";
         if (top.length > 0) {
-            res = `질문하신 내용과 관련하여 <b>${top.length}개의 주요 법적 근거</b>를 본문에서 추출했습니다.<br><br>`;
+            // Build full context for clipboard
+            let fullContext = `--- 법규집 검색 결과 (질문: ${q}) ---\n\n`;
+            res = `<b>${top.length}개의 관련 조문</b>을 찾았습니다. 정교한 법률 추론이 필요하시면 하단의 <b>노트북LM 버튼</b>을 이용해 주세요.<br><br>`;
+            
             top.forEach((m, i) => {
                 let regName = "관련 조문";
                 for(let j=0; j<ALL_REGS.length; j++) if(m.pg >= ALL_REGS[j].p && (j+1 === ALL_REGS.length || m.pg < ALL_REGS[j+1].p)) { regName = ALL_REGS[j].n; break; }
                 res += `${i+1}. 📄 <b>${regName} (P.${m.pg})</b><br>`;
                 res += `<small style="color:var(--text-s)">"...${m.snip.replace(/\n/g, ' ')}..."</small><br>`;
-                res += `<button class="jump-btn" onclick="renderPage(${m.pg}); toggleAI();">📍 해당 조문으로 이동 (P.${m.pg})</button><br><br>`;
+                res += `<div class="action-row"><button class="jump-btn" onclick="renderPage(${m.pg}); toggleAI();">📍 이동</button></div><br>`;
+                fullContext += `[P.${m.pg} ${regName}]: ${m.content}\n\n`;
             });
+
+            // Bridge to NotebookLM
+            res += `<div style="margin-top:10px; padding:15px; background:rgba(251,191,36,0.15); border-radius:15px; border:1px solid var(--gold);">`;
+            res += `<p style="font-size:12px; color:var(--text-p); margin-bottom:12px;">💡 위 ${top.length}개 조문 텍스트를 노트북LM으로 보내 정밀 분석하시겠습니까?</p>`;
+            res += `<button class="notebook-btn" onclick="copyAndJumpToNotebook('${encodeURIComponent(fullContext.replace(/'/g, "\\'"))}')">🚀 노트북LM으로 정밀 분석하기</button>`;
+            res += `</div>`;
         } else {
             res = "죄송합니다. 현재 법규집 본문에서 해당 키워드와 일치하는 명확한 근거를 찾지 못했습니다.";
         }
@@ -372,6 +384,26 @@ async function askAI() {
         document.getElementById('aiTemp').id = '';
         chat.scrollTop = chat.scrollHeight;
     }, 800);
+}
+
+function copyAndJumpToNotebook(context) {
+    const text = decodeURIComponent(context);
+    const el = document.createElement('textarea');
+    el.value = text;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    
+    const msg = document.createElement('div');
+    msg.innerText = "✅ 텍스트 복사 완료! 노트북LM 페이지가 열립니다. [소스 추가] -> [텍스트 복사]에 붙여넣으세요.";
+    msg.style = "position:fixed; top:20px; left:50%; transform:translateX(-50%); background:var(--green); padding:15px 25px; border-radius:10px; z-index:9999; font-weight:700;";
+    document.body.appendChild(msg);
+    
+    setTimeout(() => {
+        window.open('https://notebooklm.google.com/', '_blank');
+        msg.remove();
+    }, 2000);
 }
 
 /* ── UI HELPERS ── */
