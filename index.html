@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2026 대한변호사협회 법규집 ✨ LOCAL AI SMART</title>
+<title>2026 대한변호사협회 법규집 ✨ CLAUDE AI EDITION</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 /* ══════════════════════════════════════════════
-   PREMIUM MODERN NAVY THEME (FREE LOCAL EDITION)
+   PREMIUM MODERN NAVY THEME (CLAUDE EDITION)
 ══════════════════════════════════════════════ */
 :root{
   --sidebar-w: 460px;
@@ -20,7 +20,7 @@
   --lt3: #475569; 
   --lgold: #fbbf24; 
   --mg: #10b981; 
-  --ai-purp: #818cf8; 
+  --claude-purp: #d97706; /* Claude Accent */
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
@@ -50,53 +50,31 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
 .sinput{width:100%; padding:14px 18px; background:rgba(255,255,255,0.02); border:1px solid var(--lb); border-radius:12px; color:var(--lt1); font-size:14.5px; outline:none; transition:0.3s; box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);}
 .sinput:focus{border-color:var(--la); background:rgba(255,255,255,0.05); box-shadow: 0 0 0 3px rgba(56,189,248,0.15);}
 
-/* Category Grid (5 items per row) */
-.cat-grid{
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 6px;
-  padding: 12px 15px;
-  background: var(--lbg);
-  border-bottom: 1px solid var(--lb);
-}
-.c-chip{
-  padding: 8px 2px;
-  border-radius: 8px;
-  background: var(--lbg2);
-  border: 1px solid var(--lb);
-  color: var(--lt2);
-  font-size: 10.5px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+.cat-grid{display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; padding: 12px 15px; background: var(--lbg); border-bottom: 1px solid var(--lb);}
+.c-chip{padding: 8px 2px; border-radius: 8px; background: var(--lbg2); border: 1px solid var(--lb); color: var(--lt2); font-size: 10.5px; text-align: center; cursor: pointer; transition: all 0.2s ease; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
 .c-chip:hover{ border-color: var(--la); color: var(--lt1); }
 .c-chip.active{ background: var(--la); color: var(--lbg); font-weight: 700; border-color: var(--la); box-shadow: 0 4px 12px rgba(56,189,248,0.3); }
 
 .cards-wrap{flex:1; overflow-y:auto; padding:15px; background:var(--lbg);}
 .card{padding:20px; background:var(--lbg2); border: 1px solid rgba(255,255,255,0.03); border-radius:14px; cursor:pointer; margin-bottom:14px; transition:0.25s; box-shadow: 0 4px 12px rgba(0,0,0,0.1);}
-.card:hover{border-color:var(--la); transform:translateY(-3px); background:rgba(255,255,255,0.02); box-shadow: 0 8px 20px rgba(0,0,0,0.3);}
-.card.active{border-color:var(--la); background:rgba(56,189,248,0.05); box-shadow: 0 0 20px rgba(56,189,248,0.1);}
+.card:hover{border-color:var(--la); transform:translateY(-3px); background:rgba(255,255,255,0.02);}
+.card.active{border-color:var(--la); background:rgba(56,189,248,0.05);}
 .card-pg{font-size:10px; color:var(--la); font-weight: 800; margin-bottom:8px; letter-spacing:1px; opacity:0.8; background: rgba(56,189,248,0.1); width: fit-content; padding: 2px 6px; border-radius: 4px;}
 .card-name{font-size:15px; line-height:1.6; font-weight:500; word-break:keep-all; color:var(--lt1);}
-.card-snip{font-size:12.5px; color:var(--lt2); margin-top:12px; line-height:1.7; border-top: 1px solid rgba(255,255,255,0.05); padding-top:12px; font-weight:300;}
+.card-snip{font-size:12.5px; color:var(--lt2); margin-top:12px; line-height:1.7; border-top: 1px solid rgba(255,255,255,0.05); padding-top:12px;}
 
 /* ── RIGHT VIEW ── */
 #right{flex:1; display:flex; flex-direction:column; position:relative; background:#000; overflow:hidden;}
-#matrix-rain{position:absolute; inset:0; z-index:0; pointer-events:none; opacity: 0.1;}
+#matrix-rain{position:absolute; inset:0; z-index:0; pointer-events:none; opacity: 0.15;}
 
 .toolbar{display:flex; align-items:center; gap:12px; padding:0 24px; height:64px; background:rgba(2,6,23,0.85); backdrop-filter:blur(20px); border-bottom:1px solid var(--lb); z-index:20;}
 .tb-title{flex:1; font-size:15px; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-family:'Noto Serif KR',serif; color:var(--lt1);}
 
 .toggle-btn{width:42px; height:42px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.04); border:1px solid var(--lb); border-radius:10px; color:var(--la); cursor:pointer; transition:0.3s; font-size:18px;}
-.toggle-btn:hover{background:var(--la); color:var(--lbg); transform: scale(1.05);}
+.toggle-btn:hover{background:var(--la); color:var(--lbg);}
 
 .tbtn{padding:10px 18px; border:1px solid var(--lb); border-radius:8px; background:rgba(255,255,255,0.02); color:var(--lt1); font-size:12.5px; cursor:pointer; font-weight:600; transition:0.2s;}
-.tbtn:hover:not(:disabled){background:rgba(255,255,255,0.08); border-color:var(--lt2);}
-.tbtn-ai{background: linear-gradient(135deg, #10b981, #059669); border:none; color:white; box-shadow: 0 4px 15px rgba(16,185,129,0.3);}
+.tbtn-ai{background: linear-gradient(135deg, #d97706, #b45309); border:none; color:white; box-shadow: 0 4px 15px rgba(217,119,6,0.3);}
 
 #cvwrap{flex:1; overflow:auto; display:flex; justify-content:center; align-items: flex-start; padding:50px; position:relative; z-index:10; cursor: zoom-in;}
 #pdf-canvas{box-shadow: 0 50px 120px rgba(0,0,0,0.9); background:#fff; display:none; border-radius:2px;}
@@ -105,26 +83,32 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
 #aiModal{position:fixed; bottom:30px; right:30px; width:480px; height:650px; background:var(--lbg); border:1px solid var(--lb); border-radius:24px; z-index:2000; display:none; flex-direction:column; box-shadow:0 30px 80px rgba(0,0,0,0.8); overflow:hidden;}
 .ai-chat{flex:1; overflow-y:auto; padding:28px; scroll-behavior: smooth;}
 .ai-bubble{padding:16px 20px; border-radius:18px; margin-bottom:20px; font-size:14px; line-height:1.8; max-width:90%; box-shadow: 0 4px 12px rgba(0,0,0,0.15);}
-.ai-bubble-ai{background:rgba(16,185,129,0.05); border-left:5px solid var(--mg); color:var(--lt1); border-top-left-radius:4px;}
+.ai-bubble-ai{background:rgba(217,119,6,0.05); border-left:5px solid var(--claude-purp); color:var(--lt1); border-top-left-radius:4px;}
 .ai-bubble-user{background:var(--lb); margin-left:auto; text-align:right; color:var(--la2); border-bottom-right-radius:4px;}
+
+/* API Key Bar */
+.api-bar{padding:10px 24px; background: #1e1b4b; color: white; font-size:11.5px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #312e81; position:relative; z-index:500;}
+#keyInput{background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); padding:4px 10px; border-radius:6px; color:white; font-size:11px; width:220px; outline:none;}
 
 #loading{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:500; text-align:center; width: 100%;}
 .spin{width:54px; height:54px; border:5px solid rgba(56,189,248,0.1); border-top-color:var(--la); border-radius:50%; animation:spin 1s linear infinite; margin: 0 auto;}
 
-.recovery-panel { background: rgba(15,23,42,0.98); padding: 50px; border-radius: 24px; border: 1px solid var(--lb); max-width: 520px; text-align: center; backdrop-filter: blur(25px); box-shadow: 0 40px 100px rgba(0,0,0,0.6);}
-.recovery-btn { background: var(--la); color: var(--lbg); padding: 16px 32px; border-radius: 12px; font-weight: 700; cursor: pointer; border: none; margin-top: 25px; transition: 0.3s; font-size:15px;}
-
-@media print { #left, .toolbar, #matrix-rain, #aiModal { display: none !important; } }
+@media print { #left, .toolbar, #matrix-rain, #aiModal, .api-bar { display: none !important; } }
 </style>
 </head>
 <body>
+
+<div class="api-bar">
+    <span>🧠 Claude API 연동 모드: 키를 입력하면 <b>Claude-3.5</b>가 답변하고, 비우면 <b>로컬 엔진</b>이 작동합니다.</span>
+    <input type="password" id="keyInput" placeholder="Anthropic API Key (sk-ant-...)" onchange="updateClaudeKey(this.value)">
+</div>
 
 <div id="left">
   <div class="lh">
     <div class="lh-ttl">대한변협 법규지능 ✨</div>
     <div class="status-tag">
         <div class="dot" id="dbDot"></div>
-        <span id="dbStatus">연결 대기 중</span>
+        <span id="dbStatus">시스템 동기화 확인 중...</span>
     </div>
   </div>
   <div class="stab-row">
@@ -149,7 +133,7 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
     <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
     <div class="tb-title" id="tbTitle">시스템 동기화 완료</div>
     <div style="display:flex; gap:12px; align-items:center;">
-      <button class="tbtn tbtn-ai" onclick="toggleAI()">✨ 무료 법규상담</button>
+      <button class="tbtn tbtn-ai" onclick="toggleAI()">✨ Claude 법규상담</button>
       <div style="width:1px; height:20px; background:rgba(255,255,255,0.1);"></div>
       <button class="tbtn" style="padding:8px 14px;" onclick="changePdfPage(-1)">◀</button>
       <span style="font-size:14px; color:var(--la); font-family:monospace; font-weight:700; min-width:80px; text-align:center;"><span id="curPg">1</span> / <span id="totPg">—</span></span>
@@ -163,35 +147,30 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
         <div style="color:var(--la); font-family:monospace; margin-top:20px; font-size:13px; letter-spacing:3px; font-weight:700;">INITIALIZING...</div>
       </div>
       <div id="recoveryUI" style="display:none;">
-        <div class="recovery-panel">
-          <h3 style="color:var(--la); margin-bottom:18px; font-size:20px;">보안 시스템 연동 필요</h3>
-          <p style="font-size:14px; color:var(--lt2); line-height:1.7;">
-            브라우저 보안 제약으로 인해 파일을 수동으로 연결해야 합니다.<br>
-            아래 버튼을 눌러 <b>laws.pdf</b> 파일을 선택해 주세요.
-          </p>
-          <button class="recovery-btn" onclick="document.getElementById('pdfIn').click()">📂 laws.pdf 연결</button>
-          <input type="file" id="pdfIn" style="display:none" accept=".pdf" onchange="handleManualPdf(this)">
-          <div style="margin-top:25px; font-size:11px; color:var(--lt3); padding:10px; background:rgba(255,255,255,0.02); border-radius:8px;">본문 검색과 무료 상담을 위해 laws_data.json도 필요합니다.</div>
-          <button class="tbtn" style="margin-top:12px; border-color:var(--lt3); color:var(--lt2); width:100%;" onclick="document.getElementById('jsonIn').click()">📂 laws_data.json 연결</button>
-          <input type="file" id="jsonIn" style="display:none" accept=".json" onchange="handleManualJson(this)">
-        </div>
+          <div style="text-align:center; background:var(--lbg2); padding:40px; border-radius:20px; border:1px solid var(--la);">
+              <h3 style="margin-bottom:20px;">보안 시스템 연동 필요</h3>
+              <button class="tbtn" style="background:var(--la); color:var(--lbg); margin-bottom:10px;" onclick="document.getElementById('pdfIn').click()">📂 laws.pdf 연결</button>
+              <input type="file" id="pdfIn" style="display:none" accept=".pdf" onchange="handleManualPdf(this)">
+              <br>
+              <button class="tbtn" onclick="document.getElementById('jsonIn').click()">📂 laws_data.json 연결</button>
+              <input type="file" id="jsonIn" style="display:none" accept=".json" onchange="handleManualJson(this)">
+          </div>
       </div>
     </div>
     <canvas id="pdf-canvas"></canvas>
   </div>
 </div>
 
-<!-- AI Modal -->
 <div id="aiModal">
   <div style="padding:22px 28px; background:var(--lbg2); border-bottom:1px solid var(--lb); display:flex; justify-content:space-between; align-items:center;">
-    <span style="font-weight:800; color:var(--mg); font-size:16px; letter-spacing:-0.5px;">✨ 무료 로컬 법규상담</span>
-    <button class="tbtn" style="padding:6px 12px; border-radius:20px; font-size:11px;" onclick="toggleAI()">닫기</button>
+    <span style="font-weight:800; color:var(--claude-purp); font-size:16px;">✨ Claude-3 법규 상담 서비스</span>
+    <button class="tbtn" style="padding:6px 12px; border-radius:20px; font-size:11px;" onclick="toggleAI()">ESC</button>
   </div>
   <div class="ai-chat" id="aiChat">
-    <div class="ai-bubble ai-bubble-ai">로컬 데이터 분석 엔진이 활성화되었습니다. 별도의 비용 없이 조문 내용을 기반으로 답변해 드립니다.</div>
+    <div class="ai-bubble ai-bubble-ai">무엇을 도와드릴까요? (현재 모드: <b id="aiModeLabel">로컬 엔진</b>)</div>
   </div>
   <div style="padding:24px; background:var(--lbg); border-top:1px solid var(--lb); display:flex; gap:12px; align-items:center;">
-    <input type="text" class="sinput" id="aiInput" placeholder="궁금하신 조문 키워드를 입력하세요...">
+    <input type="text" class="sinput" id="aiInput" placeholder="법규 관련 질문을 입력하세요...">
     <button class="tbtn tbtn-ai" style="padding:14px 24px; border-radius:12px;" onclick="askAI()">분석</button>
   </div>
 </div>
@@ -199,8 +178,9 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>
 /* ───────────────────────────────────────────────────
-   COMPLETE SYSTEM LOGIC (FREE VERSION)
+   CORE DATA & SYSTEM ENGINE
 ─────────────────────────────────────────────────── */
+let claudeApiKey = ""; 
 const ALL_REGS = [
   {n:'변호사법',p:26,cat:'법령'},{n:'변호사법 시행령',p:76,cat:'법령'},{n:'변호사시험법',p:103,cat:'법령'},{n:'변호사시험법 시행령',p:111,cat:'법령'},{n:'변호사시험법 시행규칙',p:119,cat:'법령'},{n:'외국법자문사법',p:123,cat:'법령'},{n:'외국법자문사법 시행령',p:154,cat:'법령'},{n:'외국법자문사법 시행규칙',p:167,cat:'법령'},
   {n:'대한변호사협회 회칙',p:174,cat:'회칙'},{n:'변호사윤리장전',p:197,cat:'회칙'},{n:'외국법자문사윤리장전',p:207,cat:'회칙'},
@@ -224,9 +204,6 @@ let globalJsonData = [];
 let curTab = 0, activeCat = '전체', listPage = 0, searchTimeout = null;
 const PER_PAGE = 10;
 
-/* ───────────────────────────────────────────────────
-   INITIALIZATION & DATA LOADING
-─────────────────────────────────────────────────── */
 async function initApp() {
     const dbStatus = document.getElementById('dbStatus');
     const dbDot = document.getElementById('dbDot');
@@ -238,107 +215,29 @@ async function initApp() {
         const jsonRes = await fetch('laws_data.json?t=' + Date.now());
         if(jsonRes.ok) {
             globalJsonData = await jsonRes.json();
-            dbStatus.innerText = "데이터베이스 동기화 (" + globalJsonData.length + "P)";
+            dbStatus.innerText = "DB 동기화 (" + globalJsonData.length + "P)";
             dbDot.classList.add('ready');
         }
-
         const pdfTask = pdfjsLib.getDocument('laws.pdf');
         pdfDoc = await pdfTask.promise;
         document.getElementById('totPg').textContent = pdfDoc.numPages;
-        
         loadingUI.style.display = 'none';
         document.getElementById('pdf-canvas').style.display = 'block';
-        tbTitle.innerText = "대한변호사협회 법규지능 (로컬 엔진)";
-        
-        initCatBar();
-        renderPage(1);
-        performSearch();
-        initInteractive();
+        tbTitle.innerText = "대한변호사협회 법규지능 (Claude 3)";
+        initCatBar(); renderPage(1); performSearch(); initInteractive();
     } catch (e) {
-        loadingUI.style.display = 'none';
-        recoveryUI.style.display = 'block';
-        tbTitle.innerText = "시스템 연결 대기 중";
-        initCatBar();
+        loadingUI.style.display = 'none'; recoveryUI.style.display = 'block';
+        tbTitle.innerText = "연결 대기 중"; initCatBar();
     }
 }
 
-/* ── INTERACTIVE (ZOOM & CLICK) ── */
-function initInteractive() {
-    const cvWrap = document.getElementById('cvwrap');
-    const canvas = document.getElementById('pdf-canvas');
-    cvWrap.addEventListener('wheel', (e) => {
-        if (e.ctrlKey) {
-            e.preventDefault();
-            const step = 0.2;
-            scale = (e.deltaY < 0) ? Math.min(scale + step, 4.0) : Math.max(scale - step, 0.4);
-            renderPage(curPdfPg);
-        }
-    }, { passive: false });
-    canvas.addEventListener('click', (e) => {
-        const rect = canvas.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        changePdfPage(x < rect.width / 2 ? -1 : 1);
-    });
-}
-
-/* ── ADVANCED SEARCH ENGINE (TOKENIZED) ── */
-function performSearch() {
-    const qRaw = document.getElementById('searchQ').value.trim().toLowerCase();
-    const wrap = document.getElementById('cardsWrap');
-    wrap.innerHTML = '';
-
-    if(curTab === 0) {
-        let filtered = ALL_REGS.filter(r => (activeCat === '전체' || r.cat === activeCat));
-        if(qRaw) {
-            const tokens = qRaw.split(/\s+/).filter(t => t.length > 0);
-            filtered = filtered.filter(r => tokens.every(t => r.n.toLowerCase().includes(t)));
-        }
-        const totalPgs = Math.ceil(filtered.length / PER_PAGE);
-        document.getElementById('listPgInfo').innerText = `${listPage + 1} / ${totalPgs || 1}`;
-        const slice = filtered.slice(listPage * PER_PAGE, (listPage + 1) * PER_PAGE);
-        slice.forEach(r => {
-            const d = document.createElement('div');
-            d.className = 'card' + (curPdfPg === r.p ? ' active' : '');
-            d.innerHTML = `<div class="card-pg">P.${r.p}</div><div class="card-name">${r.n}</div>`;
-            d.onclick = () => { renderPage(r.p); document.getElementById('tbTitle').innerText = r.n; updateActive(d); };
-            wrap.appendChild(d);
-        });
-    } else {
-        if(globalJsonData.length === 0) {
-            wrap.innerHTML = '<div style="color:var(--lt3); text-align:center; padding:50px;">데이터베이스가 연결되지 않았습니다.</div>';
-            return;
-        }
-        if(!qRaw) {
-            wrap.innerHTML = '<div style="color:var(--lt3); text-align:center; padding:50px;">본문 검색어를 입력하세요.</div>';
-            return;
-        }
-        const tokens = qRaw.split(/\s+/).filter(t => t.length > 0);
-        const results = globalJsonData.filter(item => {
-            const body = (item.content || item.text || "").toLowerCase();
-            return tokens.every(t => body.includes(t));
-        }).slice(0, 30);
-
-        results.forEach(r => {
-            const d = document.createElement('div');
-            d.className = 'card';
-            const body = r.content || r.text || "";
-            const snipIdx = body.toLowerCase().indexOf(tokens[0]);
-            const snip = "..." + body.substring(Math.max(0, snipIdx - 45), Math.min(body.length, snipIdx + 75)) + "...";
-            let regName = "기타 조문";
-            for(let i=0; i<ALL_REGS.length; i++) {
-                if(r.page >= ALL_REGS[i].p && (i+1 === ALL_REGS.length || r.page < ALL_REGS[i+1].p)) { regName = ALL_REGS[i].n; break; }
-            }
-            let highlighted = snip;
-            tokens.forEach(t => { highlighted = highlighted.replace(new RegExp(t, 'gi'), m => `<b style="color:var(--lgold)">${m}</b>`); });
-            d.innerHTML = `<div class="card-pg">P.${r.page} | ${regName}</div><div class="card-snip">${highlighted}</div>`;
-            d.onclick = () => { renderPage(r.page); document.getElementById('tbTitle').innerText = regName; };
-            wrap.appendChild(d);
-        });
-    }
+function updateClaudeKey(val) {
+    claudeApiKey = val;
+    document.getElementById('aiModeLabel').innerText = claudeApiKey ? "Claude-3 모드" : "로컬 모드";
 }
 
 /* ───────────────────────────────────────────────────
-   100% FREE LOCAL AI ANALYSIS ENGINE
+   CLAUDE AI & LOCAL ENGINE (TOKENIZED SEARCH)
 ─────────────────────────────────────────────────── */
 async function askAI() {
     const input = document.getElementById('aiInput');
@@ -349,146 +248,139 @@ async function askAI() {
     chat.innerHTML += `<div class="ai-bubble ai-bubble-user">${q}</div>`;
     chat.scrollTop = chat.scrollHeight;
 
-    if (globalJsonData.length === 0) {
-        chat.innerHTML += `<div class="ai-bubble ai-bubble-ai">데이터베이스가 연결되지 않아 분석이 불가능합니다.</div>`;
-        return;
-    }
+    if (!claudeApiKey) {
+        // --- LOCAL PSEUDO-AI ---
+        chat.innerHTML += `<div class="ai-bubble ai-bubble-ai" id="aiTemp">🔍 로컬 엔진 분석 중...</div>`;
+        const tokens = q.split(/\s+/).filter(w => w.length > 1);
+        let matchPool = [];
+        globalJsonData.forEach(item => {
+            const body = (item.content || "").toLowerCase();
+            let score = 0;
+            tokens.forEach(t => { if(body.includes(t.toLowerCase())) score += 10; });
+            if(score > 0) matchPool.push({pg: item.page, snip: body.substring(0, 300), score});
+        });
+        matchPool.sort((a,b) => b.score - a.score);
+        const top = matchPool.slice(0, 3);
+        setTimeout(() => {
+            let res = top.length > 0 ? "<b>관련 조문 분석:</b><br><br>" : "명확한 조문을 찾지 못했습니다.";
+            top.forEach(m => res += `📄 P.${m.pg}: "...${m.snip}..."<br><br>`);
+            document.getElementById('aiTemp').innerHTML = res; document.getElementById('aiTemp').id = '';
+            chat.scrollTop = chat.scrollHeight;
+        }, 500);
+    } else {
+        // --- REAL CLAUDE RAG ---
+        chat.innerHTML += `<div class="ai-bubble ai-bubble-ai" id="aiTemp">✨ Claude가 분석 중입니다...</div>`;
+        let context = "";
+        const tokens = q.split(/\s+/).filter(w => w.length > 1);
+        let matchPool = [];
+        globalJsonData.forEach(item => {
+            const body = (item.content || "").toLowerCase();
+            let score = 0; tokens.forEach(t => { if(body.includes(t.toLowerCase())) score++; });
+            if(score > 0) matchPool.push({pg: item.page, txt: body.substring(0, 1500), score});
+        });
+        matchPool.sort((a,b) => b.score - a.score).slice(0, 4).forEach(m => { context += `[P.${m.pg}]: ${m.txt}\n\n`; });
 
-    chat.innerHTML += `<div class="ai-bubble ai-bubble-ai" id="aiTemp">🔍 로컬 엔진에서 조문 분석 중...</div>`;
-    
-    // 분석 알고리즘 (Keyword Weighting)
-    const tokens = q.split(/\s+/).filter(w => w.length > 1);
-    let matchPool = [];
-    globalJsonData.forEach(item => {
-        const body = (item.content || item.text || "").toLowerCase();
-        let score = 0;
-        tokens.forEach(t => { if(body.includes(t.toLowerCase())) score += 10; }); // 전체 포함 시 가점
-        if(score > 0) {
-            // 키워드 근접도 점수 (간단한 구현)
-            const firstIdx = body.indexOf(tokens[0].toLowerCase());
-            matchPool.push({pg: item.page, txt: body, score: score, snip: body.substring(Math.max(0, firstIdx - 50), firstIdx + 150)});
-        }
-    });
-
-    matchPool.sort((a,b) => b.score - a.score);
-    const topResults = matchPool.slice(0, 3);
-    
-    setTimeout(() => {
-        let response = "";
-        if (topResults.length > 0) {
-            response = `질문하신 내용과 관련된 <b>${topResults.length}개의 주요 조문</b>을 찾았습니다.<br><br>`;
-            topResults.forEach((m, idx) => {
-                let regName = "해당 조문";
-                for(let i=0; i<ALL_REGS.length; i++) {
-                    if(m.pg >= ALL_REGS[i].p && (i+1 === ALL_REGS.length || m.pg < ALL_REGS[i+1].p)) { regName = ALL_REGS[i].n; break; }
-                }
-                response += `${idx+1}. 📄 <b>${regName} (P.${m.pg})</b><br>`;
-                response += `<small style="color:var(--lt2)">"...${m.snip.replace(/\n/g, ' ')}..."</small><br><br>`;
-            });
-            response += `상세 내용은 해당 페이지(P.${topResults[0].pg})를 참고해 주시기 바랍니다.`;
-        } else {
-            response = "죄송합니다. 현재 법규집 본문 데이터에서 해당 키워드와 일치하는 명확한 근거를 찾지 못했습니다. 보다 구체적인 단어로 다시 질문해 주세요.";
-        }
-        document.getElementById('aiTemp').innerHTML = response;
+        const ans = await callClaude(`[참고 데이터]:\n${context}\n\n[질문]: ${q}\n위 조문을 근거로 정중히 답하세요.`);
+        document.getElementById('aiTemp').innerHTML = ans.replace(/\n/g, '<br>');
         document.getElementById('aiTemp').id = '';
         chat.scrollTop = chat.scrollHeight;
-    }, 600);
+    }
 }
 
-/* ── UI HELPERS ── */
+async function callClaude(prompt) {
+    const url = "https://api.anthropic.com/v1/messages";
+    try {
+        const res = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'x-api-key': claudeApiKey,
+                'anthropic-version': '2023-06-01',
+                'content-type': 'application/json',
+                'anthropic-dangerous-direct-browser-access': 'true' // For testing
+            },
+            body: JSON.stringify({
+                model: "claude-3-5-sonnet-20240620",
+                max_tokens: 1024,
+                messages: [{ role: "user", content: prompt }]
+            })
+        });
+        if(!res.ok) throw new Error("CORS or Key Error");
+        const data = await res.json();
+        return data.content[0].text;
+    } catch(e) {
+        return "⚠️ Claude API 통신 실패. 브라우저 보안(CORS)에 의해 차단되었을 수 있습니다. 로컬 분석 엔진으로 전환해 보세요.";
+    }
+}
+
+/* ── UI & PDF INTERACTION ── */
+function initInteractive() {
+    const cvWrap = document.getElementById('cvwrap');
+    const canvas = document.getElementById('pdf-canvas');
+    cvWrap.addEventListener('wheel', (e) => { if (e.ctrlKey) { e.preventDefault(); const step = 0.2; scale = (e.deltaY < 0) ? Math.min(scale + step, 4.0) : Math.max(scale - step, 0.4); renderPage(curPdfPg); } }, { passive: false });
+    canvas.addEventListener('click', (e) => { const rect = canvas.getBoundingClientRect(); const x = e.clientX - rect.left; changePdfPage(x < rect.width / 2 ? -1 : 1); });
+}
+
+function performSearch() {
+    const qRaw = document.getElementById('searchQ').value.trim().toLowerCase();
+    const wrap = document.getElementById('cardsWrap'); wrap.innerHTML = '';
+    if(curTab === 0) {
+        let filtered = ALL_REGS.filter(r => (activeCat === '전체' || r.cat === activeCat));
+        if(qRaw) { const tokens = qRaw.split(/\s+/).filter(t => t.length > 0); filtered = filtered.filter(r => tokens.every(t => r.n.toLowerCase().includes(t))); }
+        const totalPgs = Math.ceil(filtered.length / PER_PAGE);
+        document.getElementById('listPgInfo').innerText = `${listPage + 1} / ${totalPgs || 1}`;
+        filtered.slice(listPage * PER_PAGE, (listPage + 1) * PER_PAGE).forEach(r => {
+            const d = document.createElement('div'); d.className = 'card' + (curPdfPg === r.p ? ' active' : '');
+            d.innerHTML = `<div class="card-pg">P.${r.p}</div><div class="card-name">${r.n}</div>`;
+            d.onclick = () => { renderPage(r.p); updateActive(d); }; wrap.appendChild(d);
+        });
+    } else {
+        if(globalJsonData.length === 0) return;
+        const tokens = qRaw.split(/\s+/).filter(t => t.length > 0);
+        if(!tokens.length) return;
+        globalJsonData.filter(item => tokens.every(t => (item.content || "").toLowerCase().includes(t))).slice(0, 30).forEach(r => {
+            const d = document.createElement('div'); d.className = 'card';
+            let regName = "조문"; for(let i=0; i<ALL_REGS.length; i++) if(r.page >= ALL_REGS[i].p && (i+1 === ALL_REGS.length || r.page < ALL_REGS[i+1].p)) { regName = ALL_REGS[i].n; break; }
+            d.innerHTML = `<div class="card-pg">P.${r.page} | ${regName}</div><div class="card-snip">${r.content.substring(0, 100)}...</div>`;
+            d.onclick = () => { renderPage(r.page); }; wrap.appendChild(d);
+        });
+    }
+}
+
+async function renderPage(pg){
+    if(!pdfDoc || isRendering) return; isRendering = true; curPdfPg = pg;
+    document.getElementById('curPg').textContent = pg;
+    try { const page = await pdfDoc.getPage(pg); const vp = page.getViewport({ scale }); const cv = document.getElementById('pdf-canvas'); const ctx = cv.getContext('2d'); cv.width = vp.width; cv.height = vp.height; await page.render({ canvasContext: ctx, viewport: vp }).promise; } catch(e) {}
+    isRendering = false;
+}
+
+function initCatBar() {
+    const bar = document.getElementById('catBar'); bar.innerHTML = '';
+    CATS.forEach(c => {
+        const chip = document.createElement('div'); chip.className = 'c-chip' + (c === '전체' ? ' active' : ''); chip.innerText = c;
+        chip.onclick = () => { document.querySelectorAll('.c-chip').forEach(el => el.classList.remove('active')); chip.classList.add('active'); activeCat = c; listPage = 0; performSearch(); };
+        bar.appendChild(chip);
+    });
+}
+
 function toggleSidebar() { document.getElementById('left').classList.toggle('collapsed'); setTimeout(() => window.dispatchEvent(new Event('resize')), 400); }
 function toggleAI() { const m = document.getElementById('aiModal'); m.style.display = m.style.display === 'flex' ? 'none' : 'flex'; }
 function switchTab(t) { curTab = t; listPage = 0; document.getElementById('stab0').classList.toggle('on', t===0); document.getElementById('stab1').classList.toggle('on', t===1); document.getElementById('catBar').style.display = t===0?'grid':'none'; performSearch(); }
 function updateActive(el){ document.querySelectorAll('.card').forEach(c => c.classList.remove('active')); el.classList.add('active'); }
 function changePdfPage(d){ if(pdfDoc) { let t = curPdfPg + d; if(t>=1 && t<=pdfDoc.numPages) renderPage(t); } }
-function moveListPage(d) { 
-    const filteredCount = ALL_REGS.filter(r => (activeCat === '전체' || r.cat === activeCat)).length;
-    const max = Math.ceil(filteredCount / PER_PAGE);
-    listPage = Math.max(0, Math.min(max - 1, listPage + d));
-    performSearch(); 
-}
-function initCatBar() {
-    const bar = document.getElementById('catBar');
-    bar.innerHTML = '';
-    CATS.forEach(c => {
-        const chip = document.createElement('div');
-        chip.className = 'c-chip' + (c === '전체' ? ' active' : '');
-        chip.innerText = c;
-        chip.onclick = () => {
-            document.querySelectorAll('.c-chip').forEach(el => el.classList.remove('active'));
-            chip.classList.add('active');
-            activeCat = c; listPage = 0; performSearch();
-        };
-        bar.appendChild(chip);
-    });
-}
+function moveListPage(d) { listPage = Math.max(0, listPage + d); performSearch(); }
 
-function handleManualPdf(input) {
-    const file = input.files[0]; if (!file) return;
-    const reader = new FileReader();
-    reader.onload = async (e) => {
-        const task = pdfjsLib.getDocument({ data: e.target.result });
-        pdfDoc = await task.promise;
-        document.getElementById('totPg').textContent = pdfDoc.numPages;
-        document.getElementById('recoveryUI').style.display = 'none';
-        document.getElementById('pdf-canvas').style.display = 'block';
-        renderPage(1);
-    };
-    reader.readAsArrayBuffer(file);
-}
-
-function handleManualJson(input) {
-    const file = input.files[0]; if (!file) return;
-    const reader = new FileReader();
-    reader.onload = (e) => {
-        globalJsonData = JSON.parse(e.target.result);
-        document.getElementById('dbStatus').innerText = "DB 로드 성공";
-        document.getElementById('dbDot').classList.add('ready');
-        performSearch();
-    };
-    reader.readAsText(file);
-}
-
-async function renderPage(pg){
-    if(!pdfDoc || isRendering) return;
-    isRendering = true; curPdfPg = pg;
-    document.getElementById('curPg').textContent = pg;
-    try {
-        const page = await pdfDoc.getPage(pg);
-        const vp = page.getViewport({ scale });
-        const cv = document.getElementById('pdf-canvas');
-        const ctx = cv.getContext('2d');
-        cv.width = vp.width; cv.height = vp.height;
-        await page.render({ canvasContext: ctx, viewport: vp }).promise;
-    } catch(e) {}
-    isRendering = false;
-}
+function handleManualPdf(input) { const file = input.files[0]; if (!file) return; const reader = new FileReader(); reader.onload = async (e) => { pdfDoc = await pdfjsLib.getDocument({ data: e.target.result }).promise; document.getElementById('totPg').textContent = pdfDoc.numPages; document.getElementById('recoveryUI').style.display = 'none'; document.getElementById('pdf-canvas').style.display = 'block'; renderPage(1); }; reader.readAsArrayBuffer(file); }
+function handleManualJson(input) { const file = input.files[0]; if (!file) return; const reader = new FileReader(); reader.onload = (e) => { globalJsonData = JSON.parse(e.target.result); performSearch(); }; reader.readAsText(file); }
 
 function initMatrix() {
-    const canvas = document.getElementById('matrix-rain');
-    const ctx = canvas.getContext('2d');
-    const CHARS = '0123456789대한변협디지털시스템데이터분석';
-    const FONT_SIZE = 15;
-    let cols, drops;
+    const canvas = document.getElementById('matrix-rain'); const ctx = canvas.getContext('2d'); const CHARS = '0123456789대한변협디지털시스템데이터분석'; const FONT_SIZE = 15; let cols, drops;
     function resize() { canvas.width = canvas.parentElement.offsetWidth; canvas.height = canvas.parentElement.offsetHeight; cols = Math.floor(canvas.width / FONT_SIZE); drops = Array.from({length: cols}, () => Math.random() * -100); }
-    function draw() {
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.1)'; ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.font = FONT_SIZE + 'px monospace';
-        for(let i = 0; i < drops.length; i++) {
-            const text = CHARS[Math.floor(Math.random() * CHARS.length)];
-            ctx.shadowBlur = 10; ctx.shadowColor = '#059669'; ctx.fillStyle = '#10b981';
-            ctx.fillText(text, i * FONT_SIZE, drops[i] * FONT_SIZE);
-            if(drops[i] * FONT_SIZE > canvas.height && Math.random() > 0.985) drops[i] = 0;
-            drops[i]++;
-        }
-        requestAnimationFrame(draw);
-    }
+    function draw() { ctx.fillStyle = 'rgba(0, 0, 0, 0.1)'; ctx.fillRect(0, 0, canvas.width, canvas.height); ctx.font = FONT_SIZE + 'px monospace'; for(let i = 0; i < drops.length; i++) { const text = CHARS[Math.floor(Math.random() * CHARS.length)]; ctx.shadowBlur = 10; ctx.shadowColor = '#059669'; ctx.fillStyle = '#10b981'; ctx.fillText(text, i * FONT_SIZE, drops[i] * FONT_SIZE); if(drops[i] * FONT_SIZE > canvas.height && Math.random() > 0.985) drops[i] = 0; drops[i]++; } requestAnimationFrame(draw); }
     resize(); window.addEventListener('resize', resize); requestAnimationFrame(draw);
 }
 
 window.onload = () => { initApp(); initMatrix(); };
 document.getElementById('searchQ').oninput = () => { clearTimeout(searchTimeout); searchTimeout = setTimeout(performSearch, 250); };
-document.getElementById('aiInput').onkeydown = e => { if(e.key === 'Enter') askAI(); };
 </script>
 </body>
 </html>
