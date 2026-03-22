@@ -11,16 +11,16 @@
 ══════════════════════════════════════════════ */
 :root{
   --sidebar-w: 460px;
-  --lbg: #020617; /* Deep Navy Background */
-  --lbg2: #0f172a; /* Card Background */
-  --lb: #1e293b; /* Border Color */
-  --la: #38bdf8; /* Accent Blue */
-  --lt1: #f8fafc; /* Primary Text */
-  --lt2: #94a3b8; /* Secondary Text */
-  --lt3: #475569; /* Muted Text */
-  --lgold: #fbbf24; /* Highlight Gold */
-  --mg: #10b981; /* Status Green */
-  --ai-purp: #818cf8; /* AI Purple */
+  --lbg: #020617; 
+  --lbg2: #0f172a; 
+  --lb: #1e293b; 
+  --la: #38bdf8; 
+  --lt1: #f8fafc; 
+  --lt2: #94a3b8; 
+  --lt3: #475569; 
+  --lgold: #fbbf24; 
+  --mg: #10b981; 
+  --ai-purp: #818cf8; 
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
@@ -50,7 +50,6 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
 .sinput{width:100%; padding:14px 18px; background:rgba(255,255,255,0.02); border:1px solid var(--lb); border-radius:12px; color:var(--lt1); font-size:14.5px; outline:none; transition:0.3s; box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);}
 .sinput:focus{border-color:var(--la); background:rgba(255,255,255,0.05); box-shadow: 0 0 0 3px rgba(56,189,248,0.15);}
 
-/* Category Grid (Updated to 5 per row) */
 .cat-grid{
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -73,20 +72,20 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.c-chip:hover{ border-color: var(--lt3); color: var(--lt1); }
+.c-chip:hover{ border-color: var(--la); color: var(--lt1); }
 .c-chip.active{ background: var(--la); color: var(--lbg); font-weight: 700; border-color: var(--la); box-shadow: 0 4px 12px rgba(56,189,248,0.3); }
 
 .cards-wrap{flex:1; overflow-y:auto; padding:15px; background:var(--lbg);}
 .card{padding:20px; background:var(--lbg2); border: 1px solid rgba(255,255,255,0.03); border-radius:14px; cursor:pointer; margin-bottom:14px; transition:0.25s; box-shadow: 0 4px 12px rgba(0,0,0,0.1);}
 .card:hover{border-color:var(--la); transform:translateY(-3px); background:rgba(255,255,255,0.02); box-shadow: 0 8px 20px rgba(0,0,0,0.3);}
 .card.active{border-color:var(--la); background:rgba(56,189,248,0.05); box-shadow: 0 0 20px rgba(56,189,248,0.1);}
-.card-pg{font-size:10px; color:var(--la); font-weight:800; margin-bottom:8px; letter-spacing:1px; opacity:0.8;}
+.card-pg{font-size:10px; color:var(--la); font-weight: 800; margin-bottom:8px; letter-spacing:1px; opacity:0.8; background: rgba(56,189,248,0.1); width: fit-content; padding: 2px 6px; border-radius: 4px;}
 .card-name{font-size:15px; line-height:1.6; font-weight:500; word-break:keep-all; color:var(--lt1);}
 .card-snip{font-size:12.5px; color:var(--lt2); margin-top:12px; line-height:1.7; border-top: 1px solid rgba(255,255,255,0.05); padding-top:12px; font-weight:300;}
 
 /* ── RIGHT VIEW ── */
 #right{flex:1; display:flex; flex-direction:column; position:relative; background:#000; overflow:hidden;}
-#matrix-rain{position:absolute; inset:0; z-index:0; pointer-events:none; opacity: 0.15;} /* Reduced opacity for better reading */
+#matrix-rain{position:absolute; inset:0; z-index:0; pointer-events:none; opacity: 0.15;}
 
 .toolbar{display:flex; align-items:center; gap:12px; padding:0 24px; height:64px; background:rgba(2,6,23,0.85); backdrop-filter:blur(20px); border-bottom:1px solid var(--lb); z-index:20;}
 .tb-title{flex:1; font-size:15px; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-family:'Noto Serif KR',serif; color:var(--lt1);}
@@ -97,10 +96,9 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
 .tbtn{padding:10px 18px; border:1px solid var(--lb); border-radius:8px; background:rgba(255,255,255,0.02); color:var(--lt1); font-size:12.5px; cursor:pointer; font-weight:600; transition:0.2s;}
 .tbtn:hover:not(:disabled){background:rgba(255,255,255,0.08); border-color:var(--lt2);}
 .tbtn-ai{background: linear-gradient(135deg, #4f46e5, #9333ea); border:none; color:white; box-shadow: 0 4px 15px rgba(129,140,248,0.3);}
-.tbtn-ai:hover{transform: translateY(-1px); box-shadow: 0 6px 20px rgba(129,140,248,0.5);}
 
-#cvwrap{flex:1; overflow:auto; display:flex; justify-content:center; align-items: flex-start; padding:50px; position:relative; z-index:10;}
-#pdf-canvas{box-shadow: 0 50px 120px rgba(0,0,0,0.9); background:#fff; display:none; border-radius:2px;}
+#cvwrap{flex:1; overflow:auto; display:flex; justify-content:center; align-items: flex-start; padding:50px; position:relative; z-index:10; cursor: zoom-in;}
+#pdf-canvas{box-shadow: 0 50px 120px rgba(0,0,0,0.9); background:#fff; display:none; border-radius:2px; transition: transform 0.1s ease-out;}
 
 /* AI & System UI */
 #aiModal{position:fixed; bottom:30px; right:30px; width:480px; height:650px; background:var(--lbg); border:1px solid var(--lb); border-radius:24px; z-index:2000; display:none; flex-direction:column; box-shadow:0 30px 80px rgba(0,0,0,0.8); overflow:hidden;}
@@ -114,7 +112,6 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
 
 .recovery-panel { background: rgba(15,23,42,0.98); padding: 50px; border-radius: 24px; border: 1px solid var(--lb); max-width: 520px; text-align: center; backdrop-filter: blur(25px); box-shadow: 0 40px 100px rgba(0,0,0,0.6);}
 .recovery-btn { background: var(--la); color: var(--lbg); padding: 16px 32px; border-radius: 12px; font-weight: 700; cursor: pointer; border: none; margin-top: 25px; transition: 0.3s; font-size:15px;}
-.recovery-btn:hover { background: var(--la2); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(56,189,248,0.3);}
 
 @media print { #left, .toolbar, #matrix-rain, #aiModal { display: none !important; } }
 </style>
@@ -136,7 +133,6 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
   <div class="sbox">
     <input class="sinput" id="searchQ" placeholder="규정명 또는 키워드 입력..." autocomplete="off">
   </div>
-  <!-- Category Grid (5 items per row) -->
   <div class="cat-grid" id="catBar"></div>
   <div class="cards-wrap" id="cardsWrap"></div>
   <div style="padding:18px 24px; border-top:1px solid var(--lb); display:flex; justify-content:space-between; align-items:center; background:var(--lbg2);">
@@ -187,7 +183,7 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
 <!-- AI Modal -->
 <div id="aiModal">
   <div style="padding:22px 28px; background:var(--lbg2); border-bottom:1px solid var(--lb); display:flex; justify-content:space-between; align-items:center;">
-    <span style="font-weight:800; color:var(--ai-purp); font-size:16px; letter-spacing:-0.5px;">✨ AI 법규 비서</span>
+    <span style="font-weight:800; color:var(--ai-purp); font-size:16px; letter-spacing:-0.5px;">✨ AI 법규 상담 서비스</span>
     <button class="tbtn" style="padding:6px 12px; border-radius:20px; font-size:11px;" onclick="toggleAI()">ESC</button>
   </div>
   <div class="ai-chat" id="aiChat">
@@ -202,7 +198,7 @@ body{height:100vh; overflow:hidden; font-family:'Noto Sans KR',sans-serif; backg
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>
 /* ───────────────────────────────────────────────────
-   COMPLETE 182 REGULATIONS DATA
+   COMPLETE 182 REGULATIONS DATA & CONFIG
 ─────────────────────────────────────────────────── */
 const apiKey = ""; 
 const ALL_REGS = [
@@ -229,7 +225,7 @@ let curTab = 0, activeCat = '전체', listPage = 0, searchTimeout = null;
 const PER_PAGE = 10;
 
 /* ───────────────────────────────────────────────────
-   INITIALIZATION
+   INITIALIZATION & PDF ENGINE
 ─────────────────────────────────────────────────── */
 async function initApp() {
     const dbStatus = document.getElementById('dbStatus');
@@ -239,26 +235,25 @@ async function initApp() {
     const recoveryUI = document.getElementById('recoveryUI');
 
     try {
-        // 1. JSON Load
         const jsonRes = await fetch('laws_data.json?t=' + Date.now());
         if(jsonRes.ok) {
             globalJsonData = await jsonRes.json();
-            dbStatus.innerText = "데이터베이스 동기화 완료";
+            dbStatus.innerText = "DB 동기화 완료 (" + globalJsonData.length + "P)";
             dbDot.classList.add('ready');
         }
 
-        // 2. PDF Load
-        const loadingTask = pdfjsLib.getDocument('laws.pdf');
-        pdfDoc = await loadingTask.promise;
+        const pdfTask = pdfjsLib.getDocument('laws.pdf');
+        pdfDoc = await pdfTask.promise;
         document.getElementById('totPg').textContent = pdfDoc.numPages;
         
         loadingUI.style.display = 'none';
         document.getElementById('pdf-canvas').style.display = 'block';
-        tbTitle.innerText = "대한변호사협회 법규집";
+        tbTitle.innerText = "대한변호사협회 법규지능 ✨";
         
-        renderPage(1);
         initCatBar();
+        renderPage(1);
         performSearch();
+        initInteractiveListeners(); // 줌 및 클릭 이벤트 초기화
     } catch (e) {
         loadingUI.style.display = 'none';
         recoveryUI.style.display = 'block';
@@ -269,40 +264,40 @@ async function initApp() {
 }
 
 /* ───────────────────────────────────────────────────
-   MANUAL LOADING
+   ZOOM & CLICK NAVIGATION LOGIC
 ─────────────────────────────────────────────────── */
-function handleManualPdf(input) {
-    const file = input.files[0]; if (!file) return;
-    const reader = new FileReader();
-    reader.onload = async (e) => {
-        try {
-            const loadingTask = pdfjsLib.getDocument({ data: e.target.result });
-            pdfDoc = await loadingTask.promise;
-            document.getElementById('totPg').textContent = pdfDoc.numPages;
-            document.getElementById('recoveryUI').style.display = 'none';
-            document.getElementById('pdf-canvas').style.display = 'block';
-            renderPage(1);
-        } catch(err) { alert("PDF 해석 실패"); }
-    };
-    reader.readAsArrayBuffer(file);
-}
+function initInteractiveListeners() {
+    const cvWrap = document.getElementById('cvwrap');
+    const canvas = document.getElementById('pdf-canvas');
 
-function handleManualJson(input) {
-    const file = input.files[0]; if (!file) return;
-    const reader = new FileReader();
-    reader.onload = (e) => {
-        try {
-            globalJsonData = JSON.parse(e.target.result);
-            document.getElementById('dbStatus').innerText = "DB 수동 동기화 성공";
-            document.getElementById('dbDot').classList.add('ready');
-            performSearch();
-        } catch(err) { alert("JSON 형식 오류"); }
-    };
-    reader.readAsText(file);
+    // 1. Mouse Wheel Zoom (Ctrl + Wheel)
+    cvWrap.addEventListener('wheel', (e) => {
+        if (e.ctrlKey) {
+            e.preventDefault();
+            const zoomStep = 0.15;
+            if (e.deltaY < 0) {
+                scale = Math.min(scale + zoomStep, 4.0); // Max zoom 4x
+            } else {
+                scale = Math.max(scale - zoomStep, 0.5); // Min zoom 0.5x
+            }
+            renderPage(curPdfPg);
+        }
+    }, { passive: false });
+
+    // 2. Click-to-Page Navigation (Left Half: Prev, Right Half: Next)
+    canvas.addEventListener('click', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        if (x < rect.width / 2) {
+            changePdfPage(-1);
+        } else {
+            changePdfPage(1);
+        }
+    });
 }
 
 /* ───────────────────────────────────────────────────
-   SEARCH & RENDER
+   RENDER & SEARCH ENGINE
 ─────────────────────────────────────────────────── */
 async function renderPage(pg){
     if(!pdfDoc || isRendering) return;
@@ -319,18 +314,25 @@ async function renderPage(pg){
     isRendering = false;
 }
 
+function changePdfPage(d){ 
+    if(!pdfDoc) return;
+    let t = curPdfPg + d; 
+    if(t >= 1 && t <= pdfDoc.numPages) renderPage(t); 
+}
+
 function performSearch() {
-    const q = document.getElementById('searchQ').value.trim().toLowerCase();
+    const qRaw = document.getElementById('searchQ').value.trim().toLowerCase();
     const wrap = document.getElementById('cardsWrap');
     wrap.innerHTML = '';
 
     if(curTab === 0) {
         let filtered = ALL_REGS.filter(r => (activeCat === '전체' || r.cat === activeCat));
-        if(q) filtered = filtered.filter(r => r.n.toLowerCase().includes(q));
-        
+        if(qRaw) {
+            const tokens = qRaw.split(/\s+/);
+            filtered = filtered.filter(r => tokens.every(t => r.n.toLowerCase().includes(t)));
+        }
         const totalPgs = Math.ceil(filtered.length / PER_PAGE);
         document.getElementById('listPgInfo').innerText = `${listPage + 1} / ${totalPgs || 1}`;
-        
         const slice = filtered.slice(listPage * PER_PAGE, (listPage + 1) * PER_PAGE);
         slice.forEach(r => {
             const d = document.createElement('div');
@@ -341,69 +343,97 @@ function performSearch() {
         });
     } else {
         if(globalJsonData.length === 0) {
-            wrap.innerHTML = '<div style="color:var(--lt3); text-align:center; padding:50px; font-size:13px; line-height:1.6;">데이터베이스가 연결되지 않았습니다.<br>laws_data.json 파일이 필요합니다.</div>';
+            wrap.innerHTML = '<div style="color:var(--lt2); text-align:center; padding:50px; font-size:13px;">DB 연결 후 이용 가능합니다.</div>';
             return;
         }
-        if(!q) { wrap.innerHTML = '<div style="color:var(--lt3); text-align:center; padding:50px; font-size:13px;">검색어를 입력하여 1,128페이지를 탐색하세요.</div>'; return; }
-
+        if(!qRaw) {
+            wrap.innerHTML = '<div style="color:var(--lt2); text-align:center; padding:50px; font-size:13px;">본문 검색어를 입력하세요.</div>';
+            return;
+        }
+        const tokens = qRaw.split(/\s+/).filter(t => t.length > 0);
         const results = globalJsonData.filter(item => {
-            const body = item.content || item.text || "";
-            return body.toLowerCase().includes(q);
+            const body = (item.content || item.text || "").toLowerCase();
+            return tokens.every(t => body.includes(t));
         }).slice(0, 30);
 
         results.forEach(r => {
             const d = document.createElement('div');
             d.className = 'card';
             const body = r.content || r.text || "";
-            const idx = body.toLowerCase().indexOf(q);
+            const firstToken = tokens[0];
+            const idx = body.toLowerCase().indexOf(firstToken);
             const snip = "..." + body.substring(Math.max(0, idx - 45), Math.min(body.length, idx + 75)) + "...";
-            
-            let regName = "기타 조문";
+            let regName = "조문 데이터";
             for(let i=0; i<ALL_REGS.length; i++) {
-                if(r.page >= ALL_REGS[i].p && (i+1 === ALL_REGS.length || r.page < ALL_REGS[i+1].p)) {
-                    regName = ALL_REGS[i].n; break;
-                }
+                if(r.page >= ALL_REGS[i].p && (i+1 === ALL_REGS.length || r.page < ALL_REGS[i+1].p)) { regName = ALL_REGS[i].n; break; }
             }
-
-            d.innerHTML = `
-                <div class="card-pg">PAGE ${r.page}</div>
-                <div class="card-name">${regName}</div>
-                <div class="card-snip">${snip.replace(new RegExp(q, 'gi'), m => `<b style="color:var(--lgold)">${m}</b>`)}</div>
-            `;
+            let highlighted = snip;
+            tokens.forEach(t => { highlighted = highlighted.replace(new RegExp(t, 'gi'), m => `<b style="color:var(--lgold)">${m}</b>`); });
+            d.innerHTML = `<div class="card-pg">PAGE ${r.page}</div><div class="card-name">${regName}</div><div class="card-snip">${highlighted}</div>`;
             d.onclick = () => { renderPage(r.page); document.getElementById('tbTitle').innerText = regName; };
             wrap.appendChild(d);
         });
-        if(results.length === 0) wrap.innerHTML = '<div style="color:var(--lt2); text-align:center; padding:50px;">일치하는 내용을 찾을 수 없습니다.</div>';
+        if(results.length === 0) wrap.innerHTML = '<div style="color:var(--lt2); text-align:center; padding:50px;">결과 없음.</div>';
     }
 }
 
-/* AI LOGIC */
+/* ───────────────────────────────────────────────────
+   MANUAL HANDLERS & UI
+─────────────────────────────────────────────────── */
+function handleManualPdf(input) {
+    const file = input.files[0]; if (!file) return;
+    const reader = new FileReader();
+    reader.onload = async (e) => {
+        try {
+            const task = pdfjsLib.getDocument({ data: e.target.result });
+            pdfDoc = await task.promise;
+            document.getElementById('totPg').textContent = pdfDoc.numPages;
+            document.getElementById('recoveryUI').style.display = 'none';
+            document.getElementById('pdf-canvas').style.display = 'block';
+            renderPage(1);
+            initInteractiveListeners();
+        } catch(err) { alert("PDF 오류"); }
+    };
+    reader.readAsArrayBuffer(file);
+}
+
+function handleManualJson(input) {
+    const file = input.files[0]; if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+        try {
+            globalJsonData = JSON.parse(e.target.result);
+            document.getElementById('dbStatus').innerText = "DB 수동 로드됨";
+            document.getElementById('dbDot').classList.add('ready');
+            performSearch();
+        } catch(err) { alert("JSON 오류"); }
+    };
+    reader.readAsText(file);
+}
+
 async function askAI() {
     const input = document.getElementById('aiInput');
     const chat = document.getElementById('aiChat');
     const q = input.value.trim(); if(!q) return;
-
     input.value = '';
     chat.innerHTML += `<div class="ai-bubble ai-bubble-user">${q}</div>`;
-    chat.innerHTML += `<div class="ai-bubble ai-bubble-ai" id="aiTemp">✨ 분석 엔진 가동 중...</div>`;
+    chat.innerHTML += `<div class="ai-bubble ai-bubble-ai" id="aiTemp">✨ 데이터 스캔 중...</div>`;
     chat.scrollTop = chat.scrollHeight;
 
     let context = "";
     if (globalJsonData.length > 0) {
-        const keywords = q.split(' ').filter(w => w.length > 1);
+        const keywords = q.split(/\s+/).filter(w => w.length > 1);
         let matchPool = [];
         globalJsonData.forEach(item => {
             const body = item.content || item.text || "";
             let score = 0;
-            keywords.forEach(k => { if(body.includes(k)) score++; });
+            keywords.forEach(k => { if(body.toLowerCase().includes(k.toLowerCase())) score++; });
             if(score > 0) matchPool.push({pg: item.page, txt: body.substring(0, 1000), score});
         });
-        matchPool.sort((a,b) => b.score - a.score).slice(0, 4).forEach(m => {
-            context += `[Page ${m.pg}]: ${m.txt}\n\n`;
-        });
+        matchPool.sort((a,b) => b.score - a.score).slice(0, 5).forEach(m => { context += `[Page ${m.pg}]: ${m.txt}\n\n`; });
     }
 
-    const prompt = `법규집 발췌 데이터:\n${context}\n질문: ${q}\n위 내용을 바탕으로 정확하게 답변하세요. 출처 페이지를 명시하세요.`;
+    const prompt = `법규 데이터:\n${context}\n질문: ${q}\n위 내용을 근거로 정확하게 답변하세요. 출처 페이지 명시.`;
     const ans = await callGemini(prompt);
     const tempDiv = document.getElementById('aiTemp');
     if(tempDiv) { tempDiv.innerHTML = ans.replace(/\n/g, '<br>'); tempDiv.id = ''; }
@@ -415,20 +445,23 @@ async function callGemini(q) {
     try {
         const res = await fetch(url, {
             method: 'POST', headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ contents: [{ parts: [{ text: q }] }], systemInstruction: { parts: [{ text: "대한변협 전문 법률 비서입니다. 정중하게 답하세요." }] } })
+            body: JSON.stringify({ contents: [{ parts: [{ text: q }] }], systemInstruction: { parts: [{ text: "대한변협 전문 비서입니다." }] } })
         });
         const data = await res.json();
         return data.candidates[0].content.parts[0].text;
-    } catch(e) { return "AI 시스템 일시적 장애"; }
+    } catch(e) { return "AI 통신 지연 중..."; }
 }
 
-/* UI UTILS */
 function toggleSidebar() { document.getElementById('left').classList.toggle('collapsed'); setTimeout(() => window.dispatchEvent(new Event('resize')), 400); }
 function toggleAI() { const m = document.getElementById('aiModal'); m.style.display = m.style.display === 'flex' ? 'none' : 'flex'; }
 function switchTab(t) { curTab = t; listPage = 0; document.getElementById('stab0').classList.toggle('on', t===0); document.getElementById('stab1').classList.toggle('on', t===1); document.getElementById('catBar').style.display = t===0?'grid':'none'; performSearch(); }
 function updateActive(el){ document.querySelectorAll('.card').forEach(c => c.classList.remove('active')); el.classList.add('active'); }
-function changePdfPage(d){ if(pdfDoc) { let t = curPdfPg + d; if(t>=1 && t<=pdfDoc.numPages) renderPage(t); } }
-function moveListPage(d) { listPage = Math.max(0, listPage + d); performSearch(); }
+function moveListPage(d) { 
+    const filteredCount = ALL_REGS.filter(r => (activeCat === '전체' || r.cat === activeCat)).length;
+    const max = Math.ceil(filteredCount / PER_PAGE);
+    listPage = Math.max(0, Math.min(max - 1, listPage + d));
+    performSearch(); 
+}
 function initCatBar() {
     const bar = document.getElementById('catBar');
     bar.innerHTML = '';
@@ -436,16 +469,19 @@ function initCatBar() {
         const chip = document.createElement('div');
         chip.className = 'c-chip' + (c === '전체' ? ' active' : '');
         chip.innerText = c;
-        chip.onclick = () => { document.querySelectorAll('.c-chip').forEach(el => el.classList.remove('active')); chip.classList.add('active'); activeCat = c; listPage = 0; performSearch(); };
+        chip.onclick = () => {
+            document.querySelectorAll('.c-chip').forEach(el => el.classList.remove('active'));
+            chip.classList.add('active');
+            activeCat = c; listPage = 0; performSearch();
+        };
         bar.appendChild(chip);
     });
 }
 
-/* MATRIX RAIN */
 function initMatrix() {
     const canvas = document.getElementById('matrix-rain');
     const ctx = canvas.getContext('2d');
-    const CHARS = '0123456789대한변호사협회법규집시스템데이터분석';
+    const CHARS = '0123456789대한변협디지털시스템분석데이터';
     const FONT_SIZE = 15;
     let cols, drops;
     function resize() { canvas.width = canvas.parentElement.offsetWidth; canvas.height = canvas.parentElement.offsetHeight; cols = Math.floor(canvas.width / FONT_SIZE); drops = Array.from({length: cols}, () => Math.random() * -100); }
@@ -467,6 +503,31 @@ function initMatrix() {
 window.onload = () => { initApp(); initMatrix(); };
 document.getElementById('searchQ').oninput = () => { clearTimeout(searchTimeout); searchTimeout = setTimeout(performSearch, 250); };
 document.getElementById('aiInput').onkeydown = e => { if(e.key === 'Enter') askAI(); };
+
+async function downloadCurrentRegulation() {
+  if (!pdfDoc) return;
+  let reg = null, end = pdfDoc.numPages;
+  for (let i = 0; i < ALL_REGS.length; i++) {
+    if (curPdfPg >= ALL_REGS[i].p) { reg = ALL_REGS[i]; end = (i + 1 < ALL_REGS.length) ? ALL_REGS[i + 1].p - 1 : pdfDoc.numPages; } else break;
+  }
+  if (!reg) return;
+  const btn = document.getElementById('btnDownloadReg'); btn.innerText = '⌛';
+  try {
+    const res = await fetch('laws.pdf');
+    const buf = await res.arrayBuffer();
+    const { PDFDocument } = PDFLib;
+    const srcDoc = await PDFDocument.load(buf);
+    const newDoc = await PDFDocument.create();
+    const range = Array.from({length: end - reg.p + 1}, (_, i) => reg.p - 1 + i);
+    const copiedPages = await newDoc.copyPages(srcDoc, range);
+    copiedPages.forEach(p => newDoc.addPage(p));
+    const bytes = await newDoc.save();
+    const blob = new Blob([bytes], {type:'application/pdf'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a'); a.href = url; a.download = `${reg.n}.pdf`; a.click();
+  } catch (e) { alert('다운로드 오류'); }
+  btn.innerText = '⬇️ 조문 추출';
+}
 </script>
 </body>
 </html>
