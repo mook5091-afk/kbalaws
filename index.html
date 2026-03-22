@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2026 대한변호사협회 법규집 ✨ AI WIDE</title>
+<title>2026 대한변호사협회 법규집 ✨ AI SMART</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 /* ══════════════════════════════════════════════
@@ -22,7 +22,7 @@
 html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;background:#000}
 #app{display:flex;height:100vh; transition: all 0.3s ease;}
 
-/* ── LEFT PANEL (TOGGLEABLE) ── */
+/* ── LEFT PANEL ── */
 #left{
   width: var(--sidebar-w); min-width: var(--sidebar-w); height:100vh;
   background:var(--lbg); display:flex; flex-direction:column;
@@ -46,7 +46,6 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
 .sinfo{font-size:11px;color:var(--lt3);margin-top:8px;min-height:16px; display: flex; justify-content: space-between;}
 
 .cat-scroll{padding:8px 14px; background:var(--lbg); border-bottom:1px solid var(--lb); display:flex; gap:6px; overflow-x:auto; scrollbar-width: none;}
-.cat-scroll::-webkit-scrollbar{display:none}
 .c-chip{padding:5px 12px; border-radius:15px; background:var(--lbg2); border:1px solid var(--lb); color:var(--lt3); font-size:11.5px; cursor:pointer; white-space:nowrap; transition:0.2s;}
 .c-chip.active{ background:var(--lbg4); color:var(--la2); border-color:var(--la); }
 
@@ -63,45 +62,38 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
 
 .toolbar{display:flex;align-items:center;gap:10px; padding:0 14px;height:48px; background:var(--lbg2); border-bottom:1px solid var(--lb); position:relative;z-index:20; flex-shrink:0;}
 .tb-title{flex:1;font-family:'Noto Serif KR',serif; font-size:13px;color:var(--lt1);font-weight:600; overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-
-/* Toggle Button */
-.toggle-btn{
-    width:36px; height:32px; display:flex; align-items:center; justify-content:center;
-    background:var(--lbg3); border:1px solid var(--lb); border-radius:4px;
-    color:var(--la); cursor:pointer; font-weight:700; font-size:16px; margin-right:4px;
-}
-.toggle-btn:hover{background:var(--lbg4); border-color:var(--la);}
-
+.toggle-btn{width:36px; height:32px; display:flex; align-items:center; justify-content:center; background:var(--lbg3); border:1px solid var(--lb); border-radius:4px; color:var(--la); cursor:pointer; font-weight:700; font-size:16px; margin-right:4px;}
 .tbtn{padding:5px 12px;border:1px solid var(--lb);border-radius:3px; background:transparent;color:var(--lt2);font-size:11px;cursor:pointer; transition:all .12s; font-family: inherit;}
 .tbtn:hover:not(:disabled){background:rgba(126,170,255,.1);color:var(--la);border-color:var(--la);}
 .tbtn-ai{background:rgba(167,139,250,0.1); border-color:var(--ai-purp); color:var(--ai-purp);}
+.tbtn-action{background: rgba(126,170,255,.08); border-color: var(--la); color: var(--la2); font-weight: 500;}
 
-#cvwrap{
-    flex:1; overflow:auto; display:flex; justify-content:center; align-items:flex-start; 
-    padding:16px 20px; position:relative; z-index:10; background:transparent; touch-action: pan-y;
-}
+#cvwrap{flex:1; overflow:auto; display:flex; justify-content:center; align-items:flex-start; padding:16px 20px; position:relative; z-index:10; background:transparent; touch-action: pan-y;}
 #pdf-canvas{box-shadow:0 20px 80px rgba(0,0,0,1); background:#fff; display:none; flex-shrink:0;}
 
-#loading{position:absolute;top:50%;left:50%; transform:translate(-50%,-50%);text-align:center;z-index:10;}
-.spin{width:40px;height:40px; border:3px solid var(--mg4);border-top-color:var(--mg); border-radius:50%;animation:spin .8s linear infinite; margin:0 auto 14px;}
+/* Recovery UI */
+.recovery-box { background: rgba(0,0,0,0.85); border: 2px solid var(--lb); padding: 30px; border-radius: 12px; max-width: 500px; text-align: center; }
+.recovery-title { color: #f44; font-size: 18px; font-weight: 700; margin-bottom: 15px; }
+.recovery-desc { color: var(--lt2); font-size: 13px; line-height: 1.6; margin-bottom: 25px; }
+.big-btn { background: var(--la); color: var(--lbg); padding: 14px 28px; border-radius: 8px; font-weight: 700; cursor: pointer; border: none; font-size: 15px; transition: 0.2s; }
+.big-btn:hover { background: var(--la2); transform: scale(1.05); }
+
+#loading{position:absolute;top:50%;left:50%; transform:translate(-50%,-50%);text-align:center;z-index:10; width: 100%; display: flex; justify-content: center;}
+.spin{width:40px;height:40px; border:3px solid var(--mg4);border-top-color:var(--mg); border-radius:50%;animation:spin 0.8s linear infinite; margin:0 auto 14px;}
 @keyframes spin{to{transform:rotate(360deg)}}
 
 /* AI Modal */
-#aiModal{
-    position:fixed; bottom:20px; right:20px; width:400px; height:500px; 
-    background:var(--lbg2); border:1px solid var(--lb); border-radius:12px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.8); z-index:1000;
-    display:none; flex-direction:column; overflow:hidden;
-}
+#aiModal{position:fixed; bottom:20px; right:20px; width:450px; height:600px; background:var(--lbg2); border:1px solid var(--lb); border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.8); z-index:1000; display:none; flex-direction:column; overflow:hidden;}
 .ai-header{padding:14px; background:var(--lbg3); border-bottom:1px solid var(--lb); display:flex; justify-content:space-between; align-items:center;}
-.ai-chat{flex:1; overflow-y:auto; padding:15px; color:var(--lt1); font-size:13px;}
+.ai-chat{flex:1; overflow-y:auto; padding:15px; color:var(--lt1); font-size:13px; scroll-behavior: smooth;}
+.ai-bubble{padding:10px 14px; border-radius:10px; margin-bottom:12px; line-height:1.6; max-width:90%;}
+.ai-bubble-ai{background:rgba(167,139,250,0.1); border-left:4px solid var(--ai-purp);}
+.ai-bubble-user{background:var(--lbg3); margin-left: auto; color:var(--la2); text-align: right;}
 
 .prog-container{height:3px; background:rgba(255,255,255,0.05); overflow:hidden; display:none;}
 .prog-bar{height:100%; width:0; background:var(--la); transition: width 0.3s;}
 
-@media print {
-  #left, .toolbar, #matrix-rain, #loading, #aiModal { display: none !important; }
-}
+@media print { #left, .toolbar, #matrix-rain, #loading, #aiModal { display: none !important; } }
 </style>
 </head>
 <body>
@@ -109,17 +101,17 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
   <div id="left">
     <div class="lh">
       <div class="lh-kba">KOREAN BAR ASSOCIATION</div>
-      <div class="lh-ttl">대한변호사협회 법규집 ✨</div>
-      <div class="lh-sub">2026. 2. 26. 현재 · 규정 <b style="color:var(--la)">182개</b></div>
+      <div class="lh-ttl">대한변협 법규지능 ✨</div>
+      <div class="lh-sub">2026. 2. 26. 판 · 규정 <b style="color:var(--la)">182개</b></div>
     </div>
     <div class="stab-row">
-      <div class="stab on" id="stab0" onclick="switchTab(0)">📋 규정 목록</div>
+      <div class="stab on" id="stab0" onclick="switchTab(0)">📋 규정</div>
       <div class="stab" id="stab1" onclick="switchTab(1)">🔍 본문 검색</div>
     </div>
     <div class="sbox">
       <input class="sinput" id="searchQ" placeholder="검색어를 입력하세요..." autocomplete="off">
       <div class="prog-container" id="progContainer"><div class="prog-bar" id="progBar"></div></div>
-      <div class="sinfo" id="sinfo"><span>로딩 중...</span><span id="idxStatus"></span></div>
+      <div class="sinfo" id="sinfo"><span>분석 준비 중...</span><span id="idxStatus"></span></div>
     </div>
     <div class="cat-scroll" id="catBar"></div>
     <div class="cards-wrap" id="cardsWrap"></div>
@@ -136,7 +128,7 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
       <button class="toggle-btn" id="sidebarToggle" onclick="toggleSidebar()" title="목록 숨기기/보이기">☰</button>
       <div class="tb-title" id="tbTitle">준비 중...</div>
       <div class="tb-r">
-        <button class="tbtn tbtn-ai" onclick="toggleAI()">✨ AI 비서</button>
+        <button class="tbtn tbtn-ai" onclick="toggleAI()">✨ AI 큐레이터</button>
         <button class="tbtn tbtn-action" onclick="window.print()">🖨️ 인쇄</button>
         <button class="tbtn tbtn-action" id="btnDownloadReg" onclick="downloadCurrentRegulation()">⬇️ 추출</button>
         <div style="width: 1px; height: 16px; background: var(--lb); margin: 0 4px;"></div>
@@ -146,22 +138,41 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
       </div>
     </div>
     <div id="cvwrap">
-      <div id="loading"><div class="spin"></div><div class="ld-txt" id="ldStatus">INITIALIZING...</div></div>
+      <div id="loading">
+          <!-- 로딩 스피너 -->
+          <div id="loadingUI">
+            <div class="spin"></div>
+            <div class="ld-txt" style="color:var(--mg); font-family:monospace; letter-spacing:2px;">CONNECTING...</div>
+          </div>
+          <!-- 보안 환경용 긴급 복구 UI -->
+          <div id="recoveryUI" style="display:none;">
+              <div class="recovery-box">
+                  <div class="recovery-title">⚠️ PDF를 연결해야 합니다</div>
+                  <div class="recovery-desc">
+                    브라우저 보안 정책상 <b>미리보기 환경</b>에서는 파일을 자동으로 열 수 없습니다.<br>
+                    아래 버튼을 눌러 내 PC의 <b>laws.pdf</b> 파일을 직접 한 번만 선택해 주세요.<br>
+                    (Vercel 배포 시에는 자동으로 열립니다.)
+                  </div>
+                  <button class="big-btn" onclick="document.getElementById('fileSelector').click()">📂 내 PC의 laws.pdf 선택하기</button>
+                  <input type="file" id="fileSelector" style="display:none;" accept=".pdf" onchange="handleManualFile(this)">
+              </div>
+          </div>
+      </div>
       <canvas id="pdf-canvas"></canvas>
     </div>
   </div>
 
   <div id="aiModal">
     <div class="ai-header">
-        <span style="color:var(--ai-purp); font-weight:700; font-size:14px;">✨ AI 법규 비서</span>
+        <span style="color:var(--ai-purp); font-weight:700; font-size:14px;">✨ AI 법규 상담소</span>
         <button class="tbtn" onclick="toggleAI()">닫기</button>
     </div>
     <div class="ai-chat" id="aiChat">
-        <div style="background:rgba(167,139,250,0.1); padding:10px; border-radius:8px; margin-bottom:10px; border-left:3px solid var(--ai-purp);">안녕하세요! 법규에 대해 무엇이든 물어보세요.</div>
+        <div class="ai-bubble ai-bubble-ai">본문을 분석하여 법률 근거를 답변해 드립니다.</div>
     </div>
     <div style="padding:12px; background:var(--lbg); border-top:1px solid var(--lb); display:flex; gap:8px;">
-        <input type="text" class="sinput" id="aiInput" placeholder="질문하기..." style="flex:1;">
-        <button class="tbtn tbtn-ai" onclick="askAI()">전송</button>
+        <input type="text" class="sinput" id="aiInput" placeholder="AI에게 질문..." style="flex:1;">
+        <button class="tbtn tbtn-ai" onclick="askAI()">질문</button>
     </div>
   </div>
 </div>
@@ -170,7 +181,7 @@ html,body{height:100%;overflow:hidden;font-family:'Noto Sans KR',sans-serif;back
 <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
 <script>
 /* ───────────────────────────────────────────────────
-   CORE LOGIC & DATA
+   CORE DATA & GEMINI CONFIG
 ─────────────────────────────────────────────────── */
 const apiKey = ""; 
 const ALL_REGS = [
@@ -182,7 +193,7 @@ const ALL_REGS = [
   {n:'변호사징계규칙',p:411,cat:'징계'},{n:'변호사징계처분집행규정',p:426,cat:'징계'},{n:'윤리위원회규정',p:429,cat:'징계'},{n:'회규 위반 법률플랫폼 가입 회원 조사를 위한 특별조사위원회 규정',p:433,cat:'징계'},{n:'변호사징계양정규정',p:435,cat:'징계'},
   {n:'사법평가위원회규정',p:437,cat:'법제인권'},{n:'사법제도개선특별위원회규정',p:440,cat:'법제인권'},{n:'통일법연구위원회규정',p:442,cat:'법제인권'},{n:'환경과에너지연구위원회규정',p:444,cat:'법제인권'},{n:'헌법개정특별위원회규정',p:446,cat:'법제인권'},{n:'대한변호사협회 법학전문대학원 평가 및 발전 특별위원회 규정',p:448,cat:'법제인권'},{n:'변협포럼운영규정',p:450,cat:'법제인권'},{n:'국제인권특별위원회규정',p:452,cat:'법제인권'},{n:'일제피해자인권특별위원회규정',p:454,cat:'법제인권'},{n:'성년후견법률지원특별위원회규정',p:456,cat:'법제인권'},{n:'생명존중재난안전특별위원회규정',p:458,cat:'법제인권'},{n:'북한인권특별위원회규정',p:461,cat:'법제인권'},{n:'북한이탈주민법률지원위원회규정',p:463,cat:'법제인권'},{n:'난민이주외국인특별위원회 규정',p:465,cat:'법제인권'},{n:'대한변협 프로보노지원센터 규정',p:468,cat:'법제인권'},{n:'법관평가특별위원회규정',p:472,cat:'법제인권'},{n:'검사평가특별위원회규정',p:475,cat:'법제인권'},{n:'사법경찰평가특별위원회 규정',p:479,cat:'법제인권'},{n:'법제연구원규칙',p:482,cat:'법제인권'},{n:'우수 국회의원 선정 특별위원회 규정',p:486,cat:'법제인권'},{n:'법질서위반 감독센터 규정',p:488,cat:'법제인권'},{n:'ESG 특별위원회 규정',p:491,cat:'법제인권'},{n:'대한변협 전문변호사회 지원센터 설치 및 운영에 관한 규정',p:493,cat:'법제인권'},{n:'미래전략센터 설치 및 운영에 관한 규정',p:496,cat:'법제인권'},{n:'K-기업거버넌스 특별위원회 규정',p:499,cat:'법제인권'},
   {n:'변호사 연수규칙',p:501,cat:'연수'},{n:'변호사시험 합격자 연수규칙',p:511,cat:'연수'},{n:'변호사시험 합격자 연수규정',p:515,cat:'연수'},{n:'개별연수방법등에관한규정',p:528,cat:'연수'},{n:'법의지배를위한변호사대회규정',p:532,cat:'연수'},{n:'한국법률문화상규칙',p:534,cat:'연수'},{n:'지식재산연수원규정',p:537,cat:'연수'},{n:'변호사 세무대리 실무교육 등에 관한 규정',p:539,cat:'연수'},
-  {n:'변호사 광고에 관한 규칙',p:544,cat:'업무홍보'},{n:'변호사 광고에 관한 규정',p:546,cat:'업무홍보'},{n:'변호사 전문분야 등록에 관한 규정',p:554,cat:'업무홍보'},{n:'변호사수임장부에관한규정',p:570,cat:'업무홍보'},{n:'변호사 사무직원 규칙',p:572,cat:'업무홍보'},{n:'변호사 공동 사무직원 규정',p:576,cat:'업무홍보'},{n:'변호사 권익위원회 규정',p:578,cat:'업무홍보'},{n:'대한변호사협회 변호인조력권침해 신고센터 설치 및 운영에 관한 규정',p:581,cat:'업무홍보'},{n:'변호사 및 법률사무 종사자 안전의 날 제정에 관한 규정',p:585,cat:'업무홍보'},{n:'회지간행 및 학술사업 규칙',p:587,cat:'업무홍보'},{n:'인권과정의위원회 규정',p:592,cat:'업무홍보'},{n:'인권과정의원고작성요령및투고방법에관한규정',p:594,cat:'업무홍보'},{n:'회지게재논문 심사규정',p:597,cat:'업무홍보'},{n:'신문 등 간행규칙',p:600,cat:'업무홍보'},{n:'대한변호사협회공고에관한규칙',p:605,cat:'업무홍보'},{n:'변호사신상정보의수집및활용에관한규정',p:606,cat:'업무홍보'},{n:'대변인규정',p:609,cat:'업무홍보'},{n:'청년변호사특별위원회규정',p:610,cat:'업무홍보'},{n:'법조원로특별위원회규정',p:614,cat:'업무홍보'},{n:'사내변호사특별위원회규정',p:617,cat:'업무홍보'},{n:'여성변호사특별위원회규정',p:619,cat:'업무홍보'},{n:'명예변호사위촉에관한규정',p:622,cat:'업무홍보'},{n:'일과가정양립을위한위원회규정',p:624,cat:'업무홍보'},{n:'대한변협 양성평등센터 규정',p:626,cat:'업무홍보'},{n:'확장된단일사무소심사규정',p:630,cat:'업무홍보'},{n:'변호사 수급 정상화 특별위원회 규정',p:632,cat:'업무홍보'},{n:'우수변호사선정특별위원회규정',p:634,cat:'업무홍보'},{n:'입법특별위원회규정',p:637,cat:'업무홍보'},{n:'입법평가 특별위원회 규정',p:639,cat:'업무홍보'},{n:'IT·블록체인특별위원회 규정',p:641,cat:'업무홍보'},{n:'벤처·스타트업법률지원특별위원회 규정',p:643,cat:'업무홍보'},{n:'대한변호사협회 변호사정보센터 설치 및 운영에 관한 규정',p:645,cat:'업무홍보'},{n:'변호사 에이전트 제도화 특별위원회 규정',p:649,cat:'업무홍보'},
+  {n:'변호사 광고에 관한 규칙',p:544,cat:'업무홍보'},{n:'변호사 광고에 관한 규정',p:546,cat:'업무홍보'},{n:'변호사 전문분야 등록에 관한 규정',p:554,cat:'업무홍보'},{n:'변호사수임장부에관한규정',p:570,cat:'업무홍보'},{n:'변호사 사무직원 규칙',p:572,cat:'업무홍보'},{n:'변호사 공동 사무직원 규정',p:576,cat:'업무홍보'},{n:'변호사 권익위원회 규정',p:578,cat:'업무홍보'},{n:'대한변호사협회 변호인조력권침해 신고센터 설치 및 운영에 관한 규정',p:581,cat:'업무홍보'},{n:'변호사 및 법률사무 종사자 안전의 날 제정에 관한 규정',p:585,cat:'업무홍보'},{n:'회지간행 및 학술사업 규칙',p:587,cat:'업무홍보'},{n:'인권과정의위원회 규정',p:592,cat:'업무홍보'},{n:'인권과정의원고작성요령및투고방법에관한규정',p:594,cat:'업무홍보'},{n:'회지게재논문 심사규정',p:597,cat:'업무홍보'},{n:'신문 등 간행규칙',p:600,cat:'업무홍보'},{n:'대한변호사협회공고에관한규칙',p:605,cat:'업무홍보'},{n:'변호사신상정보의수집및활용에관한규정',p:606,cat류:'업무홍보'},{n:'대변인규정',p:609,cat:'업무홍보'},{n:'청년변호사특별위원회규정',p:610,cat:'업무홍보'},{n:'법조원로특별위원회규정',p:614,cat:'업무홍보'},{n:'사내변호사특별위원회규정',p:617,cat:'업무홍보'},{n:'여성변호사특별위원회규정',p:619,cat:'업무홍보'},{n:'명예변호사위촉에관한규정',p:622,cat:'업무홍보'},{n:'일과가정양립을위한위원회규정',p:624,cat:'업무홍보'},{n:'대한변협 양성평등센터 규정',p:626,cat:'업무홍보'},{n:'확장된단일사무소심사규정',p:630,cat:'업무홍보'},{n:'변호사 수급 정상화 특별위원회 규정',p:632,cat:'업무홍보'},{n:'우수변호사선정특별위원회규정',p:634,cat:'업무홍보'},{n:'입법특별위원회규정',p:637,cat:'업무홍보'},{n:'입법평가 특별위원회 규정',p:639,cat:'업무홍보'},{n:'IT·블록체인특별위원회 규정',p:641,cat:'업무홍보'},{n:'벤처·스타트업법률지원특별위원회 규정',p:643,cat:'업무홍보'},{n:'대한변호사협회 변호사정보센터 설치 및 운영에 관한 규정',p:645,cat:'업무홍보'},{n:'변호사 에이전트 제도화 특별위원회 규정',p:649,cat:'업무홍보'},
   {n:'공익활동등에관한규정',p:651,cat:'공익'},{n:'공익활동심사위원회규정',p:654,cat:'공익'},{n:'변호사공익대상규정',p:656,cat:'공익'},
   {n:'외국법자문사등록규정',p:659,cat:'외국법'},{n:'외국법자문사회비납부규칙',p:669,cat:'외국법'},{n:'외국법자문사신분증규칙',p:670,cat:'외국법'},{n:'외국법자문사징계규정',p:675,cat:'외국법'},{n:'외국법자문사업무광고규정',p:684,cat:'외국법'},{n:'외국법자문법률사무소공동사건처리등을위한규정',p:689,cat:'외국법'},
   {n:'예산회계규칙',p:694,cat:'회계'},{n:'회계처리규정',p:702,cat:'회계'},{n:'분담금납부규칙',p:712,cat:'회계'},{n:'위임전결규정',p:714,cat:'회계'},{n:'여비규정',p:716,cat:'회계'},{n:'임원등해외여비규정',p:720,cat:'회계'},{n:'변호사 포상규칙',p:721,cat:'회계'},{n:'경조규정',p:725,cat:'회계'},{n:'세제위원회규정',p:727,cat:'회계'},{n:'지방변호사회의 회비에 관한 규정',p:729,cat:'회계'},
@@ -192,47 +203,95 @@ const ALL_REGS = [
 const CATS = ['전체','법령','회칙','사업계획','회의','등록','징계','법제인권','연수','업무홍보','공익','외국법','회계','사무국','지침'];
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-let pdfDoc = null, curPdfPg = 1, pdfTotal = 0, scale = 1.15, isRendering = false;
+let pdfDoc = null, curPdfPg = 1, pdfTotal = 0, scale = 1.2, isRendering = false, pendingPg = null;
 let curTab = 0, activeCat = '전체', fullTextIndex = new Map(), indexingDone = false, listPage = 0;
 const PER_PAGE = 10;
+let currentPdfBuffer = null;
+let searchTimeout = null;
 
 /* ───────────────────────────────────────────────────
-   SIDEBAR TOGGLE (WIDE VIEW)
-─────────────────────────────────────────────────── */
-function toggleSidebar() {
-    const left = document.getElementById('left');
-    const btn = document.getElementById('sidebarToggle');
-    left.classList.toggle('collapsed');
-    btn.innerText = left.classList.contains('collapsed') ? '📑' : '☰';
-    // 매트릭스 리사이징 트리거
-    setTimeout(() => window.dispatchEvent(new Event('resize')), 300);
-}
-
-/* ───────────────────────────────────────────────────
-   GEMINI AI & SEARCH ENGINE
+   ROBUST ENGINE LOADING (Definitive Solution)
 ─────────────────────────────────────────────────── */
 async function loadPDF(url){
+  const tbTitle = document.getElementById('tbTitle');
+  const loadingUI = document.getElementById('loadingUI');
+  const recoveryUI = document.getElementById('recoveryUI');
+  
   try{
-    const ld = document.getElementById('ldStatus');
-    const doc = await pdfjsLib.getDocument(url).promise;
-    pdfDoc = doc; pdfTotal = doc.numPages;
-    document.getElementById('totPgDisp').textContent = pdfTotal;
-    document.getElementById('loading').style.display = 'none';
-    document.getElementById('pdf-canvas').style.display = 'block';
-    renderPage(1);
-    buildFullTextIndex();
+    if (!url) return;
+    tbTitle.innerText = "연결 중...";
+
+    // Vercel/HTTP 환경인지 blob(Canvas) 환경인지 감지
+    const isBlob = window.location.protocol === 'blob:' || url.includes('scf.usercontent.goog');
+    
+    let fetchUrl = url;
+    if (!isBlob && !url.startsWith('http')) {
+        // 상대 경로 보정
+        const base = window.location.href.split('?')[0].split('#')[0];
+        fetchUrl = new URL(url, base).href;
+        fetchUrl += (fetchUrl.includes('?') ? '&' : '?') + 't=' + Date.now();
+    }
+
+    // 미리보기 환경에서 fetch 시도 (대부분 실패하지만 Vercel 배포 시 성공함)
+    const response = await fetch(fetchUrl);
+    if (!response.ok) throw new Error("Fetch Failed");
+    
+    const buffer = await response.arrayBuffer();
+    await initEngine(buffer);
+
   } catch(e){
-    document.getElementById('loading').innerHTML = '<b style="color:#f44">laws.pdf 연결 실패</b>';
+    console.warn("Auto-load blocked by environment policy. Showing recovery UI.");
+    loadingUI.style.display = "none";
+    recoveryUI.style.display = "block";
+    tbTitle.innerText = "연결 대기";
   }
 }
 
+async function initEngine(buffer) {
+    currentPdfBuffer = buffer;
+    try {
+        const loadingTask = pdfjsLib.getDocument({
+            data: buffer,
+            cMapUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/',
+            cMapPacked: true,
+        });
+        pdfDoc = await loadingTask.promise;
+        pdfTotal = pdfDoc.numPages;
+        document.getElementById('totPgDisp').textContent = pdfTotal;
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('pdf-canvas').style.display = 'block';
+        document.getElementById('tbTitle').innerText = "대한변호사협회 법규집 2026";
+        renderPage(1);
+        buildFullTextIndex();
+    } catch(err) {
+        alert("PDF 해석 중 오류가 발생했습니다.");
+    }
+}
+
+function handleManualFile(input) {
+    const file = input.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = async (e) => {
+        document.getElementById('recoveryUI').style.display = "none";
+        document.getElementById('loadingUI').style.display = "block";
+        await initEngine(e.target.result);
+    };
+    reader.readAsArrayBuffer(file);
+}
+
+/* ───────────────────────────────────────────────────
+   AI & SEARCH ENGINE
+─────────────────────────────────────────────────── */
 async function buildFullTextIndex() {
     indexingDone = false;
     document.getElementById('progContainer').style.display = 'block';
     for(let i=1; i<=pdfTotal; i++){
-        const page = await pdfDoc.getPage(i);
-        const tc = await page.getTextContent();
-        fullTextIndex.set(i, tc.items.map(x => x.str).join(' '));
+        try {
+            const page = await pdfDoc.getPage(i);
+            const tc = await page.getTextContent();
+            fullTextIndex.set(i, tc.items.map(x => x.str).join(' '));
+        } catch(e) { fullTextIndex.set(i, ""); }
         if(i % 50 === 0 || i === pdfTotal) {
             const pct = Math.round((i/pdfTotal)*100);
             document.getElementById('progBar').style.width = pct + '%';
@@ -242,12 +301,12 @@ async function buildFullTextIndex() {
     }
     indexingDone = true;
     document.getElementById('progContainer').style.display = 'none';
-    document.getElementById('sinfo').innerHTML = '<span>조문 로드 완료</span><span>✨ AI 준비됨</span>';
+    document.getElementById('sinfo').innerHTML = '<span>분석 완료</span><span>✨ AI 준비됨</span>';
     performSearch();
 }
 
 async function renderPage(pg){
-  if(!pdfDoc || isRendering) return;
+  if(!pdfDoc || isRendering) { pendingPg = pg; return; }
   isRendering = true; curPdfPg = pg;
   document.getElementById('curPgDisp').textContent = pg;
   document.getElementById('pgNum').value = pg;
@@ -258,13 +317,14 @@ async function renderPage(pg){
   cv.width = vp.width; cv.height = vp.height;
   await page.render({ canvasContext: ctx, viewport: vp }).promise;
   isRendering = false;
+  if(pendingPg) { const next = pendingPg; pendingPg = null; renderPage(next); }
 }
 
 function performSearch() {
     const q = document.getElementById('searchQ').value.trim().toLowerCase();
     const wrap = document.getElementById('cardsWrap');
+    if(!wrap) return;
     wrap.innerHTML = '';
-
     if(curTab === 0) {
         let filtered = ALL_REGS.filter(r => (activeCat === '전체' || r.cat === activeCat));
         if(q) filtered = filtered.filter(r => r.n.toLowerCase().includes(q));
@@ -278,103 +338,120 @@ function performSearch() {
         });
         document.getElementById('listPgInfo').innerText = `${listPage + 1} / ${Math.max(1, Math.ceil(filtered.length/PER_PAGE))}`;
     } else {
-        if(!indexingDone) return;
+        if(!indexingDone) { wrap.innerHTML = '<div style="color:var(--lt3); text-align:center; padding:40px;">본문 인덱싱 중...</div>'; return; }
+        if(!q) { wrap.innerHTML = '<div style="color:var(--lt3); text-align:center; padding:40px;">검색어를 입력하세요.</div>'; return; }
         let results = [];
         for(let [pg, txt] of fullTextIndex) {
             if(txt.toLowerCase().includes(q)) {
                 const idx = txt.toLowerCase().indexOf(q);
                 const snip = "..." + txt.substring(Math.max(0, idx - 40), Math.min(txt.length, idx + 60)) + "...";
-                let regName = "기타 조문";
+                let regName = "조문";
                 for(let i=0; i<ALL_REGS.length; i++) {
                     if(pg >= ALL_REGS[i].p && (i+1 === ALL_REGS.length || pg < ALL_REGS[i+1].p)) { regName = ALL_REGS[i].n; break; }
                 }
                 results.push({pg, snip, regName});
-                if(results.length > 50) break;
+                if(results.length > 30) break;
             }
         }
         results.forEach(r => {
             const d = document.createElement('div');
             d.className = 'card';
-            d.innerHTML = `<div class="card-pg">PAGE ${r.pg}</div><div class="card-name">${r.regName}</div><div style="font-size:11px;color:var(--lt3);margin-top:4px;">${r.snip.replace(new RegExp(q, 'gi'), m=>`<b>${m}</b>`)}</div>`;
+            d.innerHTML = `<div class="card-pg">PAGE ${r.pg}</div><div class="card-name">${r.regName}</div><div style="font-size:11.5px;color:var(--lt3);margin-top:6px;line-height:1.4;">${r.snip.replace(new RegExp(q, 'gi'), m=>`<b style="color:var(--lgold)">${m}</b>`)}</div>`;
             d.onclick = () => { renderPage(r.pg); document.getElementById('tbTitle').innerText = r.regName; };
             wrap.appendChild(d);
         });
     }
 }
 
-function updateActive(el){
-    document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
-    el.classList.add('active');
-}
-
-function moveListPage(d){ listPage = Math.max(0, listPage + d); performSearch(); }
-function switchTab(t){ 
-    curTab = t; 
-    document.getElementById('stab0').classList.toggle('on', t===0);
-    document.getElementById('stab1').classList.toggle('on', t===1);
-    document.getElementById('catBar').style.display = t===0 ? 'flex' : 'none';
-    performSearch(); 
-}
-
-function initCatBar() {
-    const bar = document.getElementById('catBar');
-    CATS.forEach(c => {
-        const chip = document.createElement('div');
-        chip.className = 'c-chip' + (c === '전체' ? ' active' : '');
-        chip.innerText = c;
-        chip.onclick = () => {
-            document.querySelectorAll('.c-chip').forEach(el => el.classList.remove('active'));
-            chip.classList.add('active');
-            activeCat = c; listPage = 0; performSearch();
-        };
-        bar.appendChild(chip);
-    });
-}
-
-function changePdfPage(d){ if(pdfDoc) { let t = curPdfPg + d; if(t>=1 && t<=pdfTotal) renderPage(t); } }
-
-/* AI API CALL */
+/* AI LOGIC */
 async function callGemini(q) {
     const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
     try {
         const res = await fetch(url, {
             method: 'POST', headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ contents: [{ parts: [{ text: q }] }], systemInstruction: { parts: [{ text: "대한변협 법규집 비서입니다. 한국어로 정중하게 답하세요." }] } })
+            body: JSON.stringify({ contents: [{ parts: [{ text: q }] }], systemInstruction: { parts: [{ text: "당신은 법규 전문가 AI입니다. 제공된 텍스트에 근거하여 한국어로 친절히 답하세요." }] } })
         });
         const data = await res.json();
         return data.candidates[0].content.parts[0].text;
-    } catch(e) { return "AI 연결 실패"; }
+    } catch(e) { return "AI 통신 중 오류가 발생했습니다."; }
 }
 
 async function askAI() {
     const input = document.getElementById('aiInput');
     const chat = document.getElementById('aiChat');
     const q = input.value.trim(); if(!q) return;
-    input.value = ''; chat.innerHTML += `<div style="text-align:right; margin-bottom:10px; color:var(--lt3);"><i>${q}</i></div>`;
-    const ans = await callGemini(q);
-    chat.innerHTML += `<div style="background:rgba(167,139,250,0.1); padding:10px; border-radius:8px; margin-bottom:10px; border-left:3px solid var(--ai-purp);">${ans}</div>`;
+    input.value = '';
+    chat.innerHTML += `<div class="ai-bubble ai-bubble-user">${q}</div>`;
+    chat.innerHTML += `<div class="ai-bubble ai-bubble-ai" id="aiTemp">✨ 분석 중...</div>`;
+    chat.scrollTop = chat.scrollHeight;
+    let context = "";
+    let matchPool = [];
+    const keywords = q.split(' ').filter(w => w.length > 1);
+    for(let [pg, txt] of fullTextIndex) {
+        let score = 0;
+        keywords.forEach(k => { if(txt.includes(k)) score++; });
+        if(score > 0) matchPool.push({pg, txt: txt.substring(0, 1000), score});
+    }
+    matchPool.sort((a,b) => b.score - a.score).slice(0, 4).forEach(m => { context += `[Page ${m.pg}]: ${m.txt}\n`; });
+    const ans = await callGemini(`법규 본문:\n${context}\n\n질문: ${q}`);
+    const tempDiv = document.getElementById('aiTemp');
+    if(tempDiv) { tempDiv.innerHTML = ans.replace(/\n/g, '<br>'); tempDiv.id = ''; }
     chat.scrollTop = chat.scrollHeight;
 }
 
-function toggleAI() { 
-    const m = document.getElementById('aiModal'); 
-    m.style.display = m.style.display === 'flex' ? 'none' : 'flex'; 
+/* UI HELPERS */
+function toggleSidebar() { document.getElementById('left').classList.toggle('collapsed'); setTimeout(() => window.dispatchEvent(new Event('resize')), 300); }
+function toggleAI() { const m = document.getElementById('aiModal'); m.style.display = m.style.display === 'flex' ? 'none' : 'flex'; }
+function updateActive(el){ document.querySelectorAll('.card').forEach(c => c.classList.remove('active')); el.classList.add('active'); }
+function moveListPage(d){ listPage = Math.max(0, listPage + d); performSearch(); }
+function switchTab(t){ curTab = t; document.getElementById('stab0').classList.toggle('on', t===0); document.getElementById('stab1').classList.toggle('on', t===1); document.getElementById('catBar').style.display = t===0 ? 'flex' : 'none'; performSearch(); }
+function initCatBar() {
+    const bar = document.getElementById('catBar');
+    CATS.forEach(c => {
+        const chip = document.createElement('div');
+        chip.className = 'c-chip' + (c === '전체' ? ' active' : '');
+        chip.innerText = c;
+        chip.onclick = () => { document.querySelectorAll('.c-chip').forEach(el => el.classList.remove('active')); chip.classList.add('active'); activeCat = c; listPage = 0; performSearch(); };
+        bar.appendChild(chip);
+    });
+}
+function changePdfPage(d){ if(pdfDoc) { let t = curPdfPg + d; if(t>=1 && t<=pdfTotal) renderPage(t); } }
+
+async function downloadCurrentRegulation() {
+  if (!pdfDoc || !currentPdfBuffer) return;
+  let reg = null, end = pdfTotal;
+  for (let i = 0; i < ALL_REGS.length; i++) {
+    if (curPdfPg >= ALL_REGS[i].p) { reg = ALL_REGS[i]; end = (i + 1 < ALL_REGS.length) ? ALL_REGS[i + 1].p - 1 : pdfTotal; } else break;
+  }
+  if (!reg) return;
+  const btn = document.getElementById('btnDownloadReg'); btn.innerText = '⏳ 처리중';
+  try {
+    const { PDFDocument } = PDFLib;
+    const srcDoc = await PDFDocument.load(currentPdfBuffer);
+    const newDoc = await PDFDocument.create();
+    const range = Array.from({length: end - reg.p + 1}, (_, i) => reg.p - 1 + i);
+    const copiedPages = await newDoc.copyPages(srcDoc, range);
+    copiedPages.forEach(p => newDoc.addPage(p));
+    const bytes = await newDoc.save();
+    const blob = new Blob([bytes], {type:'application/pdf'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a'); a.href = url; a.download = `${reg.n}.pdf`; a.click();
+  } catch (e) { alert('추출 실패'); }
+  btn.innerText = '⬇️ 추출';
 }
 
-/* ───────────────────────────────────────────────────
-   MATRIX RAIN ENGINE
-─────────────────────────────────────────────────── */
+/* MATRIX RAIN ENGINE */
 function initMatrix() {
   const canvas = document.getElementById('matrix-rain');
+  if(!canvas) return;
   const ctx = canvas.getContext('2d');
-  const CHARS = 'アイウエオ0123456789法規則定條章協會辯護士倫리징계등록';
+  const CHARS = 'アイウエ오0123456789法規則定條章協會辯護士倫리징계등록';
   const FONT_SIZE = 14;
   let cols, drops;
-  function resize() {
-    canvas.width = canvas.parentElement.offsetWidth;
-    canvas.height = canvas.parentElement.offsetHeight;
-    cols = Math.floor(canvas.width / FONT_SIZE);
-    drops = Array.from({length: cols}, () => Math.random() * -100);
+  function resize() { 
+    if(!canvas.parentElement) return;
+    canvas.width = canvas.parentElement.offsetWidth; canvas.height = canvas.parentElement.offsetHeight; 
+    cols = Math.floor(canvas.width / FONT_SIZE); drops = Array.from({length: cols}, () => Math.random() * -100); 
   }
   function draw() {
     ctx.fillStyle = 'rgba(0, 0, 0, 0.045)'; ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -388,22 +465,14 @@ function initMatrix() {
       if(drops[i] * FONT_SIZE > canvas.height && Math.random() > 0.975) drops[i] = 0;
       drops[i]++;
     }
+    requestAnimationFrame(draw);
   }
-  resize(); window.addEventListener('resize', resize); setInterval(draw, 50);
+  resize(); window.addEventListener('resize', resize); requestAnimationFrame(draw);
 }
 
 window.onload = () => { loadPDF('laws.pdf'); initCatBar(); initMatrix(); };
-document.getElementById('searchQ').oninput = performSearch;
+document.getElementById('searchQ').oninput = () => { clearTimeout(searchTimeout); searchTimeout = setTimeout(performSearch, 250); };
 document.getElementById('aiInput').onkeydown = e => { if(e.key === 'Enter') askAI(); };
-
-/* MOUSE SWIPE */
-const cvWrap = document.getElementById('cvwrap');
-let startX = 0;
-cvWrap.onpointerdown = e => { startX = e.clientX; };
-cvWrap.onpointerup = e => {
-  const diff = e.clientX - startX;
-  if(Math.abs(diff) > 100) changePdfPage(diff > 0 ? -1 : 1);
-};
 </script>
 </body>
 </html>
